@@ -17,7 +17,7 @@ import "session.proto";
 
 service IOTrace {
   rpc CloseIOTrace(CloseIOTraceRequest) returns (CloseIOTraceResponse);
-  rpc GetApplicationPath(GetApplicationPathRequest) returns (GetApplicationPathResponse);
+  rpc GetIOTracePath(GetIOTracePathRequest) returns (GetIOTracePathResponse);
   rpc LogMessage(LogMessageRequest) returns (LogMessageResponse);
   rpc StartTracing(StartTracingRequest) returns (StartTracingResponse);
   rpc StopTracing(StopTracingRequest) returns (StopTracingResponse);
@@ -34,10 +34,10 @@ message CloseIOTraceResponse {
   int32 status = 1;
 }
 
-message GetApplicationPathRequest {
+message GetIOTracePathRequest {
 }
 
-message GetApplicationPathResponse {
+message GetIOTracePathResponse {
   int32 status = 1;
   string path_string = 2;
 }

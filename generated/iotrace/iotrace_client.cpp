@@ -32,17 +32,17 @@ close_io_trace(const StubPtr& stub)
   return response;
 }
 
-GetApplicationPathResponse
-get_application_path(const StubPtr& stub)
+GetIOTracePathResponse
+get_io_trace_path(const StubPtr& stub)
 {
   ::grpc::ClientContext context;
 
-  auto request = GetApplicationPathRequest{};
+  auto request = GetIOTracePathRequest{};
 
-  auto response = GetApplicationPathResponse{};
+  auto response = GetIOTracePathResponse{};
 
   raise_if_error(
-      stub->GetApplicationPath(&context, request, &response));
+      stub->GetIOTracePath(&context, request, &response));
 
   return response;
 }

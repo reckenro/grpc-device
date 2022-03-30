@@ -7,7 +7,7 @@ functions = {
         ],
         'returns': 'int32_t'
     },
-    'GetApplicationPath': {
+    'GetIOTracePath': {
         'cname': 'nispy_GetApplicationPath',
         'parameters': [
             {

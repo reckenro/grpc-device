@@ -60,7 +60,7 @@ namespace iotrace_grpc {
 
   //---------------------------------------------------------------------
   //---------------------------------------------------------------------
-  ::grpc::Status IOTraceService::GetApplicationPath(::grpc::ServerContext* context, const GetApplicationPathRequest* request, GetApplicationPathResponse* response)
+  ::grpc::Status IOTraceService::GetIOTracePath(::grpc::ServerContext* context, const GetIOTracePathRequest* request, GetIOTracePathResponse* response)
   {
     if (context->IsCancelled()) {
       return ::grpc::Status::CANCELLED;
@@ -68,7 +68,7 @@ namespace iotrace_grpc {
     try {
       auto path_string_size = 256;
       std::string path_string(256 - 1, '\0');
-      auto status = library_->GetApplicationPath((char*)path_string.data(), path_string_size);
+      auto status = library_->GetIOTracePath((char*)path_string.data(), path_string_size);
       response->set_status(status);
       if (status_ok(status)) {
         response->set_path_string(path_string);

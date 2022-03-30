@@ -42,7 +42,7 @@ public:
   virtual ~IOTraceService();
   
   ::grpc::Status CloseIOTrace(::grpc::ServerContext* context, const CloseIOTraceRequest* request, CloseIOTraceResponse* response) override;
-  ::grpc::Status GetApplicationPath(::grpc::ServerContext* context, const GetApplicationPathRequest* request, GetApplicationPathResponse* response) override;
+  ::grpc::Status GetIOTracePath(::grpc::ServerContext* context, const GetIOTracePathRequest* request, GetIOTracePathResponse* response) override;
   ::grpc::Status LogMessage(::grpc::ServerContext* context, const LogMessageRequest* request, LogMessageResponse* response) override;
   ::grpc::Status StartTracing(::grpc::ServerContext* context, const StartTracingRequest* request, StartTracingResponse* response) override;
   ::grpc::Status StopTracing(::grpc::ServerContext* context, const StopTracingRequest* request, StopTracingResponse* response) override;

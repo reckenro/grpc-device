@@ -22,7 +22,7 @@ IOTraceLibrary::IOTraceLibrary() : shared_library_(kLibraryName)
     return;
   }
   function_pointers_.CloseIOTrace = reinterpret_cast<CloseIOTracePtr>(shared_library_.get_function_pointer("nispy_CloseSpy"));
-  function_pointers_.GetApplicationPath = reinterpret_cast<GetApplicationPathPtr>(shared_library_.get_function_pointer("nispy_GetApplicationPath"));
+  function_pointers_.GetIOTracePath = reinterpret_cast<GetIOTracePathPtr>(shared_library_.get_function_pointer("nispy_GetApplicationPath"));
   function_pointers_.LogMessage = reinterpret_cast<LogMessagePtr>(shared_library_.get_function_pointer("nispy_WriteTextEntry"));
   function_pointers_.StartTracing = reinterpret_cast<StartTracingPtr>(shared_library_.get_function_pointer("nispy_StartSpying"));
   function_pointers_.StopTracing = reinterpret_cast<StopTracingPtr>(shared_library_.get_function_pointer("nispy_StopSpying"));
@@ -51,15 +51,15 @@ int32_t IOTraceLibrary::CloseIOTrace()
 #endif
 }
 
-int32_t IOTraceLibrary::GetApplicationPath(char pathString[256], int32_t pathStringSize)
+int32_t IOTraceLibrary::GetIOTracePath(char pathString[256], int32_t pathStringSize)
 {
-  if (!function_pointers_.GetApplicationPath) {
+  if (!function_pointers_.GetIOTracePath) {
     throw nidevice_grpc::LibraryLoadException("Could not find nispy_GetApplicationPath.");
   }
 #if defined(_MSC_VER)
   return nispy_GetApplicationPath(pathString, pathStringSize);
 #else
-  return function_pointers_.GetApplicationPath(pathString, pathStringSize);
+  return function_pointers_.GetIOTracePath(pathString, pathStringSize);
 #endif
 }
 
