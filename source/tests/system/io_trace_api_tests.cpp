@@ -67,6 +67,15 @@ TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracing_Success)
   EXPECT_EQ(0, start_tracing_response.status());
 }
 
+TEST_F(IOTraceApiTests, IOTraceIsStarted_CloseIOTrace_Success)
+{
+  // Pre-requisite for test, start the IO Trace application
+
+  auto start_tracing_response = client::close_io_trace(stub());
+
+  EXPECT_EQ(0, start_tracing_response.status());
+}
+
 TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracingWithInvalidArgs_InvalidArgsResponse)
 {
   // Pre-requisite for test, start the IO Trace application
