@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 # This file is generated from NI-SCOPE API metadata version 20.5.0d7
 functions = {
+    'CloseIOTrace': {
+        'cname': 'nispy_CloseSpy',
+        'parameters': [
+        ],
+        'returns': 'int32_t'
+    },
     'GetApplicationPath': {
         'cname': 'nispy_GetApplicationPath',
         'parameters': [
@@ -19,6 +25,17 @@ functions = {
                 'type': 'int32_t',
                 'include_in_proto': False,
                 'hardcoded_value': '256'
+            }
+        ],
+        'returns': 'int32_t'
+    },
+    'LogMessage': {
+        'cname': 'nispy_WriteTextEntry',
+        'parameters': [
+            {
+                'direction': 'in',
+                'name': 'message',
+                'type': 'const char[]'
             }
         ],
         'returns': 'int32_t'
@@ -51,16 +68,5 @@ functions = {
         'parameters': [
         ],
         'returns': 'int32_t'
-    },
-    'LogMessage': {
-        'cname': 'nispy_WriteTextEntry',
-        'parameters': [
-            {
-                'direction': 'in',
-                'name': 'message',
-                'type': 'const char[]'
-            }
-        ],
-        'returns': 'int32_t'
-    }
+    },    
 }

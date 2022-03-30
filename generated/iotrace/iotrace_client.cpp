@@ -17,6 +17,21 @@
 
 namespace iotrace_grpc::experimental::client {
 
+CloseIOTraceResponse
+close_io_trace(const StubPtr& stub)
+{
+  ::grpc::ClientContext context;
+
+  auto request = CloseIOTraceRequest{};
+
+  auto response = CloseIOTraceResponse{};
+
+  raise_if_error(
+      stub->CloseIOTrace(&context, request, &response));
+
+  return response;
+}
+
 GetApplicationPathResponse
 get_application_path(const StubPtr& stub)
 {
@@ -28,6 +43,22 @@ get_application_path(const StubPtr& stub)
 
   raise_if_error(
       stub->GetApplicationPath(&context, request, &response));
+
+  return response;
+}
+
+LogMessageResponse
+log_message(const StubPtr& stub, const pb::string& message)
+{
+  ::grpc::ClientContext context;
+
+  auto request = LogMessageRequest{};
+  request.set_message(message);
+
+  auto response = LogMessageResponse{};
+
+  raise_if_error(
+      stub->LogMessage(&context, request, &response));
 
   return response;
 }
@@ -61,22 +92,6 @@ stop_tracing(const StubPtr& stub)
 
   raise_if_error(
       stub->StopTracing(&context, request, &response));
-
-  return response;
-}
-
-LogMessageResponse
-log_message(const StubPtr& stub, const pb::string& message)
-{
-  ::grpc::ClientContext context;
-
-  auto request = LogMessageRequest{};
-  request.set_message(message);
-
-  auto response = LogMessageResponse{};
-
-  raise_if_error(
-      stub->LogMessage(&context, request, &response));
 
   return response;
 }

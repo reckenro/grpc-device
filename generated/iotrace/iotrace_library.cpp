@@ -21,10 +21,11 @@ IOTraceLibrary::IOTraceLibrary() : shared_library_(kLibraryName)
   if (!loaded) {
     return;
   }
+  function_pointers_.CloseIOTrace = reinterpret_cast<CloseIOTracePtr>(shared_library_.get_function_pointer("nispy_CloseSpy"));
   function_pointers_.GetApplicationPath = reinterpret_cast<GetApplicationPathPtr>(shared_library_.get_function_pointer("nispy_GetApplicationPath"));
+  function_pointers_.LogMessage = reinterpret_cast<LogMessagePtr>(shared_library_.get_function_pointer("nispy_WriteTextEntry"));
   function_pointers_.StartTracing = reinterpret_cast<StartTracingPtr>(shared_library_.get_function_pointer("nispy_StartSpying"));
   function_pointers_.StopTracing = reinterpret_cast<StopTracingPtr>(shared_library_.get_function_pointer("nispy_StopSpying"));
-  function_pointers_.LogMessage = reinterpret_cast<LogMessagePtr>(shared_library_.get_function_pointer("nispy_WriteTextEntry"));
 }
 
 IOTraceLibrary::~IOTraceLibrary()
@@ -38,6 +39,18 @@ IOTraceLibrary::~IOTraceLibrary()
     : ::grpc::Status(::grpc::NOT_FOUND, "Could not find the function " + functionName);
 }
 
+int32_t IOTraceLibrary::CloseIOTrace()
+{
+  if (!function_pointers_.CloseIOTrace) {
+    throw nidevice_grpc::LibraryLoadException("Could not find nispy_CloseSpy.");
+  }
+#if defined(_MSC_VER)
+  return nispy_CloseSpy();
+#else
+  return function_pointers_.CloseIOTrace();
+#endif
+}
+
 int32_t IOTraceLibrary::GetApplicationPath(char pathString[256], int32_t pathStringSize)
 {
   if (!function_pointers_.GetApplicationPath) {
@@ -47,6 +60,18 @@ int32_t IOTraceLibrary::GetApplicationPath(char pathString[256], int32_t pathStr
   return nispy_GetApplicationPath(pathString, pathStringSize);
 #else
   return function_pointers_.GetApplicationPath(pathString, pathStringSize);
+#endif
+}
+
+int32_t IOTraceLibrary::LogMessage(const char message[])
+{
+  if (!function_pointers_.LogMessage) {
+    throw nidevice_grpc::LibraryLoadException("Could not find nispy_WriteTextEntry.");
+  }
+#if defined(_MSC_VER)
+  return nispy_WriteTextEntry(message);
+#else
+  return function_pointers_.LogMessage(message);
 #endif
 }
 
@@ -71,18 +96,6 @@ int32_t IOTraceLibrary::StopTracing()
   return nispy_StopSpying();
 #else
   return function_pointers_.StopTracing();
-#endif
-}
-
-int32_t IOTraceLibrary::LogMessage(const char message[])
-{
-  if (!function_pointers_.LogMessage) {
-    throw nidevice_grpc::LibraryLoadException("Could not find nispy_WriteTextEntry.");
-  }
-#if defined(_MSC_VER)
-  return nispy_WriteTextEntry(message);
-#else
-  return function_pointers_.LogMessage(message);
 #endif
 }
 

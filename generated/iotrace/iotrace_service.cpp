@@ -43,6 +43,23 @@ namespace iotrace_grpc {
 
   //---------------------------------------------------------------------
   //---------------------------------------------------------------------
+  ::grpc::Status IOTraceService::CloseIOTrace(::grpc::ServerContext* context, const CloseIOTraceRequest* request, CloseIOTraceResponse* response)
+  {
+    if (context->IsCancelled()) {
+      return ::grpc::Status::CANCELLED;
+    }
+    try {
+      auto status = library_->CloseIOTrace();
+      response->set_status(status);
+      return ::grpc::Status::OK;
+    }
+    catch (nidevice_grpc::LibraryLoadException& ex) {
+      return ::grpc::Status(::grpc::NOT_FOUND, ex.what());
+    }
+  }
+
+  //---------------------------------------------------------------------
+  //---------------------------------------------------------------------
   ::grpc::Status IOTraceService::GetApplicationPath(::grpc::ServerContext* context, const GetApplicationPathRequest* request, GetApplicationPathResponse* response)
   {
     if (context->IsCancelled()) {
@@ -57,6 +74,24 @@ namespace iotrace_grpc {
         response->set_path_string(path_string);
         nidevice_grpc::converters::trim_trailing_nulls(*(response->mutable_path_string()));
       }
+      return ::grpc::Status::OK;
+    }
+    catch (nidevice_grpc::LibraryLoadException& ex) {
+      return ::grpc::Status(::grpc::NOT_FOUND, ex.what());
+    }
+  }
+
+  //---------------------------------------------------------------------
+  //---------------------------------------------------------------------
+  ::grpc::Status IOTraceService::LogMessage(::grpc::ServerContext* context, const LogMessageRequest* request, LogMessageResponse* response)
+  {
+    if (context->IsCancelled()) {
+      return ::grpc::Status::CANCELLED;
+    }
+    try {
+      auto message = request->message().c_str();
+      auto status = library_->LogMessage(message);
+      response->set_status(status);
       return ::grpc::Status::OK;
     }
     catch (nidevice_grpc::LibraryLoadException& ex) {
@@ -93,24 +128,6 @@ namespace iotrace_grpc {
     }
     try {
       auto status = library_->StopTracing();
-      response->set_status(status);
-      return ::grpc::Status::OK;
-    }
-    catch (nidevice_grpc::LibraryLoadException& ex) {
-      return ::grpc::Status(::grpc::NOT_FOUND, ex.what());
-    }
-  }
-
-  //---------------------------------------------------------------------
-  //---------------------------------------------------------------------
-  ::grpc::Status IOTraceService::LogMessage(::grpc::ServerContext* context, const LogMessageRequest* request, LogMessageResponse* response)
-  {
-    if (context->IsCancelled()) {
-      return ::grpc::Status::CANCELLED;
-    }
-    try {
-      auto message = request->message().c_str();
-      auto status = library_->LogMessage(message);
       response->set_status(status);
       return ::grpc::Status::OK;
     }

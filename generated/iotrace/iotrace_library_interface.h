@@ -15,10 +15,11 @@ class IOTraceLibraryInterface {
  public:
   virtual ~IOTraceLibraryInterface() {}
 
+  virtual int32_t CloseIOTrace() = 0;
   virtual int32_t GetApplicationPath(char pathString[256], int32_t pathStringSize) = 0;
+  virtual int32_t LogMessage(const char message[]) = 0;
   virtual int32_t StartTracing(eNiSpyLogFileSetting logFileSetting, const char filePathString[], eNiSpyAPIFileWriteMode fileWriteMode) = 0;
   virtual int32_t StopTracing() = 0;
-  virtual int32_t LogMessage(const char message[]) = 0;
 };
 
 }  // namespace iotrace_grpc

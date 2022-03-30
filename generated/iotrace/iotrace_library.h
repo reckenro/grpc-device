@@ -18,22 +18,25 @@ class IOTraceLibrary : public iotrace_grpc::IOTraceLibraryInterface {
   virtual ~IOTraceLibrary();
 
   ::grpc::Status check_function_exists(std::string functionName);
+  int32_t CloseIOTrace();
   int32_t GetApplicationPath(char pathString[256], int32_t pathStringSize);
+  int32_t LogMessage(const char message[]);
   int32_t StartTracing(eNiSpyLogFileSetting logFileSetting, const char filePathString[], eNiSpyAPIFileWriteMode fileWriteMode);
   int32_t StopTracing();
-  int32_t LogMessage(const char message[]);
 
  private:
+  using CloseIOTracePtr = decltype(&nispy_CloseSpy);
   using GetApplicationPathPtr = decltype(&nispy_GetApplicationPath);
+  using LogMessagePtr = decltype(&nispy_WriteTextEntry);
   using StartTracingPtr = decltype(&nispy_StartSpying);
   using StopTracingPtr = decltype(&nispy_StopSpying);
-  using LogMessagePtr = decltype(&nispy_WriteTextEntry);
 
   typedef struct FunctionPointers {
+    CloseIOTracePtr CloseIOTrace;
     GetApplicationPathPtr GetApplicationPath;
+    LogMessagePtr LogMessage;
     StartTracingPtr StartTracing;
     StopTracingPtr StopTracing;
-    LogMessagePtr LogMessage;
   } FunctionLoadStatus;
 
   nidevice_grpc::SharedLibrary shared_library_;
