@@ -50,5 +50,20 @@ start_tracing(const StubPtr& stub, const pb::int32& log_file_setting, const pb::
   return response;
 }
 
+StopTracingResponse
+stop_tracing(const StubPtr& stub)
+{
+  ::grpc::ClientContext context;
+
+  auto request = StopTracingRequest{};
+
+  auto response = StopTracingResponse{};
+
+  raise_if_error(
+      stub->StopTracing(&context, request, &response));
+
+  return response;
+}
+
 
 } // namespace iotrace_grpc::experimental::client

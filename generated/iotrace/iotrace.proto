@@ -18,6 +18,7 @@ import "session.proto";
 service IOTrace {
   rpc GetApplicationPath(GetApplicationPathRequest) returns (GetApplicationPathResponse);
   rpc StartTracing(StartTracingRequest) returns (StartTracingResponse);
+  rpc StopTracing(StopTracingRequest) returns (StopTracingResponse);
 }
 
 enum IOTraceAttribute {
@@ -39,6 +40,13 @@ message StartTracingRequest {
 }
 
 message StartTracingResponse {
+  int32 status = 1;
+}
+
+message StopTracingRequest {
+}
+
+message StopTracingResponse {
   int32 status = 1;
 }
 

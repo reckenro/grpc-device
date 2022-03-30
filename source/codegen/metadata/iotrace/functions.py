@@ -46,4 +46,10 @@ functions = {
         ],
         'returns': 'int32_t'
     },
+    'StopTracing': {
+        'cname': 'nispy_StopSpying',
+        'parameters': [
+        ],
+        'returns': 'int32_t'
+    },
 }

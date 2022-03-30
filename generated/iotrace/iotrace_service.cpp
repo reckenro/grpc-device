@@ -84,6 +84,23 @@ namespace iotrace_grpc {
     }
   }
 
+  //---------------------------------------------------------------------
+  //---------------------------------------------------------------------
+  ::grpc::Status IOTraceService::StopTracing(::grpc::ServerContext* context, const StopTracingRequest* request, StopTracingResponse* response)
+  {
+    if (context->IsCancelled()) {
+      return ::grpc::Status::CANCELLED;
+    }
+    try {
+      auto status = library_->StopTracing();
+      response->set_status(status);
+      return ::grpc::Status::OK;
+    }
+    catch (nidevice_grpc::LibraryLoadException& ex) {
+      return ::grpc::Status(::grpc::NOT_FOUND, ex.what());
+    }
+  }
+
 
   IOTraceFeatureToggles::IOTraceFeatureToggles(
     const nidevice_grpc::FeatureToggles& feature_toggles)

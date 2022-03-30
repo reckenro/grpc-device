@@ -43,6 +43,7 @@ public:
   
   ::grpc::Status GetApplicationPath(::grpc::ServerContext* context, const GetApplicationPathRequest* request, GetApplicationPathResponse* response) override;
   ::grpc::Status StartTracing(::grpc::ServerContext* context, const StartTracingRequest* request, StartTracingResponse* response) override;
+  ::grpc::Status StopTracing(::grpc::ServerContext* context, const StopTracingRequest* request, StopTracingResponse* response) override;
 private:
   IOTraceLibraryInterface* library_;
   ResourceRepositorySharedPtr session_repository_;

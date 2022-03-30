@@ -23,6 +23,7 @@ IOTraceLibrary::IOTraceLibrary() : shared_library_(kLibraryName)
   }
   function_pointers_.GetApplicationPath = reinterpret_cast<GetApplicationPathPtr>(shared_library_.get_function_pointer("nispy_GetApplicationPath"));
   function_pointers_.StartTracing = reinterpret_cast<StartTracingPtr>(shared_library_.get_function_pointer("nispy_StartSpying"));
+  function_pointers_.StopTracing = reinterpret_cast<StopTracingPtr>(shared_library_.get_function_pointer("nispy_StopSpying"));
 }
 
 IOTraceLibrary::~IOTraceLibrary()
@@ -57,6 +58,18 @@ int32_t IOTraceLibrary::StartTracing(eNiSpyLogFileSetting logFileSetting, const 
   return nispy_StartSpying(logFileSetting, filePathString, fileWriteMode);
 #else
   return function_pointers_.StartTracing(logFileSetting, filePathString, fileWriteMode);
+#endif
+}
+
+int32_t IOTraceLibrary::StopTracing()
+{
+  if (!function_pointers_.StopTracing) {
+    throw nidevice_grpc::LibraryLoadException("Could not find nispy_StopSpying.");
+  }
+#if defined(_MSC_VER)
+  return nispy_StopSpying();
+#else
+  return function_pointers_.StopTracing();
 #endif
 }
 
