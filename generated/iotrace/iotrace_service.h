@@ -41,6 +41,7 @@ public:
     const IOTraceFeatureToggles& feature_toggles = {});
   virtual ~IOTraceService();
   
+  ::grpc::Status GetApplicationPath(::grpc::ServerContext* context, const GetApplicationPathRequest* request, GetApplicationPathResponse* response) override;
   ::grpc::Status StartTracing(::grpc::ServerContext* context, const StartTracingRequest* request, StartTracingResponse* response) override;
 private:
   IOTraceLibraryInterface* library_;

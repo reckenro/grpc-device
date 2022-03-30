@@ -22,6 +22,7 @@ using StubPtr = std::unique_ptr<IOTrace::Stub>;
 using namespace nidevice_grpc::experimental::client;
 
 
+GetApplicationPathResponse get_application_path(const StubPtr& stub);
 StartTracingResponse start_tracing(const StubPtr& stub, const pb::int32& log_file_setting, const pb::string& file_path_string, const pb::int32& file_write_mode);
 
 } // namespace iotrace_grpc::experimental::client

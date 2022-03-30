@@ -16,11 +16,20 @@ package iotrace_grpc;
 import "session.proto";
 
 service IOTrace {
+  rpc GetApplicationPath(GetApplicationPathRequest) returns (GetApplicationPathResponse);
   rpc StartTracing(StartTracingRequest) returns (StartTracingResponse);
 }
 
 enum IOTraceAttribute {
   IOTRACE_ATTRIBUTE_UNSPECIFIED = 0;
+}
+
+message GetApplicationPathRequest {
+}
+
+message GetApplicationPathResponse {
+  int32 status = 1;
+  string path_string = 2;
 }
 
 message StartTracingRequest {

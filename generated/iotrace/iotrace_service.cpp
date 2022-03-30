@@ -43,6 +43,29 @@ namespace iotrace_grpc {
 
   //---------------------------------------------------------------------
   //---------------------------------------------------------------------
+  ::grpc::Status IOTraceService::GetApplicationPath(::grpc::ServerContext* context, const GetApplicationPathRequest* request, GetApplicationPathResponse* response)
+  {
+    if (context->IsCancelled()) {
+      return ::grpc::Status::CANCELLED;
+    }
+    try {
+      auto path_string_size = 256;
+      std::string path_string(256 - 1, '\0');
+      auto status = library_->GetApplicationPath((char*)path_string.data(), path_string_size);
+      response->set_status(status);
+      if (status_ok(status)) {
+        response->set_path_string(path_string);
+        nidevice_grpc::converters::trim_trailing_nulls(*(response->mutable_path_string()));
+      }
+      return ::grpc::Status::OK;
+    }
+    catch (nidevice_grpc::LibraryLoadException& ex) {
+      return ::grpc::Status(::grpc::NOT_FOUND, ex.what());
+    }
+  }
+
+  //---------------------------------------------------------------------
+  //---------------------------------------------------------------------
   ::grpc::Status IOTraceService::StartTracing(::grpc::ServerContext* context, const StartTracingRequest* request, StartTracingResponse* response)
   {
     if (context->IsCancelled()) {

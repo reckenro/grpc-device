@@ -21,6 +21,7 @@ IOTraceLibrary::IOTraceLibrary() : shared_library_(kLibraryName)
   if (!loaded) {
     return;
   }
+  function_pointers_.GetApplicationPath = reinterpret_cast<GetApplicationPathPtr>(shared_library_.get_function_pointer("nispy_GetApplicationPath"));
   function_pointers_.StartTracing = reinterpret_cast<StartTracingPtr>(shared_library_.get_function_pointer("nispy_StartSpying"));
 }
 
@@ -33,6 +34,18 @@ IOTraceLibrary::~IOTraceLibrary()
   return shared_library_.function_exists(functionName.c_str())
     ? ::grpc::Status::OK
     : ::grpc::Status(::grpc::NOT_FOUND, "Could not find the function " + functionName);
+}
+
+int32_t IOTraceLibrary::GetApplicationPath(char pathString[256], int32_t pathStringSize)
+{
+  if (!function_pointers_.GetApplicationPath) {
+    throw nidevice_grpc::LibraryLoadException("Could not find nispy_GetApplicationPath.");
+  }
+#if defined(_MSC_VER)
+  return nispy_GetApplicationPath(pathString, pathStringSize);
+#else
+  return function_pointers_.GetApplicationPath(pathString, pathStringSize);
+#endif
 }
 
 int32_t IOTraceLibrary::StartTracing(eNiSpyLogFileSetting logFileSetting, const char filePathString[], eNiSpyAPIFileWriteMode fileWriteMode)

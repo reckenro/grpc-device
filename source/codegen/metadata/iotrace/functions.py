@@ -1,6 +1,28 @@
 # -*- coding: utf-8 -*-
 # This file is generated from NI-SCOPE API metadata version 20.5.0d7
 functions = {
+    'GetApplicationPath': {
+        'cname': 'nispy_GetApplicationPath',
+        'parameters': [
+            {
+                'direction': 'out',
+                'name': 'pathString',
+                'type': 'char[]',
+                'size': {
+                    'mechanism': 'fixed',
+                    'value': '256'
+                }
+            },
+            {
+                'direction': 'in',
+                'name': 'pathStringSize',
+                'type': 'int32_t',
+                'include_in_proto': False,
+                'hardcoded_value': '256'
+            }
+        ],
+        'returns': 'int32_t'
+    },
     'StartTracing': {
         'cname': 'nispy_StartSpying',
         'parameters': [

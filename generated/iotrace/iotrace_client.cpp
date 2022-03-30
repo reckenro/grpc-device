@@ -17,6 +17,21 @@
 
 namespace iotrace_grpc::experimental::client {
 
+GetApplicationPathResponse
+get_application_path(const StubPtr& stub)
+{
+  ::grpc::ClientContext context;
+
+  auto request = GetApplicationPathRequest{};
+
+  auto response = GetApplicationPathResponse{};
+
+  raise_if_error(
+      stub->GetApplicationPath(&context, request, &response));
+
+  return response;
+}
+
 StartTracingResponse
 start_tracing(const StubPtr& stub, const pb::int32& log_file_setting, const pb::string& file_path_string, const pb::int32& file_write_mode)
 {
