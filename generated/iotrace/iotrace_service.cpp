@@ -101,6 +101,24 @@ namespace iotrace_grpc {
     }
   }
 
+  //---------------------------------------------------------------------
+  //---------------------------------------------------------------------
+  ::grpc::Status IOTraceService::LogMessage(::grpc::ServerContext* context, const LogMessageRequest* request, LogMessageResponse* response)
+  {
+    if (context->IsCancelled()) {
+      return ::grpc::Status::CANCELLED;
+    }
+    try {
+      auto message = request->message().c_str();
+      auto status = library_->LogMessage(message);
+      response->set_status(status);
+      return ::grpc::Status::OK;
+    }
+    catch (nidevice_grpc::LibraryLoadException& ex) {
+      return ::grpc::Status(::grpc::NOT_FOUND, ex.what());
+    }
+  }
+
 
   IOTraceFeatureToggles::IOTraceFeatureToggles(
     const nidevice_grpc::FeatureToggles& feature_toggles)

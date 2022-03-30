@@ -52,4 +52,15 @@ functions = {
         ],
         'returns': 'int32_t'
     },
+    'LogMessage': {
+        'cname': 'nispy_WriteTextEntry',
+        'parameters': [
+            {
+                'direction': 'in',
+                'name': 'message',
+                'type': 'const char[]'
+            }
+        ],
+        'returns': 'int32_t'
+    }
 }

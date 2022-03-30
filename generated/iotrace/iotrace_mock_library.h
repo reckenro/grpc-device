@@ -20,6 +20,7 @@ class IOTraceMockLibrary : public iotrace_grpc::IOTraceLibraryInterface {
   MOCK_METHOD(int32_t, GetApplicationPath, (char pathString[256], int32_t pathStringSize), (override));
   MOCK_METHOD(int32_t, StartTracing, (eNiSpyLogFileSetting logFileSetting, const char filePathString[], eNiSpyAPIFileWriteMode fileWriteMode), (override));
   MOCK_METHOD(int32_t, StopTracing, (), (override));
+  MOCK_METHOD(int32_t, LogMessage, (const char message[]), (override));
 };
 
 }  // namespace unit

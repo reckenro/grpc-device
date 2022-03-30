@@ -65,5 +65,21 @@ stop_tracing(const StubPtr& stub)
   return response;
 }
 
+LogMessageResponse
+log_message(const StubPtr& stub, const pb::string& message)
+{
+  ::grpc::ClientContext context;
+
+  auto request = LogMessageRequest{};
+  request.set_message(message);
+
+  auto response = LogMessageResponse{};
+
+  raise_if_error(
+      stub->LogMessage(&context, request, &response));
+
+  return response;
+}
+
 
 } // namespace iotrace_grpc::experimental::client
