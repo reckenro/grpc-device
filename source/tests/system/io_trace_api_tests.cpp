@@ -1,6 +1,6 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
-#include <niiotrace/niiotrace_client.h>
+#include <iotrace/iotrace_client.h>
 
 #include <algorithm>
 #include <fstream>
@@ -14,8 +14,8 @@
 #include "niscope/niscope_client.h"
 #include "nitclk/nitclk_client.h"
 
-using namespace niiotrace_grpc;
-namespace client = niiotrace_grpc::experimental::client;
+using namespace iotrace_grpc;
+namespace client = iotrace_grpc::experimental::client;
 namespace pb = google::protobuf;
 using namespace ::testing;
 using nlohmann::json;
@@ -26,15 +26,15 @@ namespace tests {
 namespace system {
 namespace {
 
-class NiIOTraceDriverApiTests : public ::testing::Test {
+class IOTraceApiTests : public ::testing::Test {
  protected:
-  NiIOTraceDriverApiTests()
+  IOTraceApiTests()
       : device_server_(DeviceServerInterface::Singleton()),
-        stub_(NiIOTrace::NewStub(device_server_->InProcessChannel()))
+        stub_(IOTrace::NewStub(device_server_->InProcessChannel()))
   {
     device_server_->ResetServer();
   }
-  virtual ~NiIOTraceDriverApiTests() {}
+  virtual ~IOTraceApiTests() {}
 
   void TearDown() override
   {
@@ -47,17 +47,17 @@ class NiIOTraceDriverApiTests : public ::testing::Test {
     return TService::NewStub(device_server_->InProcessChannel());
   }
 
-  std::unique_ptr<NiIOTrace::Stub>& stub()
+  std::unique_ptr<IOTrace::Stub>& stub()
   {
     return stub_;
   }
 
  private:
   DeviceServerInterface* device_server_;
-  std::unique_ptr<NiIOTrace::Stub> stub_;
+  std::unique_ptr<IOTrace::Stub> stub_;
 };
 
-TEST_F(NiIOTraceDriverApiTests, IOTraceIsStarted_StartTracing_Success)
+TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracing_Success)
 {
   // Pre-requisite for test, start the IO Trace application
 
@@ -67,14 +67,14 @@ TEST_F(NiIOTraceDriverApiTests, IOTraceIsStarted_StartTracing_Success)
   EXPECT_EQ(0, start_tracing_response.status());
 }
 
-TEST_F(NiIOTraceDriverApiTests, IOTraceIsStarted_StartTracingWithInvalidArgs_InvalidArgsResponse)
+TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracingWithInvalidArgs_InvalidArgsResponse)
 {
   // Pre-requisite for test, start the IO Trace application
 
   std::string path = "";  // Empty string not allowed for file path.
   auto start_tracing_response = client::start_tracing(stub(), 1, path, 1);
 
-  EXPECT_EQ(0, start_tracing_response.status());
+  EXPECT_EQ(-303204, start_tracing_response.status());
 }
 
 }  // namespace

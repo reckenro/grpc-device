@@ -76,7 +76,7 @@ set(metadata_dir ${CMAKE_SOURCE_DIR}/source/codegen/metadata)
 set(service_output_dir ${CMAKE_SOURCE_DIR}/generated)
 set(codegen_dir ${CMAKE_SOURCE_DIR}/source/codegen)
 set(custom_dir ${CMAKE_SOURCE_DIR}/source/custom)
-set(nidrivers "nidaqmx" "nidcpower" "nidigitalpattern" "nidmm" "nifake" "nifake_extension" "nifake_non_ivi" "nifgen" "niiotrace" "nirfmxbluetooth" "nirfmxinstr" "nirfmxlte" "nirfmxnr" "nirfmxspecan" "nirfmxwlan" "nirfsa" "nirfsg" "niscope" "niswitch" "nisync" "nitclk" "nixnet" "nixnetsocket")
+set(nidrivers "iotrace" "nidaqmx" "nidcpower" "nidigitalpattern" "nidmm" "nifake" "nifake_extension" "nifake_non_ivi" "nifgen" "nirfmxbluetooth" "nirfmxinstr" "nirfmxlte" "nirfmxnr" "nirfmxspecan" "nirfmxwlan" "nirfsa" "nirfsg" "niscope" "niswitch" "nisync" "nitclk" "nixnet" "nixnetsocket")
 
 #----------------------------------------------------------------------
 # Create NI Driver APIs proto and server files
@@ -460,7 +460,7 @@ set(system_test_runner_sources
   "source/tests/system/nidmm_session_tests.cpp"
   "source/tests/system/nifgen_driver_api_tests.cpp"
   "source/tests/system/nifgen_session_tests.cpp"
-  "source/tests/system/ni_io_trace_driver_api_tests.cpp"
+  "source/tests/system/io_trace_api_tests.cpp"
   "source/tests/system/nirfsa_driver_api_tests.cpp"
   "source/tests/system/nirfsg_driver_api_tests.cpp"
   "source/tests/system/nirfsg_session_tests.cpp"

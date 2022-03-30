@@ -7,7 +7,8 @@ functions = {
             {
                 'direction': 'in',
                 'name': 'logFileSetting',
-                'type': 'int32_t'
+                'type': 'eNiSpyLogFileSetting',
+                'supports_standard_copy_convert': True,
             },
             {
                 'direction': 'in',
@@ -17,7 +18,8 @@ functions = {
             {
                 'direction': 'in',
                 'name': 'fileWriteMode',
-                'type': 'int32_t'
+                'type': 'eNiSpyAPIFileWriteMode',
+                'supports_standard_copy_convert': True
             }
         ],
         'returns': 'int32_t'

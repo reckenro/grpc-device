@@ -11,12 +11,12 @@
 #include <server/core_service_registrar.h>
 #include <server/session_repository.h>
 
+#include "iotrace/iotrace_service_registrar.h"
 #include "nidaqmx/nidaqmx_service_registrar.h"
 #include "nidcpower/nidcpower_service_registrar.h"
 #include "nidigitalpattern/nidigitalpattern_service_registrar.h"
 #include "nidmm/nidmm_service_registrar.h"
 #include "nifgen/nifgen_service_registrar.h"
-#include "niiotrace/niiotrace_service_registrar.h"
 #if defined(_MSC_VER)
 #include "nirfmxbluetooth/nirfmxbluetooth_service_registrar.h"
 #endif // defined(_MSC_VER)
@@ -58,6 +58,7 @@ std::shared_ptr<void> register_all_services(
     service_vector->end(), 
     {session_repository, core_service});
 
+  auto int32_t_repository = std::make_shared<nidevice_grpc::SessionResourceRepository<int32_t>>(session_repository.get());
   auto task_handle_repository = std::make_shared<nidevice_grpc::SessionResourceRepository<TaskHandle>>(session_repository.get());
   auto vi_session_repository = std::make_shared<nidevice_grpc::SessionResourceRepository<ViSession>>(session_repository.get());
 #if defined(_MSC_VER)
@@ -68,6 +69,11 @@ std::shared_ptr<void> register_all_services(
   auto nx_socket_repository = std::make_shared<nidevice_grpc::SessionResourceRepository<nxSOCKET>>(session_repository.get());
   auto nx_ip_stack_ref_t_repository = std::make_shared<nidevice_grpc::SessionResourceRepository<nxIpStackRef_t>>(session_repository.get());
 
+  service_vector->push_back(
+    iotrace_grpc::register_service(
+      server_builder, 
+      int32_t_repository,
+      feature_toggles));
   service_vector->push_back(
     nidaqmx_grpc::register_service(
       server_builder, 
@@ -90,11 +96,6 @@ std::shared_ptr<void> register_all_services(
       feature_toggles));
   service_vector->push_back(
     nifgen_grpc::register_service(
-      server_builder, 
-      vi_session_repository,
-      feature_toggles));
-  service_vector->push_back(
-    niiotrace_grpc::register_service(
       server_builder, 
       vi_session_repository,
       feature_toggles));

@@ -1,22 +1,24 @@
 # -*- coding: utf-8 -*-
-# This file is generated from NI-IO Trace API metadata version 18.2
+# This file is generated from IOO Trace API metadata version 18.2
 config = {
     "api_version": "18.2",
     "c_header": "NiSpyAPI.h",
     "c_function_prefix": "nispy_",
-    "service_class_prefix": "NiIOTrace",
+    "service_class_prefix": "IOTrace",
     "java_package": "com.ni.grpc.iotrace",
     "csharp_namespace": "NationalInstruments.Grpc.IOTrace",
-    "namespace_component": "niiotrace",
-    "close_function": "Close",
+    "namespace_component": "iotrace",
+    "close_function": "Doesn't matter, there isn't one",
+    "resource_handle_type": "int32_t",  # Note: This api shouldn't have "sessions", this is just to appease the build temporarily.
     "custom_types": [],
     "type_to_grpc_type": {
         "char[]": "string",
         "int32_t": "int32",
         "int": "int32",
+        "eNiSpyLogFileSetting": "int32",
+        "eNiSpyAPIFileWriteMode": "int32",
     },
-    "driver_name": "NI-IOTRACE",
-    "init_function": "InitWithOptions",
+    "driver_name": "IO-TRACE",
     "status_ok": "status >= 0",
     "library_info": {
         "Linux": {"64bit": {"name": "libNiSpyLog", "type": "cdll"}},
@@ -26,5 +28,5 @@ config = {
         },
     },
     "metadata_version": "2.0",
-    "module_name": "niiotrace",
+    "module_name": "iotrace",
 }
