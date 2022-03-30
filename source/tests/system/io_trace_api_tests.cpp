@@ -9,10 +9,6 @@
 
 #include "device_server.h"
 #include "enumerate_devices.h"
-#include "niRFSAErrors.h"
-#include "nirfsa/nirfsa_client.h"
-#include "niscope/niscope_client.h"
-#include "nitclk/nitclk_client.h"
 
 using namespace iotrace_grpc;
 namespace client = iotrace_grpc::experimental::client;
@@ -59,7 +55,7 @@ class IOTraceApiTests : public ::testing::Test {
 
 TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracing_Success)
 {
-  // Pre-requisite for test, start the IO Trace application
+  // Pre-requisite for test, IO Trace application is running
 
   std::string path = "C:\\Users\\reckenro\\Documents\\text-output.txt";
   auto start_tracing_response = client::start_tracing(stub(), 1, path, 1);
@@ -67,23 +63,52 @@ TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracing_Success)
   EXPECT_EQ(0, start_tracing_response.status());
 }
 
-TEST_F(IOTraceApiTests, IOTraceIsStarted_CloseIOTrace_Success)
-{
-  // Pre-requisite for test, start the IO Trace application
-
-  auto start_tracing_response = client::close_io_trace(stub());
-
-  EXPECT_EQ(0, start_tracing_response.status());
-}
-
 TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracingWithInvalidArgs_InvalidArgsResponse)
 {
-  // Pre-requisite for test, start the IO Trace application
+  // Pre-requisite for test, IO Trace application is running
 
   std::string path = "";  // Empty string not allowed for file path.
   auto start_tracing_response = client::start_tracing(stub(), 1, path, 1);
 
   EXPECT_EQ(-303204, start_tracing_response.status());
+}
+
+TEST_F(IOTraceApiTests, IOTraceIsStarted_StopTracing_Success)
+{
+  // Pre-requisite for test, IO Trace application is running
+
+  auto stop_tracing_response = client::stop_tracing(stub());
+
+  EXPECT_EQ(0, stop_tracing_response.status());
+}
+
+TEST_F(IOTraceApiTests, IOTraceIsStarted_CloseIOTrace_Success)
+{
+  // Pre-requisite for test, IO Trace application is running
+
+  auto close_trace_response = client::close_io_trace(stub());
+
+  EXPECT_EQ(0, close_trace_response.status());
+}
+
+TEST_F(IOTraceApiTests, IOTraceIsInstalled_GetIOTracePath_SuccessAndGetsAppPath)
+{
+  // Pre-requisite for test, IO Trace application is running
+
+  auto io_trace_path_response = client::get_io_trace_path(stub());
+
+  EXPECT_EQ(0, io_trace_path_response.status());
+  EXPECT_STRNE("", io_trace_path_response.path_string().c_str());
+}
+
+TEST_F(IOTraceApiTests, IOTraceIsStarted_LogMessage_Success)
+{
+  // Pre-requisite for test, IO Trace application is running
+
+  std::string message = "Hello World!";
+  auto log_message_response = client::log_message(stub(), message);
+
+  EXPECT_EQ(0, log_message_response.status());
 }
 
 }  // namespace
