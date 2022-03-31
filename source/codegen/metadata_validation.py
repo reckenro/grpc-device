@@ -85,6 +85,7 @@ PARAM_SCHEMA = Schema(
         Optional("additional_arguments_to_output_allocation"): [str],
         Optional("proto_only"): bool,
         Optional("input_passed_by_ptr"): bool,
+        Optional("actual_enum"): bool,
     }
 )
 

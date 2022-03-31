@@ -18,11 +18,11 @@ class IOTraceLibrary : public iotrace_grpc::IOTraceLibraryInterface {
   virtual ~IOTraceLibrary();
 
   ::grpc::Status check_function_exists(std::string functionName);
-  int32_t CloseIOTrace();
-  int32_t GetIOTracePath(char pathString[256], int32_t pathStringSize);
-  int32_t LogMessage(const char message[]);
-  int32_t StartTracing(eNiSpyLogFileSetting logFileSetting, const char filePathString[], eNiSpyAPIFileWriteMode fileWriteMode);
-  int32_t StopTracing();
+  eNiSpyAPICommandStatus CloseIOTrace();
+  eNiSpyAPICommandStatus GetIOTracePath(char pathString[256], int32_t pathStringSize);
+  eNiSpyAPICommandStatus LogMessage(const char message[]);
+  eNiSpyAPICommandStatus StartTracing(eNiSpyLogFileSetting logFileSetting, const char filePathString[], eNiSpyAPIFileWriteMode fileWriteMode);
+  eNiSpyAPICommandStatus StopTracing();
 
  private:
   using CloseIOTracePtr = decltype(&nispy_CloseSpy);

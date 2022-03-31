@@ -27,6 +27,34 @@ enum IOTraceAttribute {
   IOTRACE_ATTRIBUTE_UNSPECIFIED = 0;
 }
 
+enum FileWriteMode {
+  FILE_WRITE_MODE_CreateOnly = 0;
+  FILE_WRITE_MODE_CreateOrAppend = 1;
+  FILE_WRITE_MODE_CreateOrOverwrite = 2;
+}
+
+enum LogFileSetting {
+  LOG_FILE_SETTING_Spy = 0;
+  LOG_FILE_SETTING_NoFile = -1;
+  LOG_FILE_SETTING_PlainText = 1;
+  LOG_FILE_SETTING_CommaSeparated = 2;
+  LOG_FILE_SETTING_SettingXml = 3;
+}
+
+enum CommandStatus {
+  COMMAND_STATUS_Success = 0;
+  COMMAND_STATUS_NoExecute = -303200;
+  COMMAND_STATUS_IncompatibleState = -303201;
+  COMMAND_STATUS_UnableToOpenLogFile = -303202;
+  COMMAND_STATUS_IOTraceClosed = -303203;
+  COMMAND_STATUS_InvalidSettings = -303204;
+  COMMAND_STATUS_BadParameter = -303205;
+  COMMAND_STATUS_InternalFailure = -303206;
+  COMMAND_STATUS_InvalidFileExtension = -303207;
+  COMMAND_STATUS_BufferTooSmall = -303208;
+  COMMAND_STATUS_FileAlreadyExists = -303209;
+}
+
 message CloseIOTraceRequest {
 }
 
@@ -51,9 +79,9 @@ message LogMessageResponse {
 }
 
 message StartTracingRequest {
-  int32 log_file_setting = 1;
+  LogFileSetting log_file_setting = 1;
   string file_path_string = 2;
-  int32 file_write_mode = 3;
+  FileWriteMode file_write_mode = 3;
 }
 
 message StartTracingResponse {

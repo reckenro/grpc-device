@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# This file is generated from IOO Trace API metadata version 18.2
+# This file is generated from IO Trace API metadata version 18.2
 config = {
     "api_version": "18.2",
     "c_header": "NiSpyAPI.h",
@@ -15,8 +15,9 @@ config = {
         "char[]": "string",
         "int32_t": "int32",
         "int": "int32",
-        "eNiSpyLogFileSetting": "int32",
-        "eNiSpyAPIFileWriteMode": "int32",
+        "eNiSpyLogFileSetting": "LogFileSetting",
+        "eNiSpyAPIFileWriteMode": "FileWriteMode",
+        "eNiSpyAPICommandStatus": "CommandStatus",
     },
     "driver_name": "IO-TRACE",
     "status_ok": "status >= 0",

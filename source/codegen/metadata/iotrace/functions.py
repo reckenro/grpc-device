@@ -5,7 +5,7 @@ functions = {
         'cname': 'nispy_CloseSpy',
         'parameters': [
         ],
-        'returns': 'int32_t'
+        'returns': 'eNiSpyAPICommandStatus'
     },
     'GetIOTracePath': {
         'cname': 'nispy_GetApplicationPath',
@@ -27,7 +27,7 @@ functions = {
                 'hardcoded_value': '256'
             }
         ],
-        'returns': 'int32_t'
+        'returns': 'eNiSpyAPICommandStatus'
     },
     'LogMessage': {
         'cname': 'nispy_WriteTextEntry',
@@ -38,7 +38,7 @@ functions = {
                 'type': 'const char[]'
             }
         ],
-        'returns': 'int32_t'
+        'returns': 'eNiSpyAPICommandStatus'
     },
     'StartTracing': {
         'cname': 'nispy_StartSpying',
@@ -48,6 +48,7 @@ functions = {
                 'name': 'logFileSetting',
                 'type': 'eNiSpyLogFileSetting',
                 'supports_standard_copy_convert': True,
+                'actual_enum': True
             },
             {
                 'direction': 'in',
@@ -58,15 +59,16 @@ functions = {
                 'direction': 'in',
                 'name': 'fileWriteMode',
                 'type': 'eNiSpyAPIFileWriteMode',
-                'supports_standard_copy_convert': True
-            }
+                'supports_standard_copy_convert': True,
+                'actual_enum': True
+            },
         ],
-        'returns': 'int32_t'
+        'returns': 'eNiSpyAPICommandStatus'
     },
     'StopTracing': {
         'cname': 'nispy_StopSpying',
         'parameters': [
         ],
-        'returns': 'int32_t'
+        'returns': 'eNiSpyAPICommandStatus'
     },    
 }

@@ -58,7 +58,7 @@ TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracing_Success)
   // Pre-requisite for test, IO Trace application is running
 
   std::string path = "C:\\Users\\reckenro\\Documents\\text-output.txt";
-  auto start_tracing_response = client::start_tracing(stub(), 1, path, 1);
+  auto start_tracing_response = client::start_tracing(stub(), LOG_FILE_SETTING_PlainText, path, FILE_WRITE_MODE_CreateOrAppend);
 
   EXPECT_EQ(0, start_tracing_response.status());
 }
@@ -68,9 +68,9 @@ TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracingWithInvalidArgs_InvalidArgs
   // Pre-requisite for test, IO Trace application is running
 
   std::string path = "";  // Empty string not allowed for file path.
-  auto start_tracing_response = client::start_tracing(stub(), 1, path, 1);
+  auto start_tracing_response = client::start_tracing(stub(), LOG_FILE_SETTING_PlainText, path, FILE_WRITE_MODE_CreateOrAppend);
 
-  EXPECT_EQ(-303204, start_tracing_response.status());
+  EXPECT_EQ(COMMAND_STATUS_InvalidSettings, start_tracing_response.status());
 }
 
 TEST_F(IOTraceApiTests, IOTraceIsStarted_StopTracing_Success)

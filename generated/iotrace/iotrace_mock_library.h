@@ -17,11 +17,11 @@ namespace unit {
 
 class IOTraceMockLibrary : public iotrace_grpc::IOTraceLibraryInterface {
  public:
-  MOCK_METHOD(int32_t, CloseIOTrace, (), (override));
-  MOCK_METHOD(int32_t, GetIOTracePath, (char pathString[256], int32_t pathStringSize), (override));
-  MOCK_METHOD(int32_t, LogMessage, (const char message[]), (override));
-  MOCK_METHOD(int32_t, StartTracing, (eNiSpyLogFileSetting logFileSetting, const char filePathString[], eNiSpyAPIFileWriteMode fileWriteMode), (override));
-  MOCK_METHOD(int32_t, StopTracing, (), (override));
+  MOCK_METHOD(eNiSpyAPICommandStatus, CloseIOTrace, (), (override));
+  MOCK_METHOD(eNiSpyAPICommandStatus, GetIOTracePath, (char pathString[256], int32_t pathStringSize), (override));
+  MOCK_METHOD(eNiSpyAPICommandStatus, LogMessage, (const char message[]), (override));
+  MOCK_METHOD(eNiSpyAPICommandStatus, StartTracing, (eNiSpyLogFileSetting logFileSetting, const char filePathString[], eNiSpyAPIFileWriteMode fileWriteMode), (override));
+  MOCK_METHOD(eNiSpyAPICommandStatus, StopTracing, (), (override));
 };
 
 }  // namespace unit

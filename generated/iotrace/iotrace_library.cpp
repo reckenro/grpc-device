@@ -39,7 +39,7 @@ IOTraceLibrary::~IOTraceLibrary()
     : ::grpc::Status(::grpc::NOT_FOUND, "Could not find the function " + functionName);
 }
 
-int32_t IOTraceLibrary::CloseIOTrace()
+eNiSpyAPICommandStatus IOTraceLibrary::CloseIOTrace()
 {
   if (!function_pointers_.CloseIOTrace) {
     throw nidevice_grpc::LibraryLoadException("Could not find nispy_CloseSpy.");
@@ -51,7 +51,7 @@ int32_t IOTraceLibrary::CloseIOTrace()
 #endif
 }
 
-int32_t IOTraceLibrary::GetIOTracePath(char pathString[256], int32_t pathStringSize)
+eNiSpyAPICommandStatus IOTraceLibrary::GetIOTracePath(char pathString[256], int32_t pathStringSize)
 {
   if (!function_pointers_.GetIOTracePath) {
     throw nidevice_grpc::LibraryLoadException("Could not find nispy_GetApplicationPath.");
@@ -63,7 +63,7 @@ int32_t IOTraceLibrary::GetIOTracePath(char pathString[256], int32_t pathStringS
 #endif
 }
 
-int32_t IOTraceLibrary::LogMessage(const char message[])
+eNiSpyAPICommandStatus IOTraceLibrary::LogMessage(const char message[])
 {
   if (!function_pointers_.LogMessage) {
     throw nidevice_grpc::LibraryLoadException("Could not find nispy_WriteTextEntry.");
@@ -75,7 +75,7 @@ int32_t IOTraceLibrary::LogMessage(const char message[])
 #endif
 }
 
-int32_t IOTraceLibrary::StartTracing(eNiSpyLogFileSetting logFileSetting, const char filePathString[], eNiSpyAPIFileWriteMode fileWriteMode)
+eNiSpyAPICommandStatus IOTraceLibrary::StartTracing(eNiSpyLogFileSetting logFileSetting, const char filePathString[], eNiSpyAPIFileWriteMode fileWriteMode)
 {
   if (!function_pointers_.StartTracing) {
     throw nidevice_grpc::LibraryLoadException("Could not find nispy_StartSpying.");
@@ -87,7 +87,7 @@ int32_t IOTraceLibrary::StartTracing(eNiSpyLogFileSetting logFileSetting, const 
 #endif
 }
 
-int32_t IOTraceLibrary::StopTracing()
+eNiSpyAPICommandStatus IOTraceLibrary::StopTracing()
 {
   if (!function_pointers_.StopTracing) {
     throw nidevice_grpc::LibraryLoadException("Could not find nispy_StopSpying.");

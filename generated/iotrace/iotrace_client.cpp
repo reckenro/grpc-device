@@ -64,7 +64,7 @@ log_message(const StubPtr& stub, const pb::string& message)
 }
 
 StartTracingResponse
-start_tracing(const StubPtr& stub, const pb::int32& log_file_setting, const pb::string& file_path_string, const pb::int32& file_write_mode)
+start_tracing(const StubPtr& stub, const LogFileSetting& log_file_setting, const pb::string& file_path_string, const FileWriteMode& file_write_mode)
 {
   ::grpc::ClientContext context;
 
