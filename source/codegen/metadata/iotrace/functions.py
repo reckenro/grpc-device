@@ -8,7 +8,7 @@ functions = {
         'returns': 'eNiSpyAPICommandStatus'
     },
     'GetIOTracePath': {
-        'cname': 'nispy_GetApplicationPath',
+        'codegen_method': 'private',
         'parameters': [
             {
                 'direction': 'out',

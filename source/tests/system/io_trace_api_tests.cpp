@@ -95,10 +95,12 @@ TEST_F(IOTraceApiTests, IOTraceIsInstalled_GetIOTracePath_SuccessAndGetsAppPath)
 {
   // Pre-requisite for test, IO Trace application is running
 
-  auto io_trace_path_response = client::get_io_trace_path(stub());
+  // TODO: This should become launch io trace test.
 
-  EXPECT_EQ(0, io_trace_path_response.status());
-  EXPECT_STRNE("", io_trace_path_response.path_string().c_str());
+  // auto io_trace_path_response = client::get_io_trace_path(stub());
+
+  // EXPECT_EQ(0, io_trace_path_response.status());
+  // EXPECT_STRNE("", io_trace_path_response.path_string().c_str());
 }
 
 TEST_F(IOTraceApiTests, IOTraceIsStarted_LogMessage_Success)

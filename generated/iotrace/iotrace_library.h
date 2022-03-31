@@ -26,7 +26,7 @@ class IOTraceLibrary : public iotrace_grpc::IOTraceLibraryInterface {
 
  private:
   using CloseIOTracePtr = decltype(&nispy_CloseSpy);
-  using GetIOTracePathPtr = decltype(&nispy_GetApplicationPath);
+  using GetIOTracePathPtr = eNiSpyAPICommandStatus (*)(char pathString[256], int32_t pathStringSize);
   using LogMessagePtr = decltype(&nispy_WriteTextEntry);
   using StartTracingPtr = decltype(&nispy_StartSpying);
   using StopTracingPtr = decltype(&nispy_StopSpying);

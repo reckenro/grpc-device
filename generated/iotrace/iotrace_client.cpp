@@ -32,21 +32,6 @@ close_io_trace(const StubPtr& stub)
   return response;
 }
 
-GetIOTracePathResponse
-get_io_trace_path(const StubPtr& stub)
-{
-  ::grpc::ClientContext context;
-
-  auto request = GetIOTracePathRequest{};
-
-  auto response = GetIOTracePathResponse{};
-
-  raise_if_error(
-      stub->GetIOTracePath(&context, request, &response));
-
-  return response;
-}
-
 LogMessageResponse
 log_message(const StubPtr& stub, const pb::string& message)
 {
