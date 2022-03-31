@@ -30,4 +30,5 @@ config = {
     },
     "metadata_version": "2.0",
     "module_name": "iotrace",
+    "code_readiness": "NextRelease",
 }

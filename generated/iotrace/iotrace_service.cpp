@@ -140,7 +140,7 @@ namespace iotrace_grpc {
   IOTraceFeatureToggles::IOTraceFeatureToggles(
     const nidevice_grpc::FeatureToggles& feature_toggles)
     : is_enabled(
-        feature_toggles.is_feature_enabled("iotrace", CodeReadiness::kRelease))
+        feature_toggles.is_feature_enabled("iotrace", CodeReadiness::kNextRelease))
   {
   }
 } // namespace iotrace_grpc
