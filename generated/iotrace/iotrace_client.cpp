@@ -48,6 +48,21 @@ log_message(const StubPtr& stub, const pb::string& message)
   return response;
 }
 
+OpenIOTraceResponse
+open_io_trace(const StubPtr& stub)
+{
+  ::grpc::ClientContext context;
+
+  auto request = OpenIOTraceRequest{};
+
+  auto response = OpenIOTraceResponse{};
+
+  raise_if_error(
+      stub->OpenIOTrace(&context, request, &response));
+
+  return response;
+}
+
 StartTracingResponse
 start_tracing(const StubPtr& stub, const LogFileSetting& log_file_setting, const pb::string& file_path_string, const FileWriteMode& file_write_mode)
 {

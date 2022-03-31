@@ -43,6 +43,7 @@ public:
   
   ::grpc::Status CloseIOTrace(::grpc::ServerContext* context, const CloseIOTraceRequest* request, CloseIOTraceResponse* response) override;
   ::grpc::Status LogMessage(::grpc::ServerContext* context, const LogMessageRequest* request, LogMessageResponse* response) override;
+  ::grpc::Status OpenIOTrace(::grpc::ServerContext* context, const OpenIOTraceRequest* request, OpenIOTraceResponse* response) override;
   ::grpc::Status StartTracing(::grpc::ServerContext* context, const StartTracingRequest* request, StartTracingResponse* response) override;
   ::grpc::Status StopTracing(::grpc::ServerContext* context, const StopTracingRequest* request, StopTracingResponse* response) override;
 private:

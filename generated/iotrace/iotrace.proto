@@ -18,6 +18,7 @@ import "session.proto";
 service IOTrace {
   rpc CloseIOTrace(CloseIOTraceRequest) returns (CloseIOTraceResponse);
   rpc LogMessage(LogMessageRequest) returns (LogMessageResponse);
+  rpc OpenIOTrace(OpenIOTraceRequest) returns (OpenIOTraceResponse);
   rpc StartTracing(StartTracingRequest) returns (StartTracingResponse);
   rpc StopTracing(StopTracingRequest) returns (StopTracingResponse);
 }
@@ -66,6 +67,13 @@ message LogMessageRequest {
 }
 
 message LogMessageResponse {
+  int32 status = 1;
+}
+
+message OpenIOTraceRequest {
+}
+
+message OpenIOTraceResponse {
   int32 status = 1;
 }
 

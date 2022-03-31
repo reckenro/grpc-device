@@ -8,6 +8,7 @@ functions = {
         'returns': 'eNiSpyAPICommandStatus'
     },
     'GetIOTracePath': {
+        'cname': 'nispy_GetApplicationPath',
         'codegen_method': 'private',
         'parameters': [
             {
@@ -38,6 +39,11 @@ functions = {
                 'type': 'const char[]'
             }
         ],
+        'returns': 'eNiSpyAPICommandStatus'
+    },
+    'OpenIOTrace': {
+        'codegen_method': 'CustomGrpcOnly',
+        'parameters': [],
         'returns': 'eNiSpyAPICommandStatus'
     },
     'StartTracing': {

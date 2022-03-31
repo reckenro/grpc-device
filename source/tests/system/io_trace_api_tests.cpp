@@ -57,8 +57,8 @@ TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracing_Success)
 {
   // Pre-requisite for test, IO Trace application is running
 
-  std::string path = "C:\\Users\\reckenro\\Documents\\text-output.txt";
-  auto start_tracing_response = client::start_tracing(stub(), LOG_FILE_SETTING_PlainText, path, FILE_WRITE_MODE_CreateOrAppend);
+  std::string path = "C:\\Users\\reckenro\\Documents\\text-output.nitrace";
+  auto start_tracing_response = client::start_tracing(stub(), LOG_FILE_SETTING_Spy, path, FILE_WRITE_MODE_CreateOrOverwrite);
 
   EXPECT_EQ(0, start_tracing_response.status());
 }
@@ -68,7 +68,7 @@ TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracingWithInvalidArgs_InvalidArgs
   // Pre-requisite for test, IO Trace application is running
 
   std::string path = "";  // Empty string not allowed for file path.
-  auto start_tracing_response = client::start_tracing(stub(), LOG_FILE_SETTING_PlainText, path, FILE_WRITE_MODE_CreateOrAppend);
+  auto start_tracing_response = client::start_tracing(stub(), LOG_FILE_SETTING_Spy, path, FILE_WRITE_MODE_CreateOrAppend);
 
   EXPECT_EQ(COMMAND_STATUS_InvalidSettings, start_tracing_response.status());
 }
@@ -91,16 +91,13 @@ TEST_F(IOTraceApiTests, IOTraceIsStarted_CloseIOTrace_Success)
   EXPECT_EQ(0, close_trace_response.status());
 }
 
-TEST_F(IOTraceApiTests, IOTraceIsInstalled_GetIOTracePath_SuccessAndGetsAppPath)
+TEST_F(IOTraceApiTests, IOTraceIsInstalled_OpenIOTrace_SuccessAndOpensIOTrace)
 {
-  // Pre-requisite for test, IO Trace application is running
+  // Pre-requisite for test, IO Trace application is installed
 
-  // TODO: This should become launch io trace test.
+  auto open_io_trace = client::open_io_trace(stub());
 
-  // auto io_trace_path_response = client::get_io_trace_path(stub());
-
-  // EXPECT_EQ(0, io_trace_path_response.status());
-  // EXPECT_STRNE("", io_trace_path_response.path_string().c_str());
+  EXPECT_EQ(0, open_io_trace.status());
 }
 
 TEST_F(IOTraceApiTests, IOTraceIsStarted_LogMessage_Success)
