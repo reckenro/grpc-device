@@ -104,7 +104,7 @@ FUNCTION_SCHEMA = Schema(
                 "no",
                 "python-only",
                 "CustomCodeCustomProtoMessage",
-                "CustomGrpcOnly"
+                "CustomGrpcOnly",
             ),
         ),
         Optional("init_method"): bool,
