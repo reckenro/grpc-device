@@ -124,6 +124,10 @@ def _const_ref_t(t: str) -> str:
     return f"const {t}&"
 
 
+def _is_enum(param: dict) -> bool:
+    return param.get("actual_enum", False)
+
+
 def _get_param_mechanism(param: dict) -> ParamMechanism:
     if _is_grpc_array(param):
         return ParamMechanism.ARRAY
@@ -133,7 +137,7 @@ def _get_param_mechanism(param: dict) -> ParamMechanism:
         return ParamMechanism.ENUM
     if "mapped-enum" in param:
         return ParamMechanism.MAPPED_ENUM
-    if _is_basic_type(param["grpc_type"]):
+    if _is_basic_type(param["grpc_type"]) or _is_enum(param):
         return ParamMechanism.BASIC
     return ParamMechanism.COPY
 

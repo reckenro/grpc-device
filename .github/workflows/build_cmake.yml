@@ -155,7 +155,7 @@ jobs:
 
     - name: Upload Windows Server Information Artifact
       uses: actions/upload-artifact@v2
-      if: ${{ (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/releases')) && (runner.os == 'Windows') }}
+      if: ${{ (runner.os == 'Windows') }}
       with:
         name: ni-grpc-device-server-windows-x64
         path: |
@@ -165,7 +165,7 @@ jobs:
 
     - name: Upload Windows Server Binaries Artifact
       uses: actions/upload-artifact@v2
-      if: ${{ (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/releases')) && (runner.os == 'Windows') }}
+      if: ${{ (runner.os == 'Windows') }}
       with:
         name: ni-grpc-device-server-windows-x64
         path: |
@@ -175,7 +175,7 @@ jobs:
 
     - name: Upload Windows Test Binaries Artifact
       uses: actions/upload-artifact@v2
-      if: ${{ (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/releases')) && (runner.os == 'Windows') }}
+      if: ${{ (runner.os == 'Windows') }}
       with:
         name: ni-grpc-device-tests-windows-x64
         path: |

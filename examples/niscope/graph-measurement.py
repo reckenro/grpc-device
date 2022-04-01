@@ -37,6 +37,8 @@ import grpc
 import matplotlib.pyplot as plt
 import niscope_pb2 as niscope_types
 import niscope_pb2_grpc as grpc_scope
+import iotrace_pb2 as iotrace_types
+import iotrace_pb2_grpc as grpc_iotrace
 
 SERVER_ADDRESS = "localhost"
 SERVER_PORT = "31763"
@@ -67,13 +69,50 @@ def check_for_error(vi, status):
         raise Exception(error_message_response.error_message)
 
 
+def simple_check_for_error(status, message):
+    """Raise an exception if the status indicates an error."""
+    if status < 0:
+        raise Exception(f"Status check failed {status}: {message}")
+
+
+def start_tracing():
+    """Launch IO Trace and start tracing"""
+    print("Start tracing...")
+    open_response = iotrace_client.OpenIOTrace(iotrace_types.OpenIOTraceRequest())
+    simple_check_for_error(open_response.status, "Launching IO Trace failed.")
+    time.sleep(4)
+    start_tracing_response = iotrace_client.StartTracing(
+        iotrace_types.StartTracingRequest(
+            log_file_setting=iotrace_types.LogFileSetting.LOG_FILE_SETTING_Spy,
+            file_path_string="C:\\dev\\traces\\graph-measurement.nitrace",
+            file_write_mode=iotrace_types.FileWriteMode.FILE_WRITE_MODE_CreateOrOverwrite,
+        )
+    )
+    simple_check_for_error(start_tracing_response.status, "Start tracing failed.")
+
+
+def stop_tracing():
+    """Stop tracing and close IO Trace"""
+    input("\nHit enter to stop tracing and close IO Trace...\n")
+    stop_tracing_response = iotrace_client.StopTracing(iotrace_types.StopTracingRequest())
+    simple_check_for_error(stop_tracing_response.status, "Stop tracing failed.")
+    time.sleep(0.5)
+    close_io_trace_response = iotrace_client.CloseIOTrace(iotrace_types.CloseIOTraceRequest())
+    simple_check_for_error(close_io_trace_response.status, "Close IO Trace failed.")
+
+
 # Create the communication channel for the remote host (in this case we are connecting to a local
 # server) and create a connection to the NI-SCOPE service
 channel = grpc.insecure_channel(f"{SERVER_ADDRESS}:{SERVER_PORT}")
 niscope_client = grpc_scope.NiScopeStub(channel)
+iotrace_client = grpc_iotrace.IOTraceStub(channel)
 
 try:
     # Initialize the scope
+    start_tracing()
+
+    input("\nHit enter to start measurement.\n")
+
     init_result = niscope_client.InitWithOptions(
         niscope_types.InitWithOptionsRequest(
             session_name="demo", resource_name=RESOURCE, id_query=False, option_string=OPTIONS
@@ -143,46 +182,47 @@ try:
 
     # Setup a plot to draw the captured waveform
     fig = plt.gcf()
+    plot_open = True
     fig.show()
+
+    def on_close(event):
+        global plot_open
+        plot_open = False
+
+    fig.canvas.mpl_connect("close_event", on_close)
     fig.canvas.draw()
 
-    print("\nReading values in loop. CTRL+C to stop.\n")
-    try:
-        while True:
-            # Clear the plot and setup the axis
-            plt.clf()
-            plt.axis([0, 100, -6, 6])
-            # Read a waveform from the scope
-            read_result = niscope_client.Read(
-                niscope_types.ReadRequest(
-                    vi=vi, channel_list=CHANNELS, timeout=1, num_samples=10000
-                )
+    while plot_open:
+        # Clear the plot and setup the axis
+        plt.clf()
+        plt.axis([0, 100, -6, 6])
+        # Read a waveform from the scope
+        read_result = niscope_client.Read(
+            niscope_types.ReadRequest(vi=vi, channel_list=CHANNELS, timeout=1, num_samples=10000)
+        )
+        check_for_error(vi, read_result.status)
+        values = read_result.waveform[0:10]
+        print(values)
+
+        # Update the plot with the new waveform
+        plt.plot(read_result.waveform[0:100], color="green")
+        fig.canvas.draw()
+        plt.pause(0.001)
+
+        # Fetch the measured average frequency
+        fetch_result = niscope_client.FetchMeasurementStats(
+            niscope_types.FetchMeasurementStatsRequest(
+                vi=vi,
+                channel_list=CHANNELS,
+                timeout=1,
+                scalar_meas_function=niscope_types.ScalarMeasurement.SCALAR_MEASUREMENT_NISCOPE_VAL_AVERAGE_FREQUENCY,
             )
-            check_for_error(vi, read_result.status)
-            values = read_result.waveform[0:10]
-            print(values)
+        )
+        check_for_error(vi, fetch_result.status)
+        print("Average Frequency: " + str("%.2f" % round(fetch_result.result[0], 2)) + " Hz")
+        print("")
 
-            # Update the plot with the new waveform
-            plt.plot(read_result.waveform[0:100])
-            fig.canvas.draw()
-            plt.pause(0.001)
-
-            # Fetch the measured average frequency
-            fetch_result = niscope_client.FetchMeasurementStats(
-                niscope_types.FetchMeasurementStatsRequest(
-                    vi=vi,
-                    channel_list=CHANNELS,
-                    timeout=1,
-                    scalar_meas_function=niscope_types.ScalarMeasurement.SCALAR_MEASUREMENT_NISCOPE_VAL_AVERAGE_FREQUENCY,
-                )
-            )
-            check_for_error(vi, fetch_result.status)
-            print("Average Frequency: " + str("%.2f" % round(fetch_result.result[0], 2)) + " Hz")
-            print("")
-
-            time.sleep(0.1)
-    except KeyboardInterrupt:
-        pass
+        time.sleep(0.1)
 
 except grpc.RpcError as rpc_error:
     error_message = rpc_error.details()
@@ -198,3 +238,4 @@ finally:
     if "vi" in vars() and vi.id != 0:
         # close the session.
         check_for_error(vi, (niscope_client.Close(niscope_types.CloseRequest(vi=vi))).status)
+    stop_tracing()
