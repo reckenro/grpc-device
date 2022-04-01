@@ -57,7 +57,7 @@ TEST_F(IOTraceApiTests, IOTraceIsStarted_StartTracing_Success)
 {
   // Pre-requisite for test, IO Trace application is running
 
-  std::string path = "C:\\Users\\reckenro\\Documents\\text-output.nitrace";
+  std::string path = "C:\\dev\\reckenro\\Docs\\text-output.nitrace";
   auto start_tracing_response = client::start_tracing(stub(), LOG_FILE_SETTING_Spy, path, FILE_WRITE_MODE_CreateOrOverwrite);
 
   EXPECT_EQ(0, start_tracing_response.status());
