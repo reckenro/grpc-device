@@ -15,5 +15,6 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ncipollo/release-action@v1
       with:
+        commit: ${{ GITHUB_REF }}
         draft: true
         token: ${{ secrets.GITHUB_TOKEN }}
