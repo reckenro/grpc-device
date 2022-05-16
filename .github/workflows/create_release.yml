@@ -17,7 +17,7 @@ jobs:
       with:
         commit: ${{ github.sha }}
         draft: true
-        generateReleaseNotes: true
+        bodyFile: ".github/release_template.md"
         name: "NI gRPC Device Server #.#.#"
         tag: "vx.x.x"
         token: ${{ secrets.GITHUB_TOKEN }}
