@@ -11,10 +11,16 @@ jobs:
     permissions:
       contents: write
     steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: ni-grpc-device-client-Linux
+        path: downloads/artifacts
+
     - name: "Create Release"
       uses: ncipollo/release-action@v1
       if: ${{ startsWith(github.ref, 'refs/heads/releases') }}
       with:
+        artifacts: "downloads/artifacts/*"
         commit: ${{ github.sha }}
         draft: true
         bodyFile: ".github/release_template.md"
