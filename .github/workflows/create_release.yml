@@ -16,5 +16,6 @@ jobs:
     - uses: ncipollo/release-action@v1
       with:
         commit: ${{ github.ref }}
+        tag: "vx.x.x"
         draft: true
         token: ${{ secrets.GITHUB_TOKEN }}
