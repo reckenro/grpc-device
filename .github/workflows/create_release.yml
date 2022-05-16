@@ -15,7 +15,9 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ncipollo/release-action@v1
       with:
-        commit: ${{ github.ref }}
-        tag: "vx.x.x"
+        commit: ${{ github.sha }}
         draft: true
+        generateReleaseNotes: true
+        name: "NI gRPC Device Server #.#.#"
+        tag: "vx.x.x"
         token: ${{ secrets.GITHUB_TOKEN }}
