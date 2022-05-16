@@ -19,7 +19,7 @@ jobs:
     needs: validate_python
     uses: ./.github/workflows/build_nilrt.yml
   create_client_artifacts:
-    uses: ./.github/workflows/create_client_artifacts.yml\
+    uses: ./.github/workflows/create_client_artifacts.yml
   create_release:
     needs:
      - build_desktop
