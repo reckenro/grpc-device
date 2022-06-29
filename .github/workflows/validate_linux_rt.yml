@@ -19,7 +19,7 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Get the latest tag
+    - name: Get the latest tag 
       id: latesttag
       run: >-
         echo "::set-output name=tag::$(
