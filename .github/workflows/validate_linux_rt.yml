@@ -43,6 +43,6 @@ jobs:
     - name: Install build dependencies
       run: python -m pip install -r python_build_requirements.txt
 
-    - name: Update Linux RT's grpc-device dependency to ${{ github.ref_name }}?
+    - name: Update Linux RT's grpc-device dependency to ${{ steps.latesttag.outputs.tag }}?
       run: |
-        git diff --name-only ${{ steps.secondlatesttag.outputs.tag}}..${{ github.ref_name }} | python source/codegen/validate-linux-rt.py source/codegen/metadata
+        git diff --name-only ${{ steps.secondlatesttag.outputs.tag}}..${{ steps.latesttag.outputs.tag }} | python source/codegen/validate-linux-rt.py source/codegen/metadata
