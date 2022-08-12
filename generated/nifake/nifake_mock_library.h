@@ -39,7 +39,7 @@ class NiFakeMockLibrary : public nifake_grpc::NiFakeLibraryInterface {
   MOCK_METHOD(ViStatus, GetAnIviDanceWithATwistArrayOfCustomType, (ViSession vi, ViInt32 bufferSize, CustomStruct arrayOut[], ViInt32* actualSize), (override));
   MOCK_METHOD(ViStatus, GetAnIviDanceWithATwistArrayWithInputArray, (ViInt32 dataIn[], ViInt32 arraySizeIn, ViInt32 bufferSize, ViInt32 arrayOut[], ViInt32* actualSize), (override));
   MOCK_METHOD(ViStatus, GetAnIviDanceWithATwistByteArray, (ViInt32 bufferSize, ViInt8 arrayOut[], ViInt32* actualSize), (override));
-  MOCK_METHOD(ViStatus, GetAnIviDanceWithATwistString, (ViInt32 bufferSize, ViChar arrayOut[], ViInt32* actualSize), (override));
+  MOCK_METHOD(ViStatus, GetAnIviDanceWithATwistString, (ViSession vi, ViInt32 bufferSize, ViChar aString[], ViInt32* actualSize), (override));
   MOCK_METHOD(ViStatus, GetAnIviDanceWithATwistStringStrlenBug, (ViInt32 bufferSize, ViChar stringOut[], ViInt32* actualSize), (override));
   MOCK_METHOD(ViStatus, GetArraySizeForCustomCode, (ViSession vi, ViInt32* sizeOut), (override));
   MOCK_METHOD(ViStatus, GetArrayUsingIviDance, (ViSession vi, ViInt32 arraySize, ViReal64 arrayOut[]), (override));
@@ -48,7 +48,7 @@ class NiFakeMockLibrary : public nifake_grpc::NiFakeLibraryInterface {
   MOCK_METHOD(ViStatus, GetAttributeViInt32, (ViSession vi, ViConstString channelName, ViAttr attributeId, ViInt32* attributeValue), (override));
   MOCK_METHOD(ViStatus, GetAttributeViInt64, (ViSession vi, ViConstString channelName, ViAttr attributeId, ViInt64* attributeValue), (override));
   MOCK_METHOD(ViStatus, GetAttributeViReal64, (ViSession vi, ViConstString channelName, ViAttr attributeId, ViReal64* attributeValue), (override));
-  MOCK_METHOD(ViStatus, GetAttributeViSession, (ViSession vi, ViInt32 attributeId, ViSession* sessionOut), (override));
+  MOCK_METHOD(ViStatus, GetAttributeViSession, (ViSession vi, ViConstString channelName, ViAttr attributeId, ViSession* attributeValue), (override));
   MOCK_METHOD(ViStatus, GetAttributeViString, (ViSession vi, ViConstString channelName, ViAttr attributeId, ViInt32 bufferSize, ViChar attributeValue[]), (override));
   MOCK_METHOD(ViStatus, GetBitfieldAsEnumArray, (ViInt64* flags), (override));
   MOCK_METHOD(ViStatus, GetCalDateAndTime, (ViSession vi, ViInt32 calType, ViInt32* month, ViInt32* day, ViInt32* year, ViInt32* hour, ViInt32* minute), (override));

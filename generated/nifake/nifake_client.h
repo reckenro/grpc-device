@@ -44,7 +44,7 @@ GetAnIviDanceWithATwistArrayResponse get_an_ivi_dance_with_a_twist_array(const S
 GetAnIviDanceWithATwistArrayOfCustomTypeResponse get_an_ivi_dance_with_a_twist_array_of_custom_type(const StubPtr& stub, const nidevice_grpc::Session& vi);
 GetAnIviDanceWithATwistArrayWithInputArrayResponse get_an_ivi_dance_with_a_twist_array_with_input_array(const StubPtr& stub, const std::vector<pb::int32>& data_in);
 GetAnIviDanceWithATwistByteArrayResponse get_an_ivi_dance_with_a_twist_byte_array(const StubPtr& stub);
-GetAnIviDanceWithATwistStringResponse get_an_ivi_dance_with_a_twist_string(const StubPtr& stub);
+GetAnIviDanceWithATwistStringResponse get_an_ivi_dance_with_a_twist_string(const StubPtr& stub, const nidevice_grpc::Session& vi);
 GetAnIviDanceWithATwistStringStrlenBugResponse get_an_ivi_dance_with_a_twist_string_strlen_bug(const StubPtr& stub);
 GetArraySizeForCustomCodeResponse get_array_size_for_custom_code(const StubPtr& stub, const nidevice_grpc::Session& vi);
 GetArrayUsingIviDanceResponse get_array_using_ivi_dance(const StubPtr& stub, const nidevice_grpc::Session& vi);
@@ -53,7 +53,7 @@ GetAttributeViBooleanResponse get_attribute_vi_boolean(const StubPtr& stub, cons
 GetAttributeViInt32Response get_attribute_vi_int32(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiFakeAttribute& attribute_id);
 GetAttributeViInt64Response get_attribute_vi_int64(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiFakeAttribute& attribute_id);
 GetAttributeViReal64Response get_attribute_vi_real64(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiFakeAttribute& attribute_id);
-GetAttributeViSessionResponse get_attribute_vi_session(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& attribute_id);
+GetAttributeViSessionResponse get_attribute_vi_session(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiFakeAttribute& attribute_id);
 GetAttributeViStringResponse get_attribute_vi_string(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiFakeAttribute& attribute_id);
 GetBitfieldAsEnumArrayResponse get_bitfield_as_enum_array(const StubPtr& stub);
 GetCalDateAndTimeResponse get_cal_date_and_time(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& cal_type);

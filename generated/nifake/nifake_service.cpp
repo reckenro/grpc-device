@@ -690,28 +690,30 @@ namespace nifake_grpc {
       return ::grpc::Status::CANCELLED;
     }
     try {
+      auto vi_grpc_session = request->vi();
+      ViSession vi = session_repository_->access_session(vi_grpc_session.id(), vi_grpc_session.name());
       ViInt32 actual_size {};
       while (true) {
-        auto status = library_->GetAnIviDanceWithATwistString(0, nullptr, &actual_size);
+        auto status = library_->GetAnIviDanceWithATwistString(vi, 0, nullptr, &actual_size);
         if (!status_ok(status)) {
-          return ConvertApiErrorStatusForViSession(status, 0);
+          return ConvertApiErrorStatusForViSession(status, vi);
         }
-        std::string array_out;
+        std::string a_string;
         if (actual_size > 0) {
-            array_out.resize(actual_size - 1);
+            a_string.resize(actual_size - 1);
         }
         auto buffer_size = actual_size;
-        status = library_->GetAnIviDanceWithATwistString(buffer_size, (ViChar*)array_out.data(), &actual_size);
+        status = library_->GetAnIviDanceWithATwistString(vi, buffer_size, (ViChar*)a_string.data(), &actual_size);
         if (status == kErrorReadBufferTooSmall || status == kWarningCAPIStringTruncatedToFitBuffer) {
           // buffer is now too small, try again
           continue;
         }
         if (!status_ok(status)) {
-          return ConvertApiErrorStatusForViSession(status, 0);
+          return ConvertApiErrorStatusForViSession(status, vi);
         }
         response->set_status(status);
-        response->set_array_out(array_out);
-        nidevice_grpc::converters::trim_trailing_nulls(*(response->mutable_array_out()));
+        response->set_a_string(a_string);
+        nidevice_grpc::converters::trim_trailing_nulls(*(response->mutable_a_string()));
         response->set_actual_size(actual_size);
         return ::grpc::Status::OK;
       }
@@ -961,15 +963,16 @@ namespace nifake_grpc {
     try {
       auto vi_grpc_session = request->vi();
       ViSession vi = session_repository_->access_session(vi_grpc_session.id(), vi_grpc_session.name());
-      ViInt32 attribute_id = request->attribute_id();
-      ViSession session_out {};
-      auto status = library_->GetAttributeViSession(vi, attribute_id, &session_out);
+      auto channel_name = request->channel_name().c_str();
+      ViAttr attribute_id = request->attribute_id();
+      ViSession attribute_value {};
+      auto status = library_->GetAttributeViSession(vi, channel_name, attribute_id, &attribute_value);
       if (!status_ok(status)) {
         return ConvertApiErrorStatusForViSession(status, vi);
       }
       response->set_status(status);
-      auto session_id = session_repository_->resolve_session_id(session_out);
-      response->mutable_session_out()->set_id(session_id);
+      auto session_id = session_repository_->resolve_session_id(attribute_value);
+      response->mutable_attribute_value()->set_id(session_id);
       return ::grpc::Status::OK;
     }
     catch (nidevice_grpc::LibraryLoadException& ex) {

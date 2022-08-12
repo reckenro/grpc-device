@@ -388,11 +388,12 @@ get_an_ivi_dance_with_a_twist_byte_array(const StubPtr& stub)
 }
 
 GetAnIviDanceWithATwistStringResponse
-get_an_ivi_dance_with_a_twist_string(const StubPtr& stub)
+get_an_ivi_dance_with_a_twist_string(const StubPtr& stub, const nidevice_grpc::Session& vi)
 {
   ::grpc::ClientContext context;
 
   auto request = GetAnIviDanceWithATwistStringRequest{};
+  request.mutable_vi()->CopyFrom(vi);
 
   auto response = GetAnIviDanceWithATwistStringResponse{};
 
@@ -539,12 +540,13 @@ get_attribute_vi_real64(const StubPtr& stub, const nidevice_grpc::Session& vi, c
 }
 
 GetAttributeViSessionResponse
-get_attribute_vi_session(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& attribute_id)
+get_attribute_vi_session(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiFakeAttribute& attribute_id)
 {
   ::grpc::ClientContext context;
 
   auto request = GetAttributeViSessionRequest{};
   request.mutable_vi()->CopyFrom(vi);
+  request.set_channel_name(channel_name);
   request.set_attribute_id(attribute_id);
 
   auto response = GetAttributeViSessionResponse{};

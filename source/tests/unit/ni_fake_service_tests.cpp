@@ -4,11 +4,11 @@
 #include <nifake/nifake_service.h>
 #include <nifake_extension/nifake_extension_mock_library.h>
 #include <nifake_extension/nifake_extension_service.h>
-#include <nlohmann/json.hpp>
 #include <server/session_repository.h>
 
 #include <array>
 #include <iostream>
+#include <nlohmann/json.hpp>
 #include <string>
 
 using namespace ::nlohmann;
@@ -2161,25 +2161,26 @@ TEST(NiFakeServiceTests, NiFakeService_GetAnIviDanceWithATwistStringWithSmallerS
   const auto NEW_SIZE = static_cast<ViInt32>(DATA.size() + 1);
   const auto OLD_SIZE = NEW_SIZE + 1;
   // ivi-dance-with-a-twist call
-  EXPECT_CALL(library, GetAnIviDanceWithATwistString(0, nullptr, _))
+  EXPECT_CALL(library, GetAnIviDanceWithATwistString(kTestViSession, 0, nullptr, _))
       .WillOnce(DoAll(
-          SetArgPointee<2>(OLD_SIZE),
+          SetArgPointee<3>(OLD_SIZE),
           Return(kDriverSuccess)));
   // follow up call - return that the array now needs to be smaller.
-  EXPECT_CALL(library, GetAnIviDanceWithATwistString(OLD_SIZE, _, _))
+  EXPECT_CALL(library, GetAnIviDanceWithATwistString(kTestViSession, OLD_SIZE, _, _))
       .WillOnce(DoAll(
-          SetArrayArgument<1>(DATA.c_str(), DATA.c_str() + NEW_SIZE),
-          SetArgPointee<2>(NEW_SIZE),
+          SetArrayArgument<2>(DATA.c_str(), DATA.c_str() + NEW_SIZE),
+          SetArgPointee<3>(NEW_SIZE),
           Return(kDriverSuccess)));
 
   ::grpc::ServerContext context;
   nifake_grpc::GetAnIviDanceWithATwistStringRequest request;
+  request.mutable_vi()->set_id(session_id);
   nifake_grpc::GetAnIviDanceWithATwistStringResponse response;
   ::grpc::Status status = service.GetAnIviDanceWithATwistString(&context, &request, &response);
 
   EXPECT_TRUE(status.ok());
   EXPECT_EQ(kDriverSuccess, response.status());
-  EXPECT_EQ(DATA, response.array_out());
+  EXPECT_EQ(DATA, response.a_string());
   EXPECT_EQ(response.actual_size(), NEW_SIZE);
 }
 
@@ -2487,23 +2488,24 @@ TEST(NiFakeServiceTests, NiFakeService_GetAttributeViSession_ReturnsSessionId)
   auto resource_repository = std::make_shared<FakeResourceRepository>(&session_repository);
   nifake_grpc::NiFakeService service(&library, resource_repository);
   std::uint32_t session_id = create_session(library, service, kTestViSession);
-  const ViInt32 kAttributeId = 1234;
-  EXPECT_CALL(library, GetAttributeViSession(kTestViSession, kAttributeId, _))
+  nifake_grpc::NiFakeAttribute attribute_id = nifake_grpc::NIFAKE_ATTRIBUTE_READ_WRITE_STRING;
+  EXPECT_CALL(library, GetAttributeViSession(kTestViSession, Pointee(*kTestChannelName), attribute_id, _))
       .WillOnce(
           DoAll(
-              SetArgPointee<2>(kTestViSession),
+              SetArgPointee<3>(kTestViSession),
               Return(kDriverSuccess)));
 
   ::grpc::ServerContext context;
   nifake_grpc::GetAttributeViSessionRequest request;
   request.mutable_vi()->set_id(session_id);
-  request.set_attribute_id(kAttributeId);
+  request.set_attribute_id(attribute_id);
+  request.set_channel_name(kTestChannelName);
   nifake_grpc::GetAttributeViSessionResponse response;
   auto status = service.GetAttributeViSession(&context, &request, &response);
 
   EXPECT_TRUE(status.ok());
   EXPECT_EQ(kDriverSuccess, response.status());
-  EXPECT_EQ(session_id, response.session_out().id());
+  EXPECT_EQ(session_id, response.attribute_value().id());
 }
 
 TEST(NiFakeServiceTests, NiFakeExtensionService_CallMethodWithSesionStartedByNIFakeService_PassesThroughSession)

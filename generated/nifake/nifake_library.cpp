@@ -378,15 +378,15 @@ ViStatus NiFakeLibrary::GetAnIviDanceWithATwistByteArray(ViInt32 bufferSize, ViI
 #endif
 }
 
-ViStatus NiFakeLibrary::GetAnIviDanceWithATwistString(ViInt32 bufferSize, ViChar arrayOut[], ViInt32* actualSize)
+ViStatus NiFakeLibrary::GetAnIviDanceWithATwistString(ViSession vi, ViInt32 bufferSize, ViChar aString[], ViInt32* actualSize)
 {
   if (!function_pointers_.GetAnIviDanceWithATwistString) {
     throw nidevice_grpc::LibraryLoadException("Could not find niFake_GetAnIviDanceWithATwistString.");
   }
 #if defined(_MSC_VER)
-  return niFake_GetAnIviDanceWithATwistString(bufferSize, arrayOut, actualSize);
+  return niFake_GetAnIviDanceWithATwistString(vi, bufferSize, aString, actualSize);
 #else
-  return function_pointers_.GetAnIviDanceWithATwistString(bufferSize, arrayOut, actualSize);
+  return function_pointers_.GetAnIviDanceWithATwistString(vi, bufferSize, aString, actualSize);
 #endif
 }
 
@@ -486,15 +486,15 @@ ViStatus NiFakeLibrary::GetAttributeViReal64(ViSession vi, ViConstString channel
 #endif
 }
 
-ViStatus NiFakeLibrary::GetAttributeViSession(ViSession vi, ViInt32 attributeId, ViSession* sessionOut)
+ViStatus NiFakeLibrary::GetAttributeViSession(ViSession vi, ViConstString channelName, ViAttr attributeId, ViSession* attributeValue)
 {
   if (!function_pointers_.GetAttributeViSession) {
     throw nidevice_grpc::LibraryLoadException("Could not find niFake_GetAttributeViSession.");
   }
 #if defined(_MSC_VER)
-  return niFake_GetAttributeViSession(vi, attributeId, sessionOut);
+  return niFake_GetAttributeViSession(vi, channelName, attributeId, attributeValue);
 #else
-  return function_pointers_.GetAttributeViSession(vi, attributeId, sessionOut);
+  return function_pointers_.GetAttributeViSession(vi, channelName, attributeId, attributeValue);
 #endif
 }
 
