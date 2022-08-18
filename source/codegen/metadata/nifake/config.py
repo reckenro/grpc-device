@@ -10,12 +10,10 @@ config = {
         {
             'fields': [
                 {
-                    'grpc_name': 'struct_int',
                     'name': 'structInt',
                     'type': 'ViInt32'
                 },
                 {
-                    'grpc_name': 'struct_double',
                     'name': 'structDouble',
                     'type': 'ViReal64'
                 }
@@ -62,7 +60,6 @@ config = {
         }
     },
     'linux_rt_support': False,
-    'metadata_version': '2.0',
     'module_name': 'nifake',
     'namespace_component': 'nifake',
     'service_class_prefix': 'NiFake',

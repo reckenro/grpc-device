@@ -133,6 +133,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'CloseExtCal': {
+        'codegen_method': 'public',
         'custom_close_method': True,
         'parameters': [
             {
@@ -188,6 +189,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'DoubleAllTheNums': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -255,6 +257,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ExportAttributeConfigurationBuffer': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -386,6 +389,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAnIviDanceWithATwistArray': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -421,6 +425,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAnIviDanceWithATwistArrayOfCustomType': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -452,6 +457,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAnIviDanceWithATwistArrayWithInputArray': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -491,6 +497,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAnIviDanceWithATwistByteArray': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -547,6 +554,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAnIviDanceWithATwistStringStrlenBug': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -575,6 +583,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetArraySizeForCustomCode': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -590,6 +599,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetArrayUsingIviDance': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -614,6 +624,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetArrayViUInt8WithEnum': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -639,6 +650,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViBoolean': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -664,6 +676,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViInt32': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -689,6 +702,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViInt64': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -714,6 +728,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViReal64': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -739,6 +754,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViSession': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -764,6 +780,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViString': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -798,6 +815,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetBitfieldAsEnumArray': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'bitfield_as_enum_array': 'Bitfield',
@@ -809,6 +827,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetCalDateAndTime': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -849,6 +868,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetCalInterval': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -960,6 +980,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetViInt32Array': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -984,6 +1005,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetViUInt32Array': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -1008,6 +1030,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetViUInt8': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -1023,6 +1046,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ImportAttributeConfigurationBuffer': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -1211,6 +1235,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'MultipleArraysSameSize': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -1262,6 +1287,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'MultipleArraysSameSizeWithOptional': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -1443,6 +1469,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ReadDataWithInOutIviTwist': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'out',
@@ -1463,6 +1490,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ReadDataWithMultipleIviTwistParamSets': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -1903,6 +1931,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'UseATwoDimensionParameter': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -1936,6 +1965,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ViInt16ArrayInputFunction': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -1960,6 +1990,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ViUInt8ArrayInputFunction': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',
@@ -1984,6 +2015,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ViUInt8ArrayOutputFunction': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'direction': 'in',

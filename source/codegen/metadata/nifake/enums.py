@@ -2,6 +2,7 @@
 # This file is generated from NI-FAKE API metadata version 22.8.0d9999
 enums = {
     'Bitfield': {
+        'codegen_method': 'public',
         'values': [
             {
                 'name': 'FLAG_A',
@@ -22,6 +23,7 @@ enums = {
         ]
     },
     'Color': {
+        'codegen_method': 'public',
         'values': [
             {
                 'name': 'RED',
@@ -42,6 +44,7 @@ enums = {
         ]
     },
     'FloatEnum': {
+        'codegen_method': 'public',
         'generate-mappings': True,
         'values': [
             {
@@ -67,6 +70,7 @@ enums = {
         ]
     },
     'MobileOSNames': {
+        'codegen_method': 'public',
         'generate-mappings': True,
         'values': [
             {
@@ -84,6 +88,7 @@ enums = {
         ]
     },
     'Turtle': {
+        'codegen_method': 'public',
         'values': [
             {
                 'name': 'LEONARDO',

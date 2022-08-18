@@ -165,6 +165,7 @@ ENUM_SCHEMA = Schema(
         Optional("enum-value-prefix"): str,
         Optional("generate-mapping-type"): bool,
         Optional("force-include"): bool,
+        Optional("codegen_method"): str,
     }
 )
 
