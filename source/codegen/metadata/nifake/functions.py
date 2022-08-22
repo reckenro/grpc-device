@@ -5,7 +5,9 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             }
@@ -16,17 +18,29 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'count',
+                'determine_size_from': [
+                    'delays'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'count',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'delays',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'delays',
                 'size': {
                     'mechanism': 'len',
@@ -41,12 +55,17 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'sessionCount',
                 'direction': 'in',
+                'grpc_type': 'uint32',
+                'is_size_param': True,
                 'name': 'sessionCount',
                 'type': 'ViUInt32'
             },
             {
+                'cppName': 'sessionArray',
                 'direction': 'in',
+                'grpc_type': 'repeated nidevice_grpc.Session',
                 'name': 'sessionArray',
                 'size': {
                     'mechanism': 'passed-in',
@@ -61,17 +80,29 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'arrayLen',
+                'determine_size_from': [
+                    'uInt32Array'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'arrayLen',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'uInt32Array',
                 'direction': 'in',
+                'grpc_type': 'repeated uint32',
                 'name': 'uInt32Array',
                 'size': {
                     'mechanism': 'len',
@@ -86,17 +117,24 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfElements',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'numberOfElements',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'anArray',
                 'direction': 'in',
+                'grpc_type': 'repeated bool',
                 'name': 'anArray',
                 'size': {
                     'mechanism': 'passed-in',
@@ -111,17 +149,24 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfElements',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'numberOfElements',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'anArray',
                 'direction': 'out',
+                'grpc_type': 'repeated bool',
                 'name': 'anArray',
                 'size': {
                     'mechanism': 'passed-in',
@@ -137,12 +182,16 @@ functions = {
         'custom_close_method': True,
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'action',
                 'direction': 'in',
+                'grpc_type': 'sint32',
                 'name': 'action',
                 'type': 'ViInt32'
             }
@@ -153,12 +202,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'reserved',
                 'direction': 'in',
+                'grpc_type': 'bool',
                 'hardcoded_value': 'nullptr',
                 'include_in_proto': False,
                 'name': 'reserved',
@@ -172,12 +225,22 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'numberOfListAttributes',
+                'determine_size_from': [
+                    'listAttributeIds'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'numberOfListAttributes',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'listAttributeIds',
                 'direction': 'in',
+                'grpc_type': 'repeated NiFakeAttribute',
                 'name': 'listAttributeIds',
                 'size': {
                     'mechanism': 'len',
@@ -192,17 +255,29 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberCount',
+                'determine_size_from': [
+                    'numbers'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'numberCount',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'numbers',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'numbers',
                 'size': {
                     'mechanism': 'len',
@@ -217,18 +292,25 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfElements',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'numberOfElements',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'anArray',
                 'direction': 'out',
                 'enum': 'Turtle',
+                'grpc_type': 'repeated sint32',
                 'name': 'anArray',
                 'size': {
                     'mechanism': 'passed-in',
@@ -243,13 +325,17 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aTurtle',
                 'direction': 'in',
                 'enum': 'Turtle',
+                'grpc_type': 'sint32',
                 'name': 'aTurtle',
                 'type': 'ViInt16'
             }
@@ -260,17 +346,25 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'sizeInBytes',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'sizeInBytes',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'configuration',
                 'direction': 'out',
+                'grpc_type': 'bytes',
                 'name': 'configuration',
                 'size': {
                     'mechanism': 'ivi-dance',
@@ -285,17 +379,24 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfSamples',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'numberOfSamples',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'waveformData',
                 'direction': 'out',
+                'grpc_type': 'repeated double',
                 'name': 'waveformData',
                 'size': {
                     'mechanism': 'passed-in',
@@ -304,7 +405,9 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'actualNumberOfSamples',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'actualNumberOfSamples',
                 'type': 'ViInt32'
             }
@@ -315,12 +418,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aBoolean',
                 'direction': 'out',
+                'grpc_type': 'bool',
                 'name': 'aBoolean',
                 'type': 'ViBoolean'
             }
@@ -331,12 +438,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aNumber',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'aNumber',
                 'type': 'ViInt16'
             }
@@ -347,12 +458,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aString',
                 'direction': 'out',
+                'grpc_type': 'string',
                 'name': 'aString',
                 'size': {
                     'mechanism': 'fixed',
@@ -367,17 +482,25 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'bufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'aString',
                 'direction': 'out',
+                'grpc_type': 'string',
                 'name': 'aString',
                 'size': {
                     'mechanism': 'ivi-dance',
@@ -392,22 +515,32 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aString',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'aString',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'bufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'arrayOut',
                 'direction': 'out',
+                'grpc_type': 'repeated sint32',
                 'name': 'arrayOut',
                 'size': {
                     'mechanism': 'ivi-dance-with-a-twist',
@@ -417,7 +550,9 @@ functions = {
                 'type': 'ViInt32[]'
             },
             {
+                'cppName': 'actualSize',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'actualSize',
                 'type': 'ViInt32'
             }
@@ -428,16 +563,23 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'bufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'arrayOut',
                 'direction': 'out',
                 'grpc_type': 'repeated FakeCustomStruct',
                 'name': 'arrayOut',
@@ -449,7 +591,9 @@ functions = {
                 'type': 'struct CustomStruct[]'
             },
             {
+                'cppName': 'actualSize',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'actualSize',
                 'type': 'ViInt32'
             }
@@ -460,7 +604,9 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'dataIn',
                 'direction': 'in',
+                'grpc_type': 'repeated sint32',
                 'name': 'dataIn',
                 'size': {
                     'mechanism': 'len',
@@ -469,17 +615,31 @@ functions = {
                 'type': 'ViInt32[]'
             },
             {
+                'cppName': 'arraySizeIn',
+                'determine_size_from': [
+                    'dataIn'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'arraySizeIn',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'bufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'arrayOut',
                 'direction': 'out',
+                'grpc_type': 'repeated sint32',
                 'name': 'arrayOut',
                 'size': {
                     'mechanism': 'ivi-dance-with-a-twist',
@@ -489,7 +649,9 @@ functions = {
                 'type': 'ViInt32[]'
             },
             {
+                'cppName': 'actualSize',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'actualSize',
                 'type': 'ViInt32'
             }
@@ -500,12 +662,18 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'bufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'arrayOut',
                 'direction': 'out',
+                'grpc_type': 'bytes',
                 'name': 'arrayOut',
                 'size': {
                     'mechanism': 'ivi-dance-with-a-twist',
@@ -515,7 +683,9 @@ functions = {
                 'type': 'ViInt8[]'
             },
             {
+                'cppName': 'actualSize',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'actualSize',
                 'type': 'ViInt32'
             }
@@ -526,17 +696,25 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'bufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'aString',
                 'direction': 'out',
+                'grpc_type': 'string',
                 'name': 'aString',
                 'size': {
                     'mechanism': 'ivi-dance-with-a-twist',
@@ -546,7 +724,9 @@ functions = {
                 'type': 'ViChar[]'
             },
             {
+                'cppName': 'actualSize',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'actualSize',
                 'type': 'ViInt32'
             }
@@ -557,12 +737,18 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'bufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'stringOut',
                 'direction': 'out',
+                'grpc_type': 'string',
                 'name': 'stringOut',
                 'size': {
                     'mechanism': 'ivi-dance-with-a-twist',
@@ -575,7 +761,9 @@ functions = {
                 'type': 'ViChar[]'
             },
             {
+                'cppName': 'actualSize',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'actualSize',
                 'type': 'ViInt32'
             }
@@ -586,12 +774,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'sizeOut',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'sizeOut',
                 'type': 'ViInt32'
             }
@@ -602,17 +794,25 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'arraySize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'arraySize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'arrayOut',
                 'direction': 'out',
+                'grpc_type': 'repeated double',
                 'name': 'arrayOut',
                 'size': {
                     'mechanism': 'ivi-dance',
@@ -627,18 +827,25 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'arrayLen',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'arrayLen',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'uInt8EnumArray',
                 'direction': 'out',
                 'enum': 'Color',
+                'grpc_type': 'bytes',
                 'name': 'uInt8EnumArray',
                 'size': {
                     'mechanism': 'passed-in',
@@ -653,22 +860,30 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'out',
+                'grpc_type': 'bool',
                 'name': 'attributeValue',
                 'type': 'ViBoolean'
             }
@@ -679,22 +894,30 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'attributeValue',
                 'type': 'ViInt32'
             }
@@ -705,22 +928,30 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'out',
+                'grpc_type': 'int64',
                 'name': 'attributeValue',
                 'type': 'ViInt64'
             }
@@ -731,22 +962,30 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'out',
+                'grpc_type': 'double',
                 'name': 'attributeValue',
                 'type': 'ViReal64'
             }
@@ -757,22 +996,30 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'out',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'attributeValue',
                 'type': 'ViSession'
             }
@@ -783,27 +1030,39 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'bufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'out',
+                'grpc_type': 'string',
                 'name': 'attributeValue',
                 'size': {
                     'mechanism': 'ivi-dance',
@@ -819,7 +1078,9 @@ functions = {
         'parameters': [
             {
                 'bitfield_as_enum_array': 'Bitfield',
+                'cppName': 'flags',
                 'direction': 'out',
+                'grpc_type': 'int64',
                 'name': 'flags',
                 'type': 'ViInt64'
             }
@@ -830,37 +1091,51 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'calType',
                 'direction': 'in',
+                'grpc_type': 'sint32',
                 'name': 'calType',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'month',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'month',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'day',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'day',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'year',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'year',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'hour',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'hour',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'minute',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'minute',
                 'type': 'ViInt32'
             }
@@ -871,12 +1146,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'months',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'months',
                 'type': 'ViInt32'
             }
@@ -887,11 +1166,14 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'cs',
                 'direction': 'out',
                 'grpc_type': 'FakeCustomStruct',
                 'name': 'cs',
@@ -904,16 +1186,22 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfElements',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'numberOfElements',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'cs',
                 'direction': 'out',
                 'grpc_type': 'repeated FakeCustomStruct',
                 'name': 'cs',
@@ -930,18 +1218,24 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aQuantity',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'aQuantity',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'aTurtle',
                 'direction': 'out',
                 'enum': 'Turtle',
+                'grpc_type': 'sint32',
                 'name': 'aTurtle',
                 'type': 'ViInt16'
             }
@@ -953,22 +1247,32 @@ functions = {
         'is_error_handling': True,
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'errorCode',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'errorCode',
                 'type': 'ViStatus'
             },
             {
+                'cppName': 'bufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'description',
                 'direction': 'out',
+                'grpc_type': 'string',
                 'name': 'description',
                 'size': {
                     'mechanism': 'ivi-dance',
@@ -983,17 +1287,24 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'arrayLen',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'arrayLen',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'int32Array',
                 'direction': 'out',
+                'grpc_type': 'repeated sint32',
                 'name': 'int32Array',
                 'size': {
                     'mechanism': 'passed-in',
@@ -1008,17 +1319,24 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'arrayLen',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'arrayLen',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'uInt32Array',
                 'direction': 'out',
+                'grpc_type': 'repeated uint32',
                 'name': 'uInt32Array',
                 'size': {
                     'mechanism': 'passed-in',
@@ -1033,12 +1351,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aUint8Number',
                 'direction': 'out',
+                'grpc_type': 'uint32',
                 'name': 'aUint8Number',
                 'type': 'ViUInt8'
             }
@@ -1049,17 +1371,29 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'sizeInBytes',
+                'determine_size_from': [
+                    'configuration'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'sizeInBytes',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'configuration',
                 'direction': 'in',
+                'grpc_type': 'bytes',
                 'name': 'configuration',
                 'size': {
                     'mechanism': 'len',
@@ -1076,17 +1410,23 @@ functions = {
         'init_method': True,
         'parameters': [
             {
+                'cppName': 'resourceName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'resourceName',
                 'type': 'ViRsrc'
             },
             {
+                'cppName': 'calibrationPassword',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'calibrationPassword',
                 'type': 'ViString'
             },
             {
+                'cppName': 'vi',
                 'direction': 'out',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             }
@@ -1098,27 +1438,37 @@ functions = {
         'init_method': True,
         'parameters': [
             {
+                'cppName': 'resourceName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'resourceName',
                 'type': 'ViString'
             },
             {
+                'cppName': 'idQuery',
                 'direction': 'in',
+                'grpc_type': 'bool',
                 'name': 'idQuery',
                 'type': 'ViBoolean'
             },
             {
+                'cppName': 'resetDevice',
                 'direction': 'in',
+                'grpc_type': 'bool',
                 'name': 'resetDevice',
                 'type': 'ViBoolean'
             },
             {
+                'cppName': 'optionString',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'optionString',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'vi',
                 'direction': 'out',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             }
@@ -1130,38 +1480,47 @@ functions = {
         'init_method': True,
         'parameters': [
             {
+                'cppName': 'resourceName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'resourceName',
                 'type': 'ViRsrc'
             },
             {
+                'cppName': 'vi',
                 'direction': 'out',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'stringArg',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'include_in_proto': False,
                 'name': 'stringArg',
                 'repeating_argument': True,
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'turtle',
                 'direction': 'in',
                 'enum': 'Turtle',
+                'grpc_type': 'sint32',
                 'include_in_proto': False,
                 'name': 'turtle',
                 'repeating_argument': True,
                 'type': 'ViInt16'
             },
             {
+                'cppName': 'nameAndTurtle',
                 'direction': 'in',
                 'grpc_type': 'repeated StringAndTurtle',
                 'is_compound_type': True,
                 'max_length': 3,
                 'name': 'nameAndTurtle',
                 'repeated_var_args': True,
-                'type': 'None'
+                'type': '...'
             }
         ],
         'returns': 'ViStatus'
@@ -1170,7 +1529,9 @@ functions = {
         'codegen_method': 'private',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             }
@@ -1181,17 +1542,24 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'outputArraySize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'outputArraySize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'outputArray',
                 'direction': 'out',
+                'grpc_type': 'repeated double',
                 'name': 'outputArray',
                 'size': {
                     'mechanism': 'passed-in',
@@ -1200,7 +1568,9 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'outputArrayOfFixedLength',
                 'direction': 'out',
+                'grpc_type': 'repeated double',
                 'name': 'outputArrayOfFixedLength',
                 'size': {
                     'mechanism': 'fixed',
@@ -1209,12 +1579,23 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'inputArraySizes',
+                'determine_size_from': [
+                    'inputArrayOfFloats',
+                    'inputArrayOfIntegers'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'inputArraySizes',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'inputArrayOfFloats',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'inputArrayOfFloats',
                 'size': {
                     'mechanism': 'len',
@@ -1223,7 +1604,9 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'inputArrayOfIntegers',
                 'direction': 'in',
+                'grpc_type': 'repeated sint32',
                 'name': 'inputArrayOfIntegers',
                 'size': {
                     'mechanism': 'len',
@@ -1238,12 +1621,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'values1',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'values1',
                 'size': {
                     'mechanism': 'len',
@@ -1252,7 +1639,9 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'values2',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'values2',
                 'size': {
                     'mechanism': 'len',
@@ -1261,7 +1650,9 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'values3',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'values3',
                 'size': {
                     'mechanism': 'len',
@@ -1270,7 +1661,9 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'values4',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'values4',
                 'size': {
                     'mechanism': 'len',
@@ -1279,7 +1672,18 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'size',
+                'determine_size_from': [
+                    'values1',
+                    'values2',
+                    'values3',
+                    'values4'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'size',
                 'type': 'ViInt32'
             }
@@ -1290,12 +1694,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'values1',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'values1',
                 'size': {
                     'mechanism': 'len',
@@ -1307,7 +1715,9 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'values2',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'values2',
                 'size': {
                     'mechanism': 'len',
@@ -1319,7 +1729,9 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'values3',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'values3',
                 'size': {
                     'mechanism': 'len',
@@ -1331,7 +1743,9 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'values4',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'values4',
                 'size': {
                     'mechanism': 'len',
@@ -1343,6 +1757,7 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'values5',
                 'direction': 'in',
                 'grpc_type': 'repeated FakeCustomStruct',
                 'name': 'values5',
@@ -1356,7 +1771,19 @@ functions = {
                 'type': 'struct CustomStruct[]'
             },
             {
+                'cppName': 'size',
+                'determine_size_from': [
+                    'values1',
+                    'values2',
+                    'values3',
+                    'values4',
+                    'values5'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': True,
                 'name': 'size',
                 'type': 'ViInt32'
             }
@@ -1367,12 +1794,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aNumber',
                 'direction': 'in',
+                'grpc_type': 'sint32',
                 'name': 'aNumber',
                 'type': 'ViInt32'
             }
@@ -1383,49 +1814,73 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aBoolean',
                 'direction': 'in',
+                'grpc_type': 'bool',
                 'name': 'aBoolean',
                 'type': 'ViBoolean'
             },
             {
+                'cppName': 'anInt32',
                 'direction': 'in',
+                'grpc_type': 'sint32',
                 'name': 'anInt32',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'anInt64',
                 'direction': 'in',
+                'grpc_type': 'int64',
                 'name': 'anInt64',
                 'type': 'ViInt64'
             },
             {
+                'cppName': 'anIntEnum',
                 'direction': 'in',
                 'enum': 'Turtle',
+                'grpc_type': 'sint32',
                 'name': 'anIntEnum',
                 'type': 'ViInt16'
             },
             {
+                'cppName': 'aFloat',
                 'direction': 'in',
+                'grpc_type': 'double',
                 'name': 'aFloat',
                 'type': 'ViReal64'
             },
             {
+                'cppName': 'aFloatEnum',
                 'direction': 'in',
-                'enum': 'FloatEnum',
+                'grpc_type': 'double',
+                'mapped-enum': 'FloatEnum',
                 'name': 'aFloatEnum',
                 'type': 'ViReal64'
             },
             {
+                'cppName': 'stringSize',
+                'determine_size_from': [
+                    'aString'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'stringSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'aString',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'aString',
                 'size': {
                     'mechanism': 'len',
@@ -1440,7 +1895,9 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             }
@@ -1451,17 +1908,23 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'maximumTime',
                 'direction': 'in',
+                'grpc_type': 'double',
                 'name': 'maximumTime',
                 'type': 'ViReal64'
             },
             {
+                'cppName': 'reading',
                 'direction': 'out',
+                'grpc_type': 'double',
                 'name': 'reading',
                 'type': 'ViReal64'
             }
@@ -1472,7 +1935,9 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'data',
                 'direction': 'out',
+                'grpc_type': 'repeated sint32',
                 'name': 'data',
                 'size': {
                     'mechanism': 'ivi-dance-with-a-twist',
@@ -1482,7 +1947,10 @@ functions = {
                 'type': 'ViInt32[]'
             },
             {
+                'cppName': 'bufferSize',
                 'direction': 'out',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             }
@@ -1493,12 +1961,18 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'bufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'bufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'arrayOut',
                 'direction': 'out',
+                'grpc_type': 'repeated sint32',
                 'name': 'arrayOut',
                 'size': {
                     'mechanism': 'ivi-dance-with-a-twist',
@@ -1508,17 +1982,25 @@ functions = {
                 'type': 'ViInt32[]'
             },
             {
+                'cppName': 'actualSize',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'actualSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'otherBufferSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'otherBufferSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'otherArrayOut',
                 'direction': 'out',
+                'grpc_type': 'repeated sint32',
                 'name': 'otherArrayOut',
                 'size': {
                     'mechanism': 'ivi-dance-with-a-twist',
@@ -1528,7 +2010,9 @@ functions = {
                 'type': 'ViInt32[]'
             },
             {
+                'cppName': 'otherActualSize',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'otherActualSize',
                 'type': 'ViInt32'
             }
@@ -1539,22 +2023,30 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'maximumTime',
                 'direction': 'in',
+                'grpc_type': 'sint32',
                 'name': 'maximumTime',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'reading',
                 'direction': 'out',
+                'grpc_type': 'double',
                 'name': 'reading',
                 'type': 'ViReal64'
             }
@@ -1565,17 +2057,23 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aNumber',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'aNumber',
                 'type': 'ViInt16'
             },
             {
+                'cppName': 'aString',
                 'direction': 'out',
+                'grpc_type': 'string',
                 'name': 'aString',
                 'size': {
                     'mechanism': 'fixed',
@@ -1590,12 +2088,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'timedelta',
                 'direction': 'out',
+                'grpc_type': 'double',
                 'name': 'timedelta',
                 'type': 'ViReal64'
             }
@@ -1606,17 +2108,24 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfElements',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'numberOfElements',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'timedeltas',
                 'direction': 'out',
+                'grpc_type': 'repeated double',
                 'name': 'timedeltas',
                 'size': {
                     'mechanism': 'passed-in',
@@ -1631,49 +2140,68 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aBoolean',
                 'direction': 'out',
+                'grpc_type': 'bool',
                 'name': 'aBoolean',
                 'type': 'ViBoolean'
             },
             {
+                'cppName': 'anInt32',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'anInt32',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'anInt64',
                 'direction': 'out',
+                'grpc_type': 'int64',
                 'name': 'anInt64',
                 'type': 'ViInt64'
             },
             {
+                'cppName': 'anIntEnum',
                 'direction': 'out',
                 'enum': 'Turtle',
+                'grpc_type': 'sint32',
                 'name': 'anIntEnum',
                 'type': 'ViInt16'
             },
             {
+                'cppName': 'aFloat',
                 'direction': 'out',
+                'grpc_type': 'double',
                 'name': 'aFloat',
                 'type': 'ViReal64'
             },
             {
+                'cppName': 'aFloatEnum',
                 'direction': 'out',
-                'enum': 'FloatEnum',
+                'grpc_type': 'double',
+                'mapped-enum': 'FloatEnum',
                 'name': 'aFloatEnum',
                 'type': 'ViReal64'
             },
             {
+                'cppName': 'arraySize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'arraySize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'anArray',
                 'direction': 'out',
+                'grpc_type': 'repeated double',
                 'name': 'anArray',
                 'size': {
                     'mechanism': 'passed-in',
@@ -1682,12 +2210,18 @@ functions = {
                 'type': 'ViReal64[]'
             },
             {
+                'cppName': 'stringSize',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
                 'name': 'stringSize',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'aString',
                 'direction': 'out',
+                'grpc_type': 'string',
                 'name': 'aString',
                 'size': {
                     'mechanism': 'ivi-dance',
@@ -1702,22 +2236,30 @@ functions = {
         'codegen_method': 'private',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'in',
+                'grpc_type': 'bool',
                 'name': 'attributeValue',
                 'type': 'ViBoolean'
             }
@@ -1728,22 +2270,31 @@ functions = {
         'codegen_method': 'private',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'in',
+                'enum': 'NiFakeInt32AttributeValues',
+                'grpc_type': 'sint32',
                 'name': 'attributeValue',
                 'type': 'ViInt32'
             }
@@ -1754,23 +2305,31 @@ functions = {
         'codegen_method': 'private',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'in',
-                'name': 'attributeValue',
+                'grpc_type': 'int64',
+                'name': 'attributeValue_raw',
                 'type': 'ViInt64'
             }
         ],
@@ -1780,22 +2339,31 @@ functions = {
         'codegen_method': 'private',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'in',
+                'grpc_type': 'double',
+                'mapped-enum': 'NiFakeReal64AttributeValuesMapped',
                 'name': 'attributeValue',
                 'type': 'ViReal64'
             }
@@ -1806,23 +2374,31 @@ functions = {
         'codegen_method': 'private',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'channelName',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'channelName',
                 'type': 'ViConstString'
             },
             {
+                'cppName': 'attributeId',
                 'direction': 'in',
+                'grpc_type': 'NiFakeAttribute',
                 'name': 'attributeId',
                 'type': 'ViAttr'
             },
             {
+                'cppName': 'attributeValue',
                 'direction': 'in',
-                'name': 'attributeValue',
+                'grpc_type': 'string',
+                'name': 'attributeValue_raw',
                 'type': 'ViConstString'
             }
         ],
@@ -1832,11 +2408,14 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'cs',
                 'direction': 'in',
                 'grpc_type': 'FakeCustomStruct',
                 'name': 'cs',
@@ -1849,16 +2428,27 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfElements',
+                'determine_size_from': [
+                    'cs'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'numberOfElements',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'cs',
                 'direction': 'in',
                 'grpc_type': 'repeated FakeCustomStruct',
                 'name': 'cs',
@@ -1875,13 +2465,17 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aMobileOSName',
                 'direction': 'in',
-                'enum': 'MobileOSNames',
+                'grpc_type': 'string',
+                'mapped-enum': 'MobileOSNames',
                 'name': 'aMobileOSName',
                 'type': 'ViConstString'
             }
@@ -1892,17 +2486,23 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'aNumber',
                 'direction': 'in',
+                'grpc_type': 'double',
                 'name': 'aNumber',
                 'type': 'ViReal64'
             },
             {
+                'cppName': 'aString',
                 'direction': 'in',
+                'grpc_type': 'string',
                 'name': 'aString',
                 'type': 'ViString'
             }
@@ -1913,17 +2513,23 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'input',
                 'direction': 'in',
+                'grpc_type': 'int64',
                 'name': 'input',
                 'type': 'ViInt64'
             },
             {
+                'cppName': 'output',
                 'direction': 'out',
+                'grpc_type': 'int64',
                 'name': 'output',
                 'type': 'ViInt64'
             }
@@ -1934,12 +2540,16 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'array',
                 'direction': 'in',
+                'grpc_type': 'repeated sint32',
                 'name': 'array',
                 'size': {
                     'mechanism': 'two-dimension',
@@ -1948,7 +2558,9 @@ functions = {
                 'type': 'ViInt32[]'
             },
             {
+                'cppName': 'arrayLengths',
                 'direction': 'in',
+                'grpc_type': 'repeated sint32',
                 'name': 'arrayLengths',
                 'size': {
                     'mechanism': 'len',
@@ -1957,7 +2569,15 @@ functions = {
                 'type': 'ViInt32[]'
             },
             {
+                'cppName': 'arraySize',
+                'determine_size_from': [
+                    'arrayLengths'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'arraySize',
                 'type': 'ViInt32'
             }
@@ -1968,17 +2588,29 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfElements',
+                'determine_size_from': [
+                    'anArray'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'numberOfElements',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'anArray',
                 'direction': 'in',
+                'grpc_type': 'repeated sint32',
                 'name': 'anArray',
                 'size': {
                     'mechanism': 'len',
@@ -1993,17 +2625,24 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfElements',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'numberOfElements',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'anArray',
                 'direction': 'in',
+                'grpc_type': 'bytes',
                 'name': 'anArray',
                 'size': {
                     'mechanism': 'passed-in',
@@ -2018,17 +2657,24 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfElements',
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'is_size_param': True,
                 'name': 'numberOfElements',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'anArray',
                 'direction': 'out',
+                'grpc_type': 'bytes',
                 'name': 'anArray',
                 'size': {
                     'mechanism': 'passed-in',
@@ -2043,17 +2689,29 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'numberOfSamples',
+                'determine_size_from': [
+                    'waveform'
+                ],
                 'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'linked_params_are_optional': False,
                 'name': 'numberOfSamples',
                 'type': 'ViInt32'
             },
             {
+                'cppName': 'waveform',
                 'direction': 'in',
+                'grpc_type': 'repeated double',
                 'name': 'waveform',
                 'size': {
                     'mechanism': 'len',
@@ -2068,7 +2726,9 @@ functions = {
         'codegen_method': 'public',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             }
@@ -2080,17 +2740,23 @@ functions = {
         'is_error_handling': True,
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'errorCode',
                 'direction': 'in',
+                'grpc_type': 'sint32',
                 'name': 'errorCode',
                 'type': 'ViStatus'
             },
             {
+                'cppName': 'errorMessage',
                 'direction': 'out',
+                'grpc_type': 'string',
                 'name': 'errorMessage',
                 'size': {
                     'mechanism': 'fixed',
@@ -2105,17 +2771,23 @@ functions = {
         'codegen_method': 'private',
         'parameters': [
             {
+                'cppName': 'vi',
                 'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
             },
             {
+                'cppName': 'selfTestResult',
                 'direction': 'out',
+                'grpc_type': 'sint32',
                 'name': 'selfTestResult',
                 'type': 'ViInt16'
             },
             {
+                'cppName': 'selfTestMessage',
                 'direction': 'out',
+                'grpc_type': 'string',
                 'name': 'selfTestMessage',
                 'size': {
                     'mechanism': 'fixed',

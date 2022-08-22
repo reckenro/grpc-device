@@ -86,6 +86,11 @@ PARAM_SCHEMA = Schema(
         Optional("additional_arguments_to_output_allocation"): [str],
         Optional("proto_only"): bool,
         Optional("input_passed_by_ptr"): bool,
+        Optional("cppName"): str,
+        Optional("determine_size_from"): [str],
+        Optional("is_size_param"): bool,
+        Optional("linked_params_are_optional"): bool,
+        Optional("mapped-enum"): str,
     }
 )
 
