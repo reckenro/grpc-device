@@ -21,46 +21,15 @@ NiDCPowerLibrary::NiDCPowerLibrary() : shared_library_(kLibraryName)
   if (!loaded) {
     return;
   }
-  function_pointers_.AbortWithChannels = reinterpret_cast<AbortWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_AbortWithChannels"));
-  function_pointers_.CommitWithChannels = reinterpret_cast<CommitWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_CommitWithChannels"));
-  function_pointers_.ConfigureDigitalEdgeMeasureTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgeMeasureTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeMeasureTriggerWithChannels"));
-  function_pointers_.ConfigureDigitalEdgePulseTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgePulseTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgePulseTriggerWithChannels"));
-  function_pointers_.ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels"));
-  function_pointers_.ConfigureDigitalEdgeShutdownTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgeShutdownTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeShutdownTriggerWithChannels"));
-  function_pointers_.ConfigureDigitalEdgeSourceTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgeSourceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeSourceTriggerWithChannels"));
-  function_pointers_.ConfigureDigitalEdgeStartTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgeStartTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeStartTriggerWithChannels"));
-  function_pointers_.ConfigureOvp = reinterpret_cast<ConfigureOvpPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureOVP"));
-  function_pointers_.ConfigureSoftwareEdgeMeasureTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgeMeasureTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeMeasureTriggerWithChannels"));
-  function_pointers_.ConfigureSoftwareEdgePulseTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgePulseTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgePulseTriggerWithChannels"));
-  function_pointers_.ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels"));
-  function_pointers_.ConfigureSoftwareEdgeShutdownTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgeShutdownTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeShutdownTriggerWithChannels"));
-  function_pointers_.ConfigureSoftwareEdgeSourceTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgeSourceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeSourceTriggerWithChannels"));
-  function_pointers_.ConfigureSoftwareEdgeStartTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgeStartTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeStartTriggerWithChannels"));
-  function_pointers_.ConfigureSourceModeWithChannels = reinterpret_cast<ConfigureSourceModeWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSourceModeWithChannels"));
-  function_pointers_.CreateAdvancedSequenceCommitStepWithChannels = reinterpret_cast<CreateAdvancedSequenceCommitStepWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_CreateAdvancedSequenceCommitStepWithChannels"));
-  function_pointers_.CreateAdvancedSequenceStepWithChannels = reinterpret_cast<CreateAdvancedSequenceStepWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_CreateAdvancedSequenceStepWithChannels"));
-  function_pointers_.CreateAdvancedSequenceWithChannels = reinterpret_cast<CreateAdvancedSequenceWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_CreateAdvancedSequenceWithChannels"));
-  function_pointers_.CreateAdvancedSequence = reinterpret_cast<CreateAdvancedSequencePtr>(shared_library_.get_function_pointer("niDCPower_CreateAdvancedSequence"));
-  function_pointers_.DeleteAdvancedSequenceWithChannels = reinterpret_cast<DeleteAdvancedSequenceWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DeleteAdvancedSequenceWithChannels"));
-  function_pointers_.DisablePulseTriggerWithChannels = reinterpret_cast<DisablePulseTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DisablePulseTriggerWithChannels"));
-  function_pointers_.DisableSequenceAdvanceTriggerWithChannels = reinterpret_cast<DisableSequenceAdvanceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DisableSequenceAdvanceTriggerWithChannels"));
-  function_pointers_.DisableShutdownTriggerWithChannels = reinterpret_cast<DisableShutdownTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DisableShutdownTriggerWithChannels"));
-  function_pointers_.DisableSourceTriggerWithChannels = reinterpret_cast<DisableSourceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DisableSourceTriggerWithChannels"));
-  function_pointers_.DisableStartTriggerWithChannels = reinterpret_cast<DisableStartTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DisableStartTriggerWithChannels"));
-  function_pointers_.ErrorQuery = reinterpret_cast<ErrorQueryPtr>(shared_library_.get_function_pointer("niDCPower_error_query"));
-  function_pointers_.ExportSignalWithChannels = reinterpret_cast<ExportSignalWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ExportSignalWithChannels"));
-  function_pointers_.InitializeWithIndependentChannels = reinterpret_cast<InitializeWithIndependentChannelsPtr>(shared_library_.get_function_pointer("niDCPower_InitializeWithIndependentChannels"));
-  function_pointers_.InitiateWithChannels = reinterpret_cast<InitiateWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_InitiateWithChannels"));
-  function_pointers_.InvalidateAllAttributes = reinterpret_cast<InvalidateAllAttributesPtr>(shared_library_.get_function_pointer("niDCPower_InvalidateAllAttributes"));
-  function_pointers_.ResetWithChannels = reinterpret_cast<ResetWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ResetWithChannels"));
-  function_pointers_.SendSoftwareEdgeTriggerWithChannels = reinterpret_cast<SendSoftwareEdgeTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_SendSoftwareEdgeTriggerWithChannels"));
-  function_pointers_.WaitForEventWithChannels = reinterpret_cast<WaitForEventWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_WaitForEventWithChannels"));
   function_pointers_.Abort = reinterpret_cast<AbortPtr>(shared_library_.get_function_pointer("niDCPower_Abort"));
+  function_pointers_.AbortWithChannels = reinterpret_cast<AbortWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_AbortWithChannels"));
   function_pointers_.CalSelfCalibrate = reinterpret_cast<CalSelfCalibratePtr>(shared_library_.get_function_pointer("niDCPower_CalSelfCalibrate"));
+  function_pointers_.ChangeExtCalPassword = reinterpret_cast<ChangeExtCalPasswordPtr>(shared_library_.get_function_pointer("niDCPower_ChangeExtCalPassword"));
   function_pointers_.ClearError = reinterpret_cast<ClearErrorPtr>(shared_library_.get_function_pointer("niDCPower_ClearError"));
   function_pointers_.ClearInterchangeWarnings = reinterpret_cast<ClearInterchangeWarningsPtr>(shared_library_.get_function_pointer("niDCPower_ClearInterchangeWarnings"));
-  function_pointers_.Close = reinterpret_cast<ClosePtr>(shared_library_.get_function_pointer("niDCPower_close"));
+  function_pointers_.CloseExtCal = reinterpret_cast<CloseExtCalPtr>(shared_library_.get_function_pointer("niDCPower_CloseExtCal"));
   function_pointers_.Commit = reinterpret_cast<CommitPtr>(shared_library_.get_function_pointer("niDCPower_Commit"));
+  function_pointers_.CommitWithChannels = reinterpret_cast<CommitWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_CommitWithChannels"));
   function_pointers_.ConfigureApertureTime = reinterpret_cast<ConfigureApertureTimePtr>(shared_library_.get_function_pointer("niDCPower_ConfigureApertureTime"));
   function_pointers_.ConfigureAutoZero = reinterpret_cast<ConfigureAutoZeroPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureAutoZero"));
   function_pointers_.ConfigureCurrentLevel = reinterpret_cast<ConfigureCurrentLevelPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureCurrentLevel"));
@@ -68,12 +37,19 @@ NiDCPowerLibrary::NiDCPowerLibrary() : shared_library_(kLibraryName)
   function_pointers_.ConfigureCurrentLimit = reinterpret_cast<ConfigureCurrentLimitPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureCurrentLimit"));
   function_pointers_.ConfigureCurrentLimitRange = reinterpret_cast<ConfigureCurrentLimitRangePtr>(shared_library_.get_function_pointer("niDCPower_ConfigureCurrentLimitRange"));
   function_pointers_.ConfigureDigitalEdgeMeasureTrigger = reinterpret_cast<ConfigureDigitalEdgeMeasureTriggerPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeMeasureTrigger"));
+  function_pointers_.ConfigureDigitalEdgeMeasureTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgeMeasureTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeMeasureTriggerWithChannels"));
   function_pointers_.ConfigureDigitalEdgePulseTrigger = reinterpret_cast<ConfigureDigitalEdgePulseTriggerPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgePulseTrigger"));
+  function_pointers_.ConfigureDigitalEdgePulseTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgePulseTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgePulseTriggerWithChannels"));
   function_pointers_.ConfigureDigitalEdgeSequenceAdvanceTrigger = reinterpret_cast<ConfigureDigitalEdgeSequenceAdvanceTriggerPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeSequenceAdvanceTrigger"));
+  function_pointers_.ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels"));
+  function_pointers_.ConfigureDigitalEdgeShutdownTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgeShutdownTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeShutdownTriggerWithChannels"));
   function_pointers_.ConfigureDigitalEdgeSourceTrigger = reinterpret_cast<ConfigureDigitalEdgeSourceTriggerPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeSourceTrigger"));
+  function_pointers_.ConfigureDigitalEdgeSourceTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgeSourceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeSourceTriggerWithChannels"));
   function_pointers_.ConfigureDigitalEdgeStartTrigger = reinterpret_cast<ConfigureDigitalEdgeStartTriggerPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeStartTrigger"));
+  function_pointers_.ConfigureDigitalEdgeStartTriggerWithChannels = reinterpret_cast<ConfigureDigitalEdgeStartTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureDigitalEdgeStartTriggerWithChannels"));
   function_pointers_.ConfigureOutputEnabled = reinterpret_cast<ConfigureOutputEnabledPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureOutputEnabled"));
   function_pointers_.ConfigureOutputFunction = reinterpret_cast<ConfigureOutputFunctionPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureOutputFunction"));
+  function_pointers_.ConfigureOutputRange = reinterpret_cast<ConfigureOutputRangePtr>(shared_library_.get_function_pointer("niDCPower_ConfigureOutputRange"));
   function_pointers_.ConfigureOutputResistance = reinterpret_cast<ConfigureOutputResistancePtr>(shared_library_.get_function_pointer("niDCPower_ConfigureOutputResistance"));
   function_pointers_.ConfigurePowerLineFrequency = reinterpret_cast<ConfigurePowerLineFrequencyPtr>(shared_library_.get_function_pointer("niDCPower_ConfigurePowerLineFrequency"));
   function_pointers_.ConfigurePulseBiasCurrentLevel = reinterpret_cast<ConfigurePulseBiasCurrentLevelPtr>(shared_library_.get_function_pointer("niDCPower_ConfigurePulseBiasCurrentLevel"));
@@ -90,26 +66,44 @@ NiDCPowerLibrary::NiDCPowerLibrary() : shared_library_(kLibraryName)
   function_pointers_.ConfigurePulseVoltageLimitRange = reinterpret_cast<ConfigurePulseVoltageLimitRangePtr>(shared_library_.get_function_pointer("niDCPower_ConfigurePulseVoltageLimitRange"));
   function_pointers_.ConfigureSense = reinterpret_cast<ConfigureSensePtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSense"));
   function_pointers_.ConfigureSoftwareEdgeMeasureTrigger = reinterpret_cast<ConfigureSoftwareEdgeMeasureTriggerPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeMeasureTrigger"));
+  function_pointers_.ConfigureSoftwareEdgeMeasureTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgeMeasureTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeMeasureTriggerWithChannels"));
   function_pointers_.ConfigureSoftwareEdgePulseTrigger = reinterpret_cast<ConfigureSoftwareEdgePulseTriggerPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgePulseTrigger"));
+  function_pointers_.ConfigureSoftwareEdgePulseTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgePulseTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgePulseTriggerWithChannels"));
   function_pointers_.ConfigureSoftwareEdgeSequenceAdvanceTrigger = reinterpret_cast<ConfigureSoftwareEdgeSequenceAdvanceTriggerPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeSequenceAdvanceTrigger"));
+  function_pointers_.ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels"));
+  function_pointers_.ConfigureSoftwareEdgeShutdownTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgeShutdownTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeShutdownTriggerWithChannels"));
   function_pointers_.ConfigureSoftwareEdgeSourceTrigger = reinterpret_cast<ConfigureSoftwareEdgeSourceTriggerPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeSourceTrigger"));
+  function_pointers_.ConfigureSoftwareEdgeSourceTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgeSourceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeSourceTriggerWithChannels"));
   function_pointers_.ConfigureSoftwareEdgeStartTrigger = reinterpret_cast<ConfigureSoftwareEdgeStartTriggerPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeStartTrigger"));
+  function_pointers_.ConfigureSoftwareEdgeStartTriggerWithChannels = reinterpret_cast<ConfigureSoftwareEdgeStartTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSoftwareEdgeStartTriggerWithChannels"));
   function_pointers_.ConfigureSourceMode = reinterpret_cast<ConfigureSourceModePtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSourceMode"));
+  function_pointers_.ConfigureSourceModeWithChannels = reinterpret_cast<ConfigureSourceModeWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureSourceModeWithChannels"));
   function_pointers_.ConfigureVoltageLevel = reinterpret_cast<ConfigureVoltageLevelPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureVoltageLevel"));
   function_pointers_.ConfigureVoltageLevelRange = reinterpret_cast<ConfigureVoltageLevelRangePtr>(shared_library_.get_function_pointer("niDCPower_ConfigureVoltageLevelRange"));
   function_pointers_.ConfigureVoltageLimit = reinterpret_cast<ConfigureVoltageLimitPtr>(shared_library_.get_function_pointer("niDCPower_ConfigureVoltageLimit"));
   function_pointers_.ConfigureVoltageLimitRange = reinterpret_cast<ConfigureVoltageLimitRangePtr>(shared_library_.get_function_pointer("niDCPower_ConfigureVoltageLimitRange"));
+  function_pointers_.ConnectInternalReference = reinterpret_cast<ConnectInternalReferencePtr>(shared_library_.get_function_pointer("niDCPower_ConnectInternalReference"));
+  function_pointers_.CreateAdvancedSequence = reinterpret_cast<CreateAdvancedSequencePtr>(shared_library_.get_function_pointer("niDCPower_CreateAdvancedSequence"));
+  function_pointers_.CreateAdvancedSequenceCommitStepWithChannels = reinterpret_cast<CreateAdvancedSequenceCommitStepWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_CreateAdvancedSequenceCommitStepWithChannels"));
   function_pointers_.CreateAdvancedSequenceStep = reinterpret_cast<CreateAdvancedSequenceStepPtr>(shared_library_.get_function_pointer("niDCPower_CreateAdvancedSequenceStep"));
+  function_pointers_.CreateAdvancedSequenceStepWithChannels = reinterpret_cast<CreateAdvancedSequenceStepWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_CreateAdvancedSequenceStepWithChannels"));
+  function_pointers_.CreateAdvancedSequenceWithChannels = reinterpret_cast<CreateAdvancedSequenceWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_CreateAdvancedSequenceWithChannels"));
   function_pointers_.DeleteAdvancedSequence = reinterpret_cast<DeleteAdvancedSequencePtr>(shared_library_.get_function_pointer("niDCPower_DeleteAdvancedSequence"));
+  function_pointers_.DeleteAdvancedSequenceWithChannels = reinterpret_cast<DeleteAdvancedSequenceWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DeleteAdvancedSequenceWithChannels"));
   function_pointers_.Disable = reinterpret_cast<DisablePtr>(shared_library_.get_function_pointer("niDCPower_Disable"));
   function_pointers_.DisablePulseTrigger = reinterpret_cast<DisablePulseTriggerPtr>(shared_library_.get_function_pointer("niDCPower_DisablePulseTrigger"));
+  function_pointers_.DisablePulseTriggerWithChannels = reinterpret_cast<DisablePulseTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DisablePulseTriggerWithChannels"));
   function_pointers_.DisableSequenceAdvanceTrigger = reinterpret_cast<DisableSequenceAdvanceTriggerPtr>(shared_library_.get_function_pointer("niDCPower_DisableSequenceAdvanceTrigger"));
+  function_pointers_.DisableSequenceAdvanceTriggerWithChannels = reinterpret_cast<DisableSequenceAdvanceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DisableSequenceAdvanceTriggerWithChannels"));
+  function_pointers_.DisableShutdownTriggerWithChannels = reinterpret_cast<DisableShutdownTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DisableShutdownTriggerWithChannels"));
   function_pointers_.DisableSourceTrigger = reinterpret_cast<DisableSourceTriggerPtr>(shared_library_.get_function_pointer("niDCPower_DisableSourceTrigger"));
+  function_pointers_.DisableSourceTriggerWithChannels = reinterpret_cast<DisableSourceTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DisableSourceTriggerWithChannels"));
   function_pointers_.DisableStartTrigger = reinterpret_cast<DisableStartTriggerPtr>(shared_library_.get_function_pointer("niDCPower_DisableStartTrigger"));
-  function_pointers_.ErrorMessage = reinterpret_cast<ErrorMessagePtr>(shared_library_.get_function_pointer("niDCPower_error_message"));
+  function_pointers_.DisableStartTriggerWithChannels = reinterpret_cast<DisableStartTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_DisableStartTriggerWithChannels"));
   function_pointers_.ExportAttributeConfigurationBuffer = reinterpret_cast<ExportAttributeConfigurationBufferPtr>(shared_library_.get_function_pointer("niDCPower_ExportAttributeConfigurationBuffer"));
   function_pointers_.ExportAttributeConfigurationFile = reinterpret_cast<ExportAttributeConfigurationFilePtr>(shared_library_.get_function_pointer("niDCPower_ExportAttributeConfigurationFile"));
   function_pointers_.ExportSignal = reinterpret_cast<ExportSignalPtr>(shared_library_.get_function_pointer("niDCPower_ExportSignal"));
+  function_pointers_.ExportSignalWithChannels = reinterpret_cast<ExportSignalWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ExportSignalWithChannels"));
   function_pointers_.FetchMultiple = reinterpret_cast<FetchMultiplePtr>(shared_library_.get_function_pointer("niDCPower_FetchMultiple"));
   function_pointers_.GetAttributeViBoolean = reinterpret_cast<GetAttributeViBooleanPtr>(shared_library_.get_function_pointer("niDCPower_GetAttributeViBoolean"));
   function_pointers_.GetAttributeViInt32 = reinterpret_cast<GetAttributeViInt32Ptr>(shared_library_.get_function_pointer("niDCPower_GetAttributeViInt32"));
@@ -117,6 +111,8 @@ NiDCPowerLibrary::NiDCPowerLibrary() : shared_library_(kLibraryName)
   function_pointers_.GetAttributeViReal64 = reinterpret_cast<GetAttributeViReal64Ptr>(shared_library_.get_function_pointer("niDCPower_GetAttributeViReal64"));
   function_pointers_.GetAttributeViSession = reinterpret_cast<GetAttributeViSessionPtr>(shared_library_.get_function_pointer("niDCPower_GetAttributeViSession"));
   function_pointers_.GetAttributeViString = reinterpret_cast<GetAttributeViStringPtr>(shared_library_.get_function_pointer("niDCPower_GetAttributeViString"));
+  function_pointers_.GetCalUserDefinedInfo = reinterpret_cast<GetCalUserDefinedInfoPtr>(shared_library_.get_function_pointer("niDCPower_GetCalUserDefinedInfo"));
+  function_pointers_.GetCalUserDefinedInfoMaxSize = reinterpret_cast<GetCalUserDefinedInfoMaxSizePtr>(shared_library_.get_function_pointer("niDCPower_GetCalUserDefinedInfoMaxSize"));
   function_pointers_.GetChannelName = reinterpret_cast<GetChannelNamePtr>(shared_library_.get_function_pointer("niDCPower_GetChannelName"));
   function_pointers_.GetChannelNameFromString = reinterpret_cast<GetChannelNameFromStringPtr>(shared_library_.get_function_pointer("niDCPower_GetChannelNameFromString"));
   function_pointers_.GetError = reinterpret_cast<GetErrorPtr>(shared_library_.get_function_pointer("niDCPower_GetError"));
@@ -129,8 +125,13 @@ NiDCPowerLibrary::NiDCPowerLibrary() : shared_library_(kLibraryName)
   function_pointers_.GetSelfCalLastTemp = reinterpret_cast<GetSelfCalLastTempPtr>(shared_library_.get_function_pointer("niDCPower_GetSelfCalLastTemp"));
   function_pointers_.ImportAttributeConfigurationBuffer = reinterpret_cast<ImportAttributeConfigurationBufferPtr>(shared_library_.get_function_pointer("niDCPower_ImportAttributeConfigurationBuffer"));
   function_pointers_.ImportAttributeConfigurationFile = reinterpret_cast<ImportAttributeConfigurationFilePtr>(shared_library_.get_function_pointer("niDCPower_ImportAttributeConfigurationFile"));
+  function_pointers_.InitExtCal = reinterpret_cast<InitExtCalPtr>(shared_library_.get_function_pointer("niDCPower_InitExtCal"));
+  function_pointers_.InitWithOptions = reinterpret_cast<InitWithOptionsPtr>(shared_library_.get_function_pointer("niDCPower_InitWithOptions"));
   function_pointers_.InitializeWithChannels = reinterpret_cast<InitializeWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_InitializeWithChannels"));
+  function_pointers_.InitializeWithIndependentChannels = reinterpret_cast<InitializeWithIndependentChannelsPtr>(shared_library_.get_function_pointer("niDCPower_InitializeWithIndependentChannels"));
   function_pointers_.Initiate = reinterpret_cast<InitiatePtr>(shared_library_.get_function_pointer("niDCPower_Initiate"));
+  function_pointers_.InitiateWithChannels = reinterpret_cast<InitiateWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_InitiateWithChannels"));
+  function_pointers_.InvalidateAllAttributes = reinterpret_cast<InvalidateAllAttributesPtr>(shared_library_.get_function_pointer("niDCPower_InvalidateAllAttributes"));
   function_pointers_.LockSession = reinterpret_cast<LockSessionPtr>(shared_library_.get_function_pointer("niDCPower_LockSession"));
   function_pointers_.Measure = reinterpret_cast<MeasurePtr>(shared_library_.get_function_pointer("niDCPower_Measure"));
   function_pointers_.MeasureMultiple = reinterpret_cast<MeasureMultiplePtr>(shared_library_.get_function_pointer("niDCPower_MeasureMultiple"));
@@ -141,22 +142,29 @@ NiDCPowerLibrary::NiDCPowerLibrary() : shared_library_(kLibraryName)
   function_pointers_.QueryMinCurrentLimit = reinterpret_cast<QueryMinCurrentLimitPtr>(shared_library_.get_function_pointer("niDCPower_QueryMinCurrentLimit"));
   function_pointers_.QueryOutputState = reinterpret_cast<QueryOutputStatePtr>(shared_library_.get_function_pointer("niDCPower_QueryOutputState"));
   function_pointers_.ReadCurrentTemperature = reinterpret_cast<ReadCurrentTemperaturePtr>(shared_library_.get_function_pointer("niDCPower_ReadCurrentTemperature"));
-  function_pointers_.Reset = reinterpret_cast<ResetPtr>(shared_library_.get_function_pointer("niDCPower_reset"));
   function_pointers_.ResetDevice = reinterpret_cast<ResetDevicePtr>(shared_library_.get_function_pointer("niDCPower_ResetDevice"));
   function_pointers_.ResetInterchangeCheck = reinterpret_cast<ResetInterchangeCheckPtr>(shared_library_.get_function_pointer("niDCPower_ResetInterchangeCheck"));
+  function_pointers_.ResetWithChannels = reinterpret_cast<ResetWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_ResetWithChannels"));
   function_pointers_.ResetWithDefaults = reinterpret_cast<ResetWithDefaultsPtr>(shared_library_.get_function_pointer("niDCPower_ResetWithDefaults"));
-  function_pointers_.RevisionQuery = reinterpret_cast<RevisionQueryPtr>(shared_library_.get_function_pointer("niDCPower_revision_query"));
-  function_pointers_.SelfTest = reinterpret_cast<SelfTestPtr>(shared_library_.get_function_pointer("niDCPower_self_test"));
   function_pointers_.SendSoftwareEdgeTrigger = reinterpret_cast<SendSoftwareEdgeTriggerPtr>(shared_library_.get_function_pointer("niDCPower_SendSoftwareEdgeTrigger"));
+  function_pointers_.SendSoftwareEdgeTriggerWithChannels = reinterpret_cast<SendSoftwareEdgeTriggerWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_SendSoftwareEdgeTriggerWithChannels"));
   function_pointers_.SetAttributeViBoolean = reinterpret_cast<SetAttributeViBooleanPtr>(shared_library_.get_function_pointer("niDCPower_SetAttributeViBoolean"));
   function_pointers_.SetAttributeViInt32 = reinterpret_cast<SetAttributeViInt32Ptr>(shared_library_.get_function_pointer("niDCPower_SetAttributeViInt32"));
   function_pointers_.SetAttributeViInt64 = reinterpret_cast<SetAttributeViInt64Ptr>(shared_library_.get_function_pointer("niDCPower_SetAttributeViInt64"));
   function_pointers_.SetAttributeViReal64 = reinterpret_cast<SetAttributeViReal64Ptr>(shared_library_.get_function_pointer("niDCPower_SetAttributeViReal64"));
   function_pointers_.SetAttributeViSession = reinterpret_cast<SetAttributeViSessionPtr>(shared_library_.get_function_pointer("niDCPower_SetAttributeViSession"));
   function_pointers_.SetAttributeViString = reinterpret_cast<SetAttributeViStringPtr>(shared_library_.get_function_pointer("niDCPower_SetAttributeViString"));
+  function_pointers_.SetCalUserDefinedInfo = reinterpret_cast<SetCalUserDefinedInfoPtr>(shared_library_.get_function_pointer("niDCPower_SetCalUserDefinedInfo"));
   function_pointers_.SetSequence = reinterpret_cast<SetSequencePtr>(shared_library_.get_function_pointer("niDCPower_SetSequence"));
   function_pointers_.UnlockSession = reinterpret_cast<UnlockSessionPtr>(shared_library_.get_function_pointer("niDCPower_UnlockSession"));
   function_pointers_.WaitForEvent = reinterpret_cast<WaitForEventPtr>(shared_library_.get_function_pointer("niDCPower_WaitForEvent"));
+  function_pointers_.WaitForEventWithChannels = reinterpret_cast<WaitForEventWithChannelsPtr>(shared_library_.get_function_pointer("niDCPower_WaitForEventWithChannels"));
+  function_pointers_.Close = reinterpret_cast<ClosePtr>(shared_library_.get_function_pointer("niDCPower_close"));
+  function_pointers_.ErrorMessage = reinterpret_cast<ErrorMessagePtr>(shared_library_.get_function_pointer("niDCPower_error_message"));
+  function_pointers_.init = reinterpret_cast<initPtr>(shared_library_.get_function_pointer("niDCPower_init"));
+  function_pointers_.reset = reinterpret_cast<resetPtr>(shared_library_.get_function_pointer("niDCPower_reset"));
+  function_pointers_.revision_query = reinterpret_cast<revision_queryPtr>(shared_library_.get_function_pointer("niDCPower_revision_query"));
+  function_pointers_.self_test = reinterpret_cast<self_testPtr>(shared_library_.get_function_pointer("niDCPower_self_test"));
 }
 
 NiDCPowerLibrary::~NiDCPowerLibrary()
@@ -168,414 +176,6 @@ NiDCPowerLibrary::~NiDCPowerLibrary()
   return shared_library_.function_exists(functionName.c_str())
     ? ::grpc::Status::OK
     : ::grpc::Status(::grpc::NOT_FOUND, "Could not find the function " + functionName);
-}
-
-ViStatus NiDCPowerLibrary::AbortWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.AbortWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_AbortWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_AbortWithChannels(vi, channelName);
-#else
-  return function_pointers_.AbortWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::CommitWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.CommitWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CommitWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_CommitWithChannels(vi, channelName);
-#else
-  return function_pointers_.CommitWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeMeasureTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
-{
-  if (!function_pointers_.ConfigureDigitalEdgeMeasureTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgeMeasureTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureDigitalEdgeMeasureTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#else
-  return function_pointers_.ConfigureDigitalEdgeMeasureTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureDigitalEdgePulseTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
-{
-  if (!function_pointers_.ConfigureDigitalEdgePulseTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgePulseTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureDigitalEdgePulseTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#else
-  return function_pointers_.ConfigureDigitalEdgePulseTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
-{
-  if (!function_pointers_.ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#else
-  return function_pointers_.ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeShutdownTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
-{
-  if (!function_pointers_.ConfigureDigitalEdgeShutdownTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgeShutdownTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureDigitalEdgeShutdownTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#else
-  return function_pointers_.ConfigureDigitalEdgeShutdownTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeSourceTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
-{
-  if (!function_pointers_.ConfigureDigitalEdgeSourceTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgeSourceTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureDigitalEdgeSourceTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#else
-  return function_pointers_.ConfigureDigitalEdgeSourceTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeStartTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
-{
-  if (!function_pointers_.ConfigureDigitalEdgeStartTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgeStartTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureDigitalEdgeStartTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#else
-  return function_pointers_.ConfigureDigitalEdgeStartTriggerWithChannels(vi, channelName, inputTerminal, edge);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureOvp(ViSession vi, ViConstString channelName, ViBoolean enabled, ViReal64 limit)
-{
-  if (!function_pointers_.ConfigureOvp) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureOVP.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureOVP(vi, channelName, enabled, limit);
-#else
-  return function_pointers_.ConfigureOvp(vi, channelName, enabled, limit);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeMeasureTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.ConfigureSoftwareEdgeMeasureTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgeMeasureTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureSoftwareEdgeMeasureTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.ConfigureSoftwareEdgeMeasureTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgePulseTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.ConfigureSoftwareEdgePulseTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgePulseTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureSoftwareEdgePulseTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.ConfigureSoftwareEdgePulseTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeShutdownTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.ConfigureSoftwareEdgeShutdownTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgeShutdownTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureSoftwareEdgeShutdownTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.ConfigureSoftwareEdgeShutdownTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeSourceTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.ConfigureSoftwareEdgeSourceTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgeSourceTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureSoftwareEdgeSourceTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.ConfigureSoftwareEdgeSourceTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeStartTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.ConfigureSoftwareEdgeStartTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgeStartTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureSoftwareEdgeStartTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.ConfigureSoftwareEdgeStartTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ConfigureSourceModeWithChannels(ViSession vi, ViConstString channelName, ViInt32 sourceMode)
-{
-  if (!function_pointers_.ConfigureSourceModeWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSourceModeWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ConfigureSourceModeWithChannels(vi, channelName, sourceMode);
-#else
-  return function_pointers_.ConfigureSourceModeWithChannels(vi, channelName, sourceMode);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::CreateAdvancedSequenceCommitStepWithChannels(ViSession vi, ViConstString channelName, ViBoolean setAsActiveStep)
-{
-  if (!function_pointers_.CreateAdvancedSequenceCommitStepWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CreateAdvancedSequenceCommitStepWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_CreateAdvancedSequenceCommitStepWithChannels(vi, channelName, setAsActiveStep);
-#else
-  return function_pointers_.CreateAdvancedSequenceCommitStepWithChannels(vi, channelName, setAsActiveStep);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::CreateAdvancedSequenceStepWithChannels(ViSession vi, ViConstString channelName, ViBoolean setAsActiveStep)
-{
-  if (!function_pointers_.CreateAdvancedSequenceStepWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CreateAdvancedSequenceStepWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_CreateAdvancedSequenceStepWithChannels(vi, channelName, setAsActiveStep);
-#else
-  return function_pointers_.CreateAdvancedSequenceStepWithChannels(vi, channelName, setAsActiveStep);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::CreateAdvancedSequenceWithChannels(ViSession vi, ViConstString channelName, ViConstString sequenceName, ViInt32 attributeIdCount, ViInt32 attributeIds[], ViBoolean setAsActiveSequence)
-{
-  if (!function_pointers_.CreateAdvancedSequenceWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CreateAdvancedSequenceWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_CreateAdvancedSequenceWithChannels(vi, channelName, sequenceName, attributeIdCount, attributeIds, setAsActiveSequence);
-#else
-  return function_pointers_.CreateAdvancedSequenceWithChannels(vi, channelName, sequenceName, attributeIdCount, attributeIds, setAsActiveSequence);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::CreateAdvancedSequence(ViSession vi, ViConstString sequenceName, ViInt32 attributeIdCount, ViInt32 attributeIds[], ViBoolean setAsActiveSequence)
-{
-  if (!function_pointers_.CreateAdvancedSequence) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CreateAdvancedSequence.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_CreateAdvancedSequence(vi, sequenceName, attributeIdCount, attributeIds, setAsActiveSequence);
-#else
-  return function_pointers_.CreateAdvancedSequence(vi, sequenceName, attributeIdCount, attributeIds, setAsActiveSequence);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::DeleteAdvancedSequenceWithChannels(ViSession vi, ViConstString channelName, ViConstString sequenceName)
-{
-  if (!function_pointers_.DeleteAdvancedSequenceWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DeleteAdvancedSequenceWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_DeleteAdvancedSequenceWithChannels(vi, channelName, sequenceName);
-#else
-  return function_pointers_.DeleteAdvancedSequenceWithChannels(vi, channelName, sequenceName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::DisablePulseTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.DisablePulseTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DisablePulseTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_DisablePulseTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.DisablePulseTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::DisableSequenceAdvanceTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.DisableSequenceAdvanceTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DisableSequenceAdvanceTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_DisableSequenceAdvanceTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.DisableSequenceAdvanceTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::DisableShutdownTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.DisableShutdownTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DisableShutdownTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_DisableShutdownTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.DisableShutdownTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::DisableSourceTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.DisableSourceTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DisableSourceTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_DisableSourceTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.DisableSourceTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::DisableStartTriggerWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.DisableStartTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DisableStartTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_DisableStartTriggerWithChannels(vi, channelName);
-#else
-  return function_pointers_.DisableStartTriggerWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ErrorQuery(ViSession vi, ViInt32* errorCode, ViChar errorMessage[256])
-{
-  if (!function_pointers_.ErrorQuery) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_error_query.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_error_query(vi, errorCode, errorMessage);
-#else
-  return function_pointers_.ErrorQuery(vi, errorCode, errorMessage);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ExportSignalWithChannels(ViSession vi, ViConstString channelName, ViInt32 signal, ViConstString signalIdentifier, ViConstString outputTerminal)
-{
-  if (!function_pointers_.ExportSignalWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ExportSignalWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ExportSignalWithChannels(vi, channelName, signal, signalIdentifier, outputTerminal);
-#else
-  return function_pointers_.ExportSignalWithChannels(vi, channelName, signal, signalIdentifier, outputTerminal);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::InitializeWithIndependentChannels(ViRsrc resourceName, ViBoolean reset, ViConstString optionString, ViSession* vi)
-{
-  if (!function_pointers_.InitializeWithIndependentChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_InitializeWithIndependentChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_InitializeWithIndependentChannels(resourceName, reset, optionString, vi);
-#else
-  return function_pointers_.InitializeWithIndependentChannels(resourceName, reset, optionString, vi);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::InitiateWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.InitiateWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_InitiateWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_InitiateWithChannels(vi, channelName);
-#else
-  return function_pointers_.InitiateWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::InvalidateAllAttributes(ViSession vi)
-{
-  if (!function_pointers_.InvalidateAllAttributes) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_InvalidateAllAttributes.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_InvalidateAllAttributes(vi);
-#else
-  return function_pointers_.InvalidateAllAttributes(vi);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::ResetWithChannels(ViSession vi, ViConstString channelName)
-{
-  if (!function_pointers_.ResetWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ResetWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_ResetWithChannels(vi, channelName);
-#else
-  return function_pointers_.ResetWithChannels(vi, channelName);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::SendSoftwareEdgeTriggerWithChannels(ViSession vi, ViConstString channelName, ViInt32 trigger)
-{
-  if (!function_pointers_.SendSoftwareEdgeTriggerWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_SendSoftwareEdgeTriggerWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_SendSoftwareEdgeTriggerWithChannels(vi, channelName, trigger);
-#else
-  return function_pointers_.SendSoftwareEdgeTriggerWithChannels(vi, channelName, trigger);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::WaitForEventWithChannels(ViSession vi, ViConstString channelName, ViInt32 eventId, ViReal64 timeout)
-{
-  if (!function_pointers_.WaitForEventWithChannels) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_WaitForEventWithChannels.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_WaitForEventWithChannels(vi, channelName, eventId, timeout);
-#else
-  return function_pointers_.WaitForEventWithChannels(vi, channelName, eventId, timeout);
-#endif
 }
 
 ViStatus NiDCPowerLibrary::Abort(ViSession vi)
@@ -590,6 +190,18 @@ ViStatus NiDCPowerLibrary::Abort(ViSession vi)
 #endif
 }
 
+ViStatus NiDCPowerLibrary::AbortWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.AbortWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_AbortWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_AbortWithChannels(vi, channelName);
+#else
+  return function_pointers_.AbortWithChannels(vi, channelName);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::CalSelfCalibrate(ViSession vi, ViConstString channelName)
 {
   if (!function_pointers_.CalSelfCalibrate) {
@@ -599,6 +211,18 @@ ViStatus NiDCPowerLibrary::CalSelfCalibrate(ViSession vi, ViConstString channelN
   return niDCPower_CalSelfCalibrate(vi, channelName);
 #else
   return function_pointers_.CalSelfCalibrate(vi, channelName);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ChangeExtCalPassword(ViSession vi, ViConstString oldPassword, ViConstString newPassword)
+{
+  if (!function_pointers_.ChangeExtCalPassword) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ChangeExtCalPassword.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ChangeExtCalPassword(vi, oldPassword, newPassword);
+#else
+  return function_pointers_.ChangeExtCalPassword(vi, oldPassword, newPassword);
 #endif
 }
 
@@ -626,15 +250,15 @@ ViStatus NiDCPowerLibrary::ClearInterchangeWarnings(ViSession vi)
 #endif
 }
 
-ViStatus NiDCPowerLibrary::Close(ViSession vi)
+ViStatus NiDCPowerLibrary::CloseExtCal(ViSession vi, ViInt32 action)
 {
-  if (!function_pointers_.Close) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_close.");
+  if (!function_pointers_.CloseExtCal) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CloseExtCal.");
   }
 #if defined(_MSC_VER)
-  return niDCPower_close(vi);
+  return niDCPower_CloseExtCal(vi, action);
 #else
-  return function_pointers_.Close(vi);
+  return function_pointers_.CloseExtCal(vi, action);
 #endif
 }
 
@@ -647,6 +271,18 @@ ViStatus NiDCPowerLibrary::Commit(ViSession vi)
   return niDCPower_Commit(vi);
 #else
   return function_pointers_.Commit(vi);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::CommitWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.CommitWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CommitWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_CommitWithChannels(vi, channelName);
+#else
+  return function_pointers_.CommitWithChannels(vi, channelName);
 #endif
 }
 
@@ -734,6 +370,18 @@ ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeMeasureTrigger(ViSession vi, ViCo
 #endif
 }
 
+ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeMeasureTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
+{
+  if (!function_pointers_.ConfigureDigitalEdgeMeasureTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgeMeasureTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureDigitalEdgeMeasureTriggerWithChannels(vi, channelName, inputTerminal, edge);
+#else
+  return function_pointers_.ConfigureDigitalEdgeMeasureTriggerWithChannels(vi, channelName, inputTerminal, edge);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::ConfigureDigitalEdgePulseTrigger(ViSession vi, ViConstString inputTerminal, ViInt32 edge)
 {
   if (!function_pointers_.ConfigureDigitalEdgePulseTrigger) {
@@ -743,6 +391,18 @@ ViStatus NiDCPowerLibrary::ConfigureDigitalEdgePulseTrigger(ViSession vi, ViCons
   return niDCPower_ConfigureDigitalEdgePulseTrigger(vi, inputTerminal, edge);
 #else
   return function_pointers_.ConfigureDigitalEdgePulseTrigger(vi, inputTerminal, edge);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ConfigureDigitalEdgePulseTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
+{
+  if (!function_pointers_.ConfigureDigitalEdgePulseTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgePulseTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureDigitalEdgePulseTriggerWithChannels(vi, channelName, inputTerminal, edge);
+#else
+  return function_pointers_.ConfigureDigitalEdgePulseTriggerWithChannels(vi, channelName, inputTerminal, edge);
 #endif
 }
 
@@ -758,6 +418,30 @@ ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeSequenceAdvanceTrigger(ViSession 
 #endif
 }
 
+ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
+{
+  if (!function_pointers_.ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels(vi, channelName, inputTerminal, edge);
+#else
+  return function_pointers_.ConfigureDigitalEdgeSequenceAdvanceTriggerWithChannels(vi, channelName, inputTerminal, edge);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeShutdownTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
+{
+  if (!function_pointers_.ConfigureDigitalEdgeShutdownTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgeShutdownTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureDigitalEdgeShutdownTriggerWithChannels(vi, channelName, inputTerminal, edge);
+#else
+  return function_pointers_.ConfigureDigitalEdgeShutdownTriggerWithChannels(vi, channelName, inputTerminal, edge);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeSourceTrigger(ViSession vi, ViConstString inputTerminal, ViInt32 edge)
 {
   if (!function_pointers_.ConfigureDigitalEdgeSourceTrigger) {
@@ -770,6 +454,18 @@ ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeSourceTrigger(ViSession vi, ViCon
 #endif
 }
 
+ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeSourceTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
+{
+  if (!function_pointers_.ConfigureDigitalEdgeSourceTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgeSourceTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureDigitalEdgeSourceTriggerWithChannels(vi, channelName, inputTerminal, edge);
+#else
+  return function_pointers_.ConfigureDigitalEdgeSourceTriggerWithChannels(vi, channelName, inputTerminal, edge);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeStartTrigger(ViSession vi, ViConstString inputTerminal, ViInt32 edge)
 {
   if (!function_pointers_.ConfigureDigitalEdgeStartTrigger) {
@@ -779,6 +475,18 @@ ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeStartTrigger(ViSession vi, ViCons
   return niDCPower_ConfigureDigitalEdgeStartTrigger(vi, inputTerminal, edge);
 #else
   return function_pointers_.ConfigureDigitalEdgeStartTrigger(vi, inputTerminal, edge);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ConfigureDigitalEdgeStartTriggerWithChannels(ViSession vi, ViConstString channelName, ViConstString inputTerminal, ViInt32 edge)
+{
+  if (!function_pointers_.ConfigureDigitalEdgeStartTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureDigitalEdgeStartTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureDigitalEdgeStartTriggerWithChannels(vi, channelName, inputTerminal, edge);
+#else
+  return function_pointers_.ConfigureDigitalEdgeStartTriggerWithChannels(vi, channelName, inputTerminal, edge);
 #endif
 }
 
@@ -803,6 +511,18 @@ ViStatus NiDCPowerLibrary::ConfigureOutputFunction(ViSession vi, ViConstString c
   return niDCPower_ConfigureOutputFunction(vi, channelName, function);
 #else
   return function_pointers_.ConfigureOutputFunction(vi, channelName, function);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ConfigureOutputRange(ViSession vi, ViConstString channelName, ViInt32 rangeType, ViReal64 range)
+{
+  if (!function_pointers_.ConfigureOutputRange) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureOutputRange.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureOutputRange(vi, channelName, rangeType, range);
+#else
+  return function_pointers_.ConfigureOutputRange(vi, channelName, rangeType, range);
 #endif
 }
 
@@ -998,6 +718,18 @@ ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeMeasureTrigger(ViSession vi)
 #endif
 }
 
+ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeMeasureTriggerWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.ConfigureSoftwareEdgeMeasureTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgeMeasureTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureSoftwareEdgeMeasureTriggerWithChannels(vi, channelName);
+#else
+  return function_pointers_.ConfigureSoftwareEdgeMeasureTriggerWithChannels(vi, channelName);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgePulseTrigger(ViSession vi)
 {
   if (!function_pointers_.ConfigureSoftwareEdgePulseTrigger) {
@@ -1007,6 +739,18 @@ ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgePulseTrigger(ViSession vi)
   return niDCPower_ConfigureSoftwareEdgePulseTrigger(vi);
 #else
   return function_pointers_.ConfigureSoftwareEdgePulseTrigger(vi);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgePulseTriggerWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.ConfigureSoftwareEdgePulseTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgePulseTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureSoftwareEdgePulseTriggerWithChannels(vi, channelName);
+#else
+  return function_pointers_.ConfigureSoftwareEdgePulseTriggerWithChannels(vi, channelName);
 #endif
 }
 
@@ -1022,6 +766,30 @@ ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeSequenceAdvanceTrigger(ViSession
 #endif
 }
 
+ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels(vi, channelName);
+#else
+  return function_pointers_.ConfigureSoftwareEdgeSequenceAdvanceTriggerWithChannels(vi, channelName);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeShutdownTriggerWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.ConfigureSoftwareEdgeShutdownTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgeShutdownTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureSoftwareEdgeShutdownTriggerWithChannels(vi, channelName);
+#else
+  return function_pointers_.ConfigureSoftwareEdgeShutdownTriggerWithChannels(vi, channelName);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeSourceTrigger(ViSession vi)
 {
   if (!function_pointers_.ConfigureSoftwareEdgeSourceTrigger) {
@@ -1031,6 +799,18 @@ ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeSourceTrigger(ViSession vi)
   return niDCPower_ConfigureSoftwareEdgeSourceTrigger(vi);
 #else
   return function_pointers_.ConfigureSoftwareEdgeSourceTrigger(vi);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeSourceTriggerWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.ConfigureSoftwareEdgeSourceTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgeSourceTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureSoftwareEdgeSourceTriggerWithChannels(vi, channelName);
+#else
+  return function_pointers_.ConfigureSoftwareEdgeSourceTriggerWithChannels(vi, channelName);
 #endif
 }
 
@@ -1046,6 +826,18 @@ ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeStartTrigger(ViSession vi)
 #endif
 }
 
+ViStatus NiDCPowerLibrary::ConfigureSoftwareEdgeStartTriggerWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.ConfigureSoftwareEdgeStartTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSoftwareEdgeStartTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureSoftwareEdgeStartTriggerWithChannels(vi, channelName);
+#else
+  return function_pointers_.ConfigureSoftwareEdgeStartTriggerWithChannels(vi, channelName);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::ConfigureSourceMode(ViSession vi, ViInt32 sourceMode)
 {
   if (!function_pointers_.ConfigureSourceMode) {
@@ -1055,6 +847,18 @@ ViStatus NiDCPowerLibrary::ConfigureSourceMode(ViSession vi, ViInt32 sourceMode)
   return niDCPower_ConfigureSourceMode(vi, sourceMode);
 #else
   return function_pointers_.ConfigureSourceMode(vi, sourceMode);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ConfigureSourceModeWithChannels(ViSession vi, ViConstString channelName, ViInt32 sourceMode)
+{
+  if (!function_pointers_.ConfigureSourceModeWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConfigureSourceModeWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConfigureSourceModeWithChannels(vi, channelName, sourceMode);
+#else
+  return function_pointers_.ConfigureSourceModeWithChannels(vi, channelName, sourceMode);
 #endif
 }
 
@@ -1106,6 +910,42 @@ ViStatus NiDCPowerLibrary::ConfigureVoltageLimitRange(ViSession vi, ViConstStrin
 #endif
 }
 
+ViStatus NiDCPowerLibrary::ConnectInternalReference(ViSession vi, ViInt32 internalReference)
+{
+  if (!function_pointers_.ConnectInternalReference) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ConnectInternalReference.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ConnectInternalReference(vi, internalReference);
+#else
+  return function_pointers_.ConnectInternalReference(vi, internalReference);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::CreateAdvancedSequence(ViSession vi, ViConstString sequenceName, ViInt32 attributeIdCount, ViInt32 attributeIds[], ViBoolean setAsActiveSequence)
+{
+  if (!function_pointers_.CreateAdvancedSequence) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CreateAdvancedSequence.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_CreateAdvancedSequence(vi, sequenceName, attributeIdCount, attributeIds, setAsActiveSequence);
+#else
+  return function_pointers_.CreateAdvancedSequence(vi, sequenceName, attributeIdCount, attributeIds, setAsActiveSequence);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::CreateAdvancedSequenceCommitStepWithChannels(ViSession vi, ViConstString channelName, ViBoolean setAsActiveStep)
+{
+  if (!function_pointers_.CreateAdvancedSequenceCommitStepWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CreateAdvancedSequenceCommitStepWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_CreateAdvancedSequenceCommitStepWithChannels(vi, channelName, setAsActiveStep);
+#else
+  return function_pointers_.CreateAdvancedSequenceCommitStepWithChannels(vi, channelName, setAsActiveStep);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::CreateAdvancedSequenceStep(ViSession vi, ViBoolean setAsActiveStep)
 {
   if (!function_pointers_.CreateAdvancedSequenceStep) {
@@ -1118,6 +958,30 @@ ViStatus NiDCPowerLibrary::CreateAdvancedSequenceStep(ViSession vi, ViBoolean se
 #endif
 }
 
+ViStatus NiDCPowerLibrary::CreateAdvancedSequenceStepWithChannels(ViSession vi, ViConstString channelName, ViBoolean setAsActiveStep)
+{
+  if (!function_pointers_.CreateAdvancedSequenceStepWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CreateAdvancedSequenceStepWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_CreateAdvancedSequenceStepWithChannels(vi, channelName, setAsActiveStep);
+#else
+  return function_pointers_.CreateAdvancedSequenceStepWithChannels(vi, channelName, setAsActiveStep);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::CreateAdvancedSequenceWithChannels(ViSession vi, ViConstString channelName, ViConstString sequenceName, ViInt32 attributeIdCount, ViInt32 attributeIds[], ViBoolean setAsActiveSequence)
+{
+  if (!function_pointers_.CreateAdvancedSequenceWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_CreateAdvancedSequenceWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_CreateAdvancedSequenceWithChannels(vi, channelName, sequenceName, attributeIdCount, attributeIds, setAsActiveSequence);
+#else
+  return function_pointers_.CreateAdvancedSequenceWithChannels(vi, channelName, sequenceName, attributeIdCount, attributeIds, setAsActiveSequence);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::DeleteAdvancedSequence(ViSession vi, ViConstString sequenceName)
 {
   if (!function_pointers_.DeleteAdvancedSequence) {
@@ -1127,6 +991,18 @@ ViStatus NiDCPowerLibrary::DeleteAdvancedSequence(ViSession vi, ViConstString se
   return niDCPower_DeleteAdvancedSequence(vi, sequenceName);
 #else
   return function_pointers_.DeleteAdvancedSequence(vi, sequenceName);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::DeleteAdvancedSequenceWithChannels(ViSession vi, ViConstString channelName, ViConstString sequenceName)
+{
+  if (!function_pointers_.DeleteAdvancedSequenceWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DeleteAdvancedSequenceWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_DeleteAdvancedSequenceWithChannels(vi, channelName, sequenceName);
+#else
+  return function_pointers_.DeleteAdvancedSequenceWithChannels(vi, channelName, sequenceName);
 #endif
 }
 
@@ -1154,6 +1030,18 @@ ViStatus NiDCPowerLibrary::DisablePulseTrigger(ViSession vi)
 #endif
 }
 
+ViStatus NiDCPowerLibrary::DisablePulseTriggerWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.DisablePulseTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DisablePulseTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_DisablePulseTriggerWithChannels(vi, channelName);
+#else
+  return function_pointers_.DisablePulseTriggerWithChannels(vi, channelName);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::DisableSequenceAdvanceTrigger(ViSession vi)
 {
   if (!function_pointers_.DisableSequenceAdvanceTrigger) {
@@ -1163,6 +1051,30 @@ ViStatus NiDCPowerLibrary::DisableSequenceAdvanceTrigger(ViSession vi)
   return niDCPower_DisableSequenceAdvanceTrigger(vi);
 #else
   return function_pointers_.DisableSequenceAdvanceTrigger(vi);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::DisableSequenceAdvanceTriggerWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.DisableSequenceAdvanceTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DisableSequenceAdvanceTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_DisableSequenceAdvanceTriggerWithChannels(vi, channelName);
+#else
+  return function_pointers_.DisableSequenceAdvanceTriggerWithChannels(vi, channelName);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::DisableShutdownTriggerWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.DisableShutdownTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DisableShutdownTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_DisableShutdownTriggerWithChannels(vi, channelName);
+#else
+  return function_pointers_.DisableShutdownTriggerWithChannels(vi, channelName);
 #endif
 }
 
@@ -1178,6 +1090,18 @@ ViStatus NiDCPowerLibrary::DisableSourceTrigger(ViSession vi)
 #endif
 }
 
+ViStatus NiDCPowerLibrary::DisableSourceTriggerWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.DisableSourceTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DisableSourceTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_DisableSourceTriggerWithChannels(vi, channelName);
+#else
+  return function_pointers_.DisableSourceTriggerWithChannels(vi, channelName);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::DisableStartTrigger(ViSession vi)
 {
   if (!function_pointers_.DisableStartTrigger) {
@@ -1190,15 +1114,15 @@ ViStatus NiDCPowerLibrary::DisableStartTrigger(ViSession vi)
 #endif
 }
 
-ViStatus NiDCPowerLibrary::ErrorMessage(ViSession vi, ViStatus errorCode, ViChar errorMessage[256])
+ViStatus NiDCPowerLibrary::DisableStartTriggerWithChannels(ViSession vi, ViConstString channelName)
 {
-  if (!function_pointers_.ErrorMessage) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_error_message.");
+  if (!function_pointers_.DisableStartTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_DisableStartTriggerWithChannels.");
   }
 #if defined(_MSC_VER)
-  return niDCPower_error_message(vi, errorCode, errorMessage);
+  return niDCPower_DisableStartTriggerWithChannels(vi, channelName);
 #else
-  return function_pointers_.ErrorMessage(vi, errorCode, errorMessage);
+  return function_pointers_.DisableStartTriggerWithChannels(vi, channelName);
 #endif
 }
 
@@ -1235,6 +1159,18 @@ ViStatus NiDCPowerLibrary::ExportSignal(ViSession vi, ViInt32 signal, ViConstStr
   return niDCPower_ExportSignal(vi, signal, signalIdentifier, outputTerminal);
 #else
   return function_pointers_.ExportSignal(vi, signal, signalIdentifier, outputTerminal);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ExportSignalWithChannels(ViSession vi, ViConstString channelName, ViInt32 signal, ViConstString signalIdentifier, ViConstString outputTerminal)
+{
+  if (!function_pointers_.ExportSignalWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ExportSignalWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ExportSignalWithChannels(vi, channelName, signal, signalIdentifier, outputTerminal);
+#else
+  return function_pointers_.ExportSignalWithChannels(vi, channelName, signal, signalIdentifier, outputTerminal);
 #endif
 }
 
@@ -1319,6 +1255,30 @@ ViStatus NiDCPowerLibrary::GetAttributeViString(ViSession vi, ViConstString chan
   return niDCPower_GetAttributeViString(vi, channelName, attributeId, bufferSize, attributeValue);
 #else
   return function_pointers_.GetAttributeViString(vi, channelName, attributeId, bufferSize, attributeValue);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::GetCalUserDefinedInfo(ViSession vi, ViChar info[256])
+{
+  if (!function_pointers_.GetCalUserDefinedInfo) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_GetCalUserDefinedInfo.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_GetCalUserDefinedInfo(vi, info);
+#else
+  return function_pointers_.GetCalUserDefinedInfo(vi, info);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::GetCalUserDefinedInfoMaxSize(ViSession vi, ViInt32* infoSize)
+{
+  if (!function_pointers_.GetCalUserDefinedInfoMaxSize) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_GetCalUserDefinedInfoMaxSize.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_GetCalUserDefinedInfoMaxSize(vi, infoSize);
+#else
+  return function_pointers_.GetCalUserDefinedInfoMaxSize(vi, infoSize);
 #endif
 }
 
@@ -1466,6 +1426,30 @@ ViStatus NiDCPowerLibrary::ImportAttributeConfigurationFile(ViSession vi, ViCons
 #endif
 }
 
+ViStatus NiDCPowerLibrary::InitExtCal(ViRsrc resourceName, ViConstString password, ViSession* vi)
+{
+  if (!function_pointers_.InitExtCal) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_InitExtCal.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_InitExtCal(resourceName, password, vi);
+#else
+  return function_pointers_.InitExtCal(resourceName, password, vi);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::InitWithOptions(ViRsrc resourceName, ViBoolean idQuery, ViBoolean resetDevice, ViString optionString, ViSession* vi)
+{
+  if (!function_pointers_.InitWithOptions) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_InitWithOptions.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_InitWithOptions(resourceName, idQuery, resetDevice, optionString, vi);
+#else
+  return function_pointers_.InitWithOptions(resourceName, idQuery, resetDevice, optionString, vi);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::InitializeWithChannels(ViRsrc resourceName, ViConstString channels, ViBoolean reset, ViConstString optionString, ViSession* vi)
 {
   if (!function_pointers_.InitializeWithChannels) {
@@ -1475,6 +1459,18 @@ ViStatus NiDCPowerLibrary::InitializeWithChannels(ViRsrc resourceName, ViConstSt
   return niDCPower_InitializeWithChannels(resourceName, channels, reset, optionString, vi);
 #else
   return function_pointers_.InitializeWithChannels(resourceName, channels, reset, optionString, vi);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::InitializeWithIndependentChannels(ViRsrc resourceName, ViBoolean reset, ViConstString optionString, ViSession* vi)
+{
+  if (!function_pointers_.InitializeWithIndependentChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_InitializeWithIndependentChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_InitializeWithIndependentChannels(resourceName, reset, optionString, vi);
+#else
+  return function_pointers_.InitializeWithIndependentChannels(resourceName, reset, optionString, vi);
 #endif
 }
 
@@ -1490,12 +1486,40 @@ ViStatus NiDCPowerLibrary::Initiate(ViSession vi)
 #endif
 }
 
+ViStatus NiDCPowerLibrary::InitiateWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.InitiateWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_InitiateWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_InitiateWithChannels(vi, channelName);
+#else
+  return function_pointers_.InitiateWithChannels(vi, channelName);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::InvalidateAllAttributes(ViSession vi)
+{
+  if (!function_pointers_.InvalidateAllAttributes) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_InvalidateAllAttributes.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_InvalidateAllAttributes(vi);
+#else
+  return function_pointers_.InvalidateAllAttributes(vi);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::LockSession(ViSession vi, ViBoolean* callerHasLock)
 {
   if (!function_pointers_.LockSession) {
     throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_LockSession.");
   }
+#if defined(_MSC_VER)
+  return niDCPower_LockSession(vi, callerHasLock);
+#else
   return function_pointers_.LockSession(vi, callerHasLock);
+#endif
 }
 
 ViStatus NiDCPowerLibrary::Measure(ViSession vi, ViConstString channelName, ViInt32 measurementType, ViReal64* measurement)
@@ -1602,18 +1626,6 @@ ViStatus NiDCPowerLibrary::ReadCurrentTemperature(ViSession vi, ViReal64* temper
 #endif
 }
 
-ViStatus NiDCPowerLibrary::Reset(ViSession vi)
-{
-  if (!function_pointers_.Reset) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_reset.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_reset(vi);
-#else
-  return function_pointers_.Reset(vi);
-#endif
-}
-
 ViStatus NiDCPowerLibrary::ResetDevice(ViSession vi)
 {
   if (!function_pointers_.ResetDevice) {
@@ -1638,6 +1650,18 @@ ViStatus NiDCPowerLibrary::ResetInterchangeCheck(ViSession vi)
 #endif
 }
 
+ViStatus NiDCPowerLibrary::ResetWithChannels(ViSession vi, ViConstString channelName)
+{
+  if (!function_pointers_.ResetWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_ResetWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_ResetWithChannels(vi, channelName);
+#else
+  return function_pointers_.ResetWithChannels(vi, channelName);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::ResetWithDefaults(ViSession vi)
 {
   if (!function_pointers_.ResetWithDefaults) {
@@ -1650,30 +1674,6 @@ ViStatus NiDCPowerLibrary::ResetWithDefaults(ViSession vi)
 #endif
 }
 
-ViStatus NiDCPowerLibrary::RevisionQuery(ViSession vi, ViChar instrumentDriverRevision[256], ViChar firmwareRevision[256])
-{
-  if (!function_pointers_.RevisionQuery) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_revision_query.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_revision_query(vi, instrumentDriverRevision, firmwareRevision);
-#else
-  return function_pointers_.RevisionQuery(vi, instrumentDriverRevision, firmwareRevision);
-#endif
-}
-
-ViStatus NiDCPowerLibrary::SelfTest(ViSession vi, ViInt16* selfTestResult, ViChar selfTestMessage[256])
-{
-  if (!function_pointers_.SelfTest) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_self_test.");
-  }
-#if defined(_MSC_VER)
-  return niDCPower_self_test(vi, selfTestResult, selfTestMessage);
-#else
-  return function_pointers_.SelfTest(vi, selfTestResult, selfTestMessage);
-#endif
-}
-
 ViStatus NiDCPowerLibrary::SendSoftwareEdgeTrigger(ViSession vi, ViInt32 trigger)
 {
   if (!function_pointers_.SendSoftwareEdgeTrigger) {
@@ -1683,6 +1683,18 @@ ViStatus NiDCPowerLibrary::SendSoftwareEdgeTrigger(ViSession vi, ViInt32 trigger
   return niDCPower_SendSoftwareEdgeTrigger(vi, trigger);
 #else
   return function_pointers_.SendSoftwareEdgeTrigger(vi, trigger);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::SendSoftwareEdgeTriggerWithChannels(ViSession vi, ViConstString channelName, ViInt32 trigger)
+{
+  if (!function_pointers_.SendSoftwareEdgeTriggerWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_SendSoftwareEdgeTriggerWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_SendSoftwareEdgeTriggerWithChannels(vi, channelName, trigger);
+#else
+  return function_pointers_.SendSoftwareEdgeTriggerWithChannels(vi, channelName, trigger);
 #endif
 }
 
@@ -1758,6 +1770,18 @@ ViStatus NiDCPowerLibrary::SetAttributeViString(ViSession vi, ViConstString chan
 #endif
 }
 
+ViStatus NiDCPowerLibrary::SetCalUserDefinedInfo(ViSession vi, ViConstString info)
+{
+  if (!function_pointers_.SetCalUserDefinedInfo) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_SetCalUserDefinedInfo.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_SetCalUserDefinedInfo(vi, info);
+#else
+  return function_pointers_.SetCalUserDefinedInfo(vi, info);
+#endif
+}
+
 ViStatus NiDCPowerLibrary::SetSequence(ViSession vi, ViConstString channelName, ViReal64 values[], ViReal64 sourceDelays[], ViUInt32 size)
 {
   if (!function_pointers_.SetSequence) {
@@ -1775,7 +1799,11 @@ ViStatus NiDCPowerLibrary::UnlockSession(ViSession vi, ViBoolean* callerHasLock)
   if (!function_pointers_.UnlockSession) {
     throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_UnlockSession.");
   }
+#if defined(_MSC_VER)
+  return niDCPower_UnlockSession(vi, callerHasLock);
+#else
   return function_pointers_.UnlockSession(vi, callerHasLock);
+#endif
 }
 
 ViStatus NiDCPowerLibrary::WaitForEvent(ViSession vi, ViInt32 eventId, ViReal64 timeout)
@@ -1787,6 +1815,90 @@ ViStatus NiDCPowerLibrary::WaitForEvent(ViSession vi, ViInt32 eventId, ViReal64 
   return niDCPower_WaitForEvent(vi, eventId, timeout);
 #else
   return function_pointers_.WaitForEvent(vi, eventId, timeout);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::WaitForEventWithChannels(ViSession vi, ViConstString channelName, ViInt32 eventId, ViReal64 timeout)
+{
+  if (!function_pointers_.WaitForEventWithChannels) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_WaitForEventWithChannels.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_WaitForEventWithChannels(vi, channelName, eventId, timeout);
+#else
+  return function_pointers_.WaitForEventWithChannels(vi, channelName, eventId, timeout);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::Close(ViSession vi)
+{
+  if (!function_pointers_.Close) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_close.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_close(vi);
+#else
+  return function_pointers_.Close(vi);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::ErrorMessage(ViSession vi, ViStatus errorCode, ViChar errorMessage[256])
+{
+  if (!function_pointers_.ErrorMessage) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_error_message.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_error_message(vi, errorCode, errorMessage);
+#else
+  return function_pointers_.ErrorMessage(vi, errorCode, errorMessage);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::init(ViRsrc resourceName, ViBoolean idQuery, ViBoolean resetDevice, ViSession* vi)
+{
+  if (!function_pointers_.init) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_init.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_init(resourceName, idQuery, resetDevice, vi);
+#else
+  return function_pointers_.init(resourceName, idQuery, resetDevice, vi);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::reset(ViSession vi)
+{
+  if (!function_pointers_.reset) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_reset.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_reset(vi);
+#else
+  return function_pointers_.reset(vi);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::revision_query(ViSession vi, ViChar instrumentDriverRevision[256], ViChar firmwareRevision[256])
+{
+  if (!function_pointers_.revision_query) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_revision_query.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_revision_query(vi, instrumentDriverRevision, firmwareRevision);
+#else
+  return function_pointers_.revision_query(vi, instrumentDriverRevision, firmwareRevision);
+#endif
+}
+
+ViStatus NiDCPowerLibrary::self_test(ViSession vi, ViInt16* selfTestResult, ViChar selfTestMessage[256])
+{
+  if (!function_pointers_.self_test) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDCPower_self_test.");
+  }
+#if defined(_MSC_VER)
+  return niDCPower_self_test(vi, selfTestResult, selfTestMessage);
+#else
+  return function_pointers_.self_test(vi, selfTestResult, selfTestMessage);
 #endif
 }
 

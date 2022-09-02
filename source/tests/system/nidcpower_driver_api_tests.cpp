@@ -362,7 +362,7 @@ TEST_F(NiDCPowerDriverApiTest, SetAttributeViInt32_GetAttributeViInt32ReturnsSam
 {
   const char* channel_name = "";
   const dcpower::NiDCPowerAttribute attribute_to_set = dcpower::NiDCPowerAttribute::NIDCPOWER_ATTRIBUTE_MEASURE_WHEN;
-  const auto expected_value = dcpower::NiDCPowerInt32AttributeValues::NIDCPOWER_INT32_MEASURE_WHEN_VAL_AUTOMATICALLY_AFTER_SOURCE_COMPLETE;
+  const auto expected_value = dcpower::NiDCPowerInt32AttributeValues::NIDCPOWER_INT32_MEASURE_WHEN_AUTOMATICALLY_AFTER_SOURCE_COMPLETE;
   ::grpc::ClientContext context;
   dcpower::SetAttributeViInt32Request request;
   request.mutable_vi()->set_id(GetSessionId());
@@ -387,7 +387,7 @@ TEST_F(NiDCPowerDriverApiTest, SetAttributeViReal64_GetAttributeViReal64ReturnsS
   set_int32_attribute(
       channel_name,
       dcpower::NiDCPowerAttribute::NIDCPOWER_ATTRIBUTE_MEASURE_WHEN,
-      dcpower::NiDCPowerInt32AttributeValues::NIDCPOWER_INT32_MEASURE_WHEN_VAL_AUTOMATICALLY_AFTER_SOURCE_COMPLETE);
+      dcpower::NiDCPowerInt32AttributeValues::NIDCPOWER_INT32_MEASURE_WHEN_AUTOMATICALLY_AFTER_SOURCE_COMPLETE);
   const dcpower::NiDCPowerAttribute attribute_to_set = dcpower::NiDCPowerAttribute::NIDCPOWER_ATTRIBUTE_SOURCE_DELAY;
   const double expected_value = 2.516;
   ::grpc::ClientContext context;
@@ -414,7 +414,7 @@ TEST_F(NiDCPowerDriverApiTest, SetAttributeViBoolean_GetAttributeViBooleanReturn
   set_int32_attribute(
       channel_name,
       dcpower::NiDCPowerAttribute::NIDCPOWER_ATTRIBUTE_MEASURE_WHEN,
-      dcpower::NiDCPowerInt32AttributeValues::NIDCPOWER_INT32_MEASURE_WHEN_VAL_AUTOMATICALLY_AFTER_SOURCE_COMPLETE);
+      dcpower::NiDCPowerInt32AttributeValues::NIDCPOWER_INT32_MEASURE_WHEN_AUTOMATICALLY_AFTER_SOURCE_COMPLETE);
   const dcpower::NiDCPowerAttribute attribute_to_set = dcpower::NiDCPowerAttribute::NIDCPOWER_ATTRIBUTE_MEASURE_RECORD_LENGTH_IS_FINITE;
   const bool expected_value = true;
   ::grpc::ClientContext context;
@@ -477,7 +477,7 @@ TEST_F(NiDCPowerDriverApiTest, ConfigureOutputFunctionAndVoltageLevel_Configures
 {
   const char* channel_name = "0";
   double expected_voltage_level = 3.0;
-  auto expected_output_function_value = dcpower::OutputFunction::OUTPUT_FUNCTION_NIDCPOWER_VAL_DC_VOLTAGE;
+  auto expected_output_function_value = dcpower::OutputFunction::OUTPUT_FUNCTION_DC_VOLTAGE;
   configure_output_function(channel_name, expected_output_function_value);
   configure_voltage_level(channel_name, expected_voltage_level);
 
@@ -491,7 +491,7 @@ TEST_F(NiDCPowerDriverApiTest, ConfigureOutputFunctionAndCurrentLevel_Configures
 {
   const char* channel_name = "0";
   double expected_current_level = 3.0;
-  auto expected_output_function_value = dcpower::OutputFunction::OUTPUT_FUNCTION_NIDCPOWER_VAL_DC_CURRENT;
+  auto expected_output_function_value = dcpower::OutputFunction::OUTPUT_FUNCTION_DC_CURRENT;
   configure_output_function(channel_name, expected_output_function_value);
   configure_current_level(channel_name, expected_current_level);
 
@@ -508,7 +508,7 @@ TEST_F(NiDCPowerDriverApiTest, SetMeasureWhenAndInitiate_MeasureMultiple_Returns
   set_int32_attribute(
       channel_name,
       dcpower::NiDCPowerAttribute::NIDCPOWER_ATTRIBUTE_MEASURE_WHEN,
-      dcpower::NiDCPowerInt32AttributeValues::NIDCPOWER_INT32_MEASURE_WHEN_VAL_ON_DEMAND);
+      dcpower::NiDCPowerInt32AttributeValues::NIDCPOWER_INT32_MEASURE_WHEN_ON_DEMAND);
   initiate();
 
   dcpower::MeasureMultipleResponse response;
@@ -525,7 +525,7 @@ TEST_F(NiDCPowerDriverApiTest, SetMeasureWhenAndInitiate_FetchMultiple_FetchesSu
   set_int32_attribute(
       channel_name,
       dcpower::NiDCPowerAttribute::NIDCPOWER_ATTRIBUTE_MEASURE_WHEN,
-      dcpower::NiDCPowerInt32AttributeValues::NIDCPOWER_INT32_MEASURE_WHEN_VAL_AUTOMATICALLY_AFTER_SOURCE_COMPLETE);
+      dcpower::NiDCPowerInt32AttributeValues::NIDCPOWER_INT32_MEASURE_WHEN_AUTOMATICALLY_AFTER_SOURCE_COMPLETE);
   initiate();
 
   dcpower::FetchMultipleResponse response;
@@ -538,7 +538,7 @@ TEST_F(NiDCPowerDriverApiTest, VoltageLevelConfiguredAndExportedToBuffer_ResetAn
 {
   GTEST_SKIP_IF_LEGACY();
   const char* channel_name = "0";
-  auto expected_output_function = dcpower::OutputFunction::OUTPUT_FUNCTION_NIDCPOWER_VAL_DC_VOLTAGE;
+  auto expected_output_function = dcpower::OutputFunction::OUTPUT_FUNCTION_DC_VOLTAGE;
   auto expected_voltage_level = 3.0;
   configure_output_function(channel_name, expected_output_function);
   configure_voltage_level(channel_name, expected_voltage_level);
