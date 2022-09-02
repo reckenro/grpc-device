@@ -47,6 +47,7 @@ public:
   ::grpc::Status AcceptViUInt32Array(::grpc::ServerContext* context, const AcceptViUInt32ArrayRequest* request, AcceptViUInt32ArrayResponse* response) override;
   ::grpc::Status BoolArrayInputFunction(::grpc::ServerContext* context, const BoolArrayInputFunctionRequest* request, BoolArrayInputFunctionResponse* response) override;
   ::grpc::Status BoolArrayOutputFunction(::grpc::ServerContext* context, const BoolArrayOutputFunctionRequest* request, BoolArrayOutputFunctionResponse* response) override;
+  ::grpc::Status Close(::grpc::ServerContext* context, const CloseRequest* request, CloseResponse* response) override;
   ::grpc::Status CloseExtCal(::grpc::ServerContext* context, const CloseExtCalRequest* request, CloseExtCalResponse* response) override;
   ::grpc::Status CommandWithReservedParam(::grpc::ServerContext* context, const CommandWithReservedParamRequest* request, CommandWithReservedParamResponse* response) override;
   ::grpc::Status CreateConfigurationList(::grpc::ServerContext* context, const CreateConfigurationListRequest* request, CreateConfigurationListResponse* response) override;
@@ -87,6 +88,7 @@ public:
   ::grpc::Status InitExtCal(::grpc::ServerContext* context, const InitExtCalRequest* request, InitExtCalResponse* response) override;
   ::grpc::Status InitWithOptions(::grpc::ServerContext* context, const InitWithOptionsRequest* request, InitWithOptionsResponse* response) override;
   ::grpc::Status InitWithVarArgs(::grpc::ServerContext* context, const InitWithVarArgsRequest* request, InitWithVarArgsResponse* response) override;
+  ::grpc::Status MethodWithGetLastErrorParam(::grpc::ServerContext* context, const MethodWithGetLastErrorParamRequest* request, MethodWithGetLastErrorParamResponse* response) override;
   ::grpc::Status MultipleArrayTypes(::grpc::ServerContext* context, const MultipleArrayTypesRequest* request, MultipleArrayTypesResponse* response) override;
   ::grpc::Status MultipleArraysSameSize(::grpc::ServerContext* context, const MultipleArraysSameSizeRequest* request, MultipleArraysSameSizeResponse* response) override;
   ::grpc::Status MultipleArraysSameSizeWithOptional(::grpc::ServerContext* context, const MultipleArraysSameSizeWithOptionalRequest* request, MultipleArraysSameSizeWithOptionalResponse* response) override;
@@ -111,7 +113,6 @@ public:
   ::grpc::Status ViUInt8ArrayInputFunction(::grpc::ServerContext* context, const ViUInt8ArrayInputFunctionRequest* request, ViUInt8ArrayInputFunctionResponse* response) override;
   ::grpc::Status ViUInt8ArrayOutputFunction(::grpc::ServerContext* context, const ViUInt8ArrayOutputFunctionRequest* request, ViUInt8ArrayOutputFunctionResponse* response) override;
   ::grpc::Status WriteWaveform(::grpc::ServerContext* context, const WriteWaveformRequest* request, WriteWaveformResponse* response) override;
-  ::grpc::Status Close(::grpc::ServerContext* context, const CloseRequest* request, CloseResponse* response) override;
 private:
   NiFakeLibraryInterface* library_;
   ResourceRepositorySharedPtr session_repository_;

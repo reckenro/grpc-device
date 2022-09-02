@@ -28,6 +28,7 @@ AcceptViSessionArrayResponse accept_vi_session_array(const StubPtr& stub, const 
 AcceptViUInt32ArrayResponse accept_vi_uint32_array(const StubPtr& stub, const nidevice_grpc::Session& vi, const std::vector<pb::uint32>& u_int32_array);
 BoolArrayInputFunctionResponse bool_array_input_function(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& number_of_elements, const std::vector<bool>& an_array);
 BoolArrayOutputFunctionResponse bool_array_output_function(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& number_of_elements);
+CloseResponse close(const StubPtr& stub, const nidevice_grpc::Session& vi);
 CloseExtCalResponse close_ext_cal(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& action);
 CommandWithReservedParamResponse command_with_reserved_param(const StubPtr& stub, const nidevice_grpc::Session& vi);
 CreateConfigurationListResponse create_configuration_list(const StubPtr& stub, const std::vector<NiFakeAttribute>& list_attribute_ids);
@@ -68,6 +69,7 @@ ImportAttributeConfigurationBufferResponse import_attribute_configuration_buffer
 InitExtCalResponse init_ext_cal(const StubPtr& stub, const pb::string& resource_name, const pb::string& calibration_password);
 InitWithOptionsResponse init_with_options(const StubPtr& stub, const pb::string& resource_name, const bool& id_query, const bool& reset_device, const pb::string& option_string);
 InitWithVarArgsResponse init_with_var_args(const StubPtr& stub, const pb::string& resource_name, const std::vector<StringAndTurtle>& name_and_turtle);
+MethodWithGetLastErrorParamResponse method_with_get_last_error_param(const StubPtr& stub);
 MultipleArrayTypesResponse multiple_array_types(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& output_array_size, const std::vector<double>& input_array_of_floats, const std::vector<pb::int32>& input_array_of_integers);
 MultipleArraysSameSizeResponse multiple_arrays_same_size(const StubPtr& stub, const nidevice_grpc::Session& vi, const std::vector<double>& values1, const std::vector<double>& values2, const std::vector<double>& values3, const std::vector<double>& values4);
 MultipleArraysSameSizeWithOptionalResponse multiple_arrays_same_size_with_optional(const StubPtr& stub, const nidevice_grpc::Session& vi, const std::vector<double>& values1, const std::vector<double>& values2, const std::vector<double>& values3, const std::vector<double>& values4, const std::vector<FakeCustomStruct>& values5);
@@ -92,7 +94,6 @@ ViInt16ArrayInputFunctionResponse vi_int16_array_input_function(const StubPtr& s
 ViUInt8ArrayInputFunctionResponse vi_uint8_array_input_function(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& number_of_elements, const pb::string& an_array);
 ViUInt8ArrayOutputFunctionResponse vi_uint8_array_output_function(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& number_of_elements);
 WriteWaveformResponse write_waveform(const StubPtr& stub, const nidevice_grpc::Session& vi, const std::vector<double>& waveform);
-CloseResponse close(const StubPtr& stub, const nidevice_grpc::Session& vi);
 
 } // namespace nifake_grpc::experimental::client
 

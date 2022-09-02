@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# This file is generated from NI-FAKE API metadata version 22.8.0d35
+# This file is generated from NI-FAKE API metadata version 22.8.0d9999
 functions = {
     'Abort': {
         'codegen_method': 'public',
@@ -177,6 +177,20 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+    'Close': {
+        'cname': 'niFake_close',
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'CloseExtCal': {
         'codegen_method': 'public',
         'custom_close_method': True,
@@ -338,6 +352,39 @@ functions = {
                 'grpc_type': 'sint32',
                 'name': 'aTurtle',
                 'type': 'ViInt16'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
+    'ErrorMessage': {
+        'cname': 'niFake_error_message',
+        'codegen_method': 'private',
+        'is_error_handling': True,
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            },
+            {
+                'cppName': 'errorCode',
+                'direction': 'in',
+                'grpc_type': 'sint32',
+                'name': 'errorCode',
+                'type': 'ViStatus'
+            },
+            {
+                'cppName': 'errorMessage',
+                'direction': 'out',
+                'grpc_type': 'string',
+                'name': 'errorMessage',
+                'size': {
+                    'mechanism': 'fixed',
+                    'value': 256
+                },
+                'type': 'ViChar[]'
             }
         ],
         'returns': 'ViStatus'
@@ -1538,6 +1585,20 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+    'MethodWithGetLastErrorParam': {
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'lastError',
+                'direction': 'out',
+                'get_last_error': 'deprecated',
+                'grpc_type': 'string',
+                'name': 'lastError',
+                'type': 'ViChar[]'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'MultipleArrayTypes': {
         'codegen_method': 'public',
         'parameters': [
@@ -2232,6 +2293,38 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+    'SelfTest': {
+        'cname': 'niFake_self_test',
+        'codegen_method': 'private',
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            },
+            {
+                'cppName': 'selfTestResult',
+                'direction': 'out',
+                'grpc_type': 'sint32',
+                'name': 'selfTestResult',
+                'type': 'ViInt16'
+            },
+            {
+                'cppName': 'selfTestMessage',
+                'direction': 'out',
+                'grpc_type': 'string',
+                'name': 'selfTestMessage',
+                'size': {
+                    'mechanism': 'fixed',
+                    'value': 256
+                },
+                'type': 'ViChar[]'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'SetAttributeViBoolean': {
         'codegen_method': 'private',
         'parameters': [
@@ -2718,82 +2811,6 @@ functions = {
                     'value': 'numberOfSamples'
                 },
                 'type': 'ViReal64[]'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'close': {
-        'codegen_method': 'public',
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'error_message': {
-        'codegen_method': 'private',
-        'is_error_handling': True,
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'errorCode',
-                'direction': 'in',
-                'grpc_type': 'sint32',
-                'name': 'errorCode',
-                'type': 'ViStatus'
-            },
-            {
-                'cppName': 'errorMessage',
-                'direction': 'out',
-                'grpc_type': 'string',
-                'name': 'errorMessage',
-                'size': {
-                    'mechanism': 'fixed',
-                    'value': 256
-                },
-                'type': 'ViChar[]'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'self_test': {
-        'codegen_method': 'private',
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'selfTestResult',
-                'direction': 'out',
-                'grpc_type': 'sint32',
-                'name': 'selfTestResult',
-                'type': 'ViInt16'
-            },
-            {
-                'cppName': 'selfTestMessage',
-                'direction': 'out',
-                'grpc_type': 'string',
-                'name': 'selfTestMessage',
-                'size': {
-                    'mechanism': 'fixed',
-                    'value': 256
-                },
-                'type': 'ViChar[]'
             }
         ],
         'returns': 'ViStatus'

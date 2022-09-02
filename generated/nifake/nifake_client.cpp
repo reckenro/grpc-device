@@ -119,6 +119,22 @@ bool_array_output_function(const StubPtr& stub, const nidevice_grpc::Session& vi
   return response;
 }
 
+CloseResponse
+close(const StubPtr& stub, const nidevice_grpc::Session& vi)
+{
+  ::grpc::ClientContext context;
+
+  auto request = CloseRequest{};
+  request.mutable_vi()->CopyFrom(vi);
+
+  auto response = CloseResponse{};
+
+  raise_if_error(
+      stub->Close(&context, request, &response));
+
+  return response;
+}
+
 CloseExtCalResponse
 close_ext_cal(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& action)
 {
@@ -792,6 +808,21 @@ init_with_var_args(const StubPtr& stub, const pb::string& resource_name, const s
   return response;
 }
 
+MethodWithGetLastErrorParamResponse
+method_with_get_last_error_param(const StubPtr& stub)
+{
+  ::grpc::ClientContext context;
+
+  auto request = MethodWithGetLastErrorParamRequest{};
+
+  auto response = MethodWithGetLastErrorParamResponse{};
+
+  raise_if_error(
+      stub->MethodWithGetLastErrorParam(&context, request, &response));
+
+  return response;
+}
+
 MultipleArrayTypesResponse
 multiple_array_types(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& output_array_size, const std::vector<double>& input_array_of_floats, const std::vector<pb::int32>& input_array_of_integers)
 {
@@ -1229,22 +1260,6 @@ write_waveform(const StubPtr& stub, const nidevice_grpc::Session& vi, const std:
 
   raise_if_error(
       stub->WriteWaveform(&context, request, &response));
-
-  return response;
-}
-
-CloseResponse
-close(const StubPtr& stub, const nidevice_grpc::Session& vi)
-{
-  ::grpc::ClientContext context;
-
-  auto request = CloseRequest{};
-  request.mutable_vi()->CopyFrom(vi);
-
-  auto response = CloseResponse{};
-
-  raise_if_error(
-      stub->Close(&context, request, &response));
 
   return response;
 }

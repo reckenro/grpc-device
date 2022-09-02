@@ -161,7 +161,7 @@ TEST(NiFakeServiceTests, NiFakeService_InitWithOptionsAndResetServer_SessionIsCl
   const char* session_name = "sessionName";
   EXPECT_CALL(library, InitWithOptions)
       .WillOnce(DoAll(SetArgPointee<4>(kTestViSession), Return(kDriverSuccess)));
-  EXPECT_CALL(library, close(kTestViSession))
+  EXPECT_CALL(library, Close(kTestViSession))
       .WillOnce(Return(kDriverSuccess));
 
   ::grpc::ServerContext context;
@@ -216,7 +216,7 @@ TEST(NiFakeServiceTests, NiFakeService_InitWithOptionsThenClose_SessionIsClosed)
   std::string session_name = "sessionName";
   EXPECT_CALL(library, InitWithOptions)
       .WillOnce(DoAll(SetArgPointee<4>(kTestViSession), Return(kDriverSuccess)));
-  EXPECT_CALL(library, close(kTestViSession))
+  EXPECT_CALL(library, Close(kTestViSession))
       .WillOnce(Return(kDriverSuccess));
 
   ::grpc::ServerContext context;

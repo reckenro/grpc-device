@@ -203,6 +203,29 @@ namespace nifake_grpc {
 
   //---------------------------------------------------------------------
   //---------------------------------------------------------------------
+  ::grpc::Status NiFakeService::Close(::grpc::ServerContext* context, const CloseRequest* request, CloseResponse* response)
+  {
+    if (context->IsCancelled()) {
+      return ::grpc::Status::CANCELLED;
+    }
+    try {
+      auto vi_grpc_session = request->vi();
+      ViSession vi = session_repository_->access_session(vi_grpc_session.id(), vi_grpc_session.name());
+      session_repository_->remove_session(vi_grpc_session.id(), vi_grpc_session.name());
+      auto status = library_->Close(vi);
+      if (!status_ok(status)) {
+        return ConvertApiErrorStatusForViSession(status, vi);
+      }
+      response->set_status(status);
+      return ::grpc::Status::OK;
+    }
+    catch (nidevice_grpc::LibraryLoadException& ex) {
+      return ::grpc::Status(::grpc::NOT_FOUND, ex.what());
+    }
+  }
+
+  //---------------------------------------------------------------------
+  //---------------------------------------------------------------------
   ::grpc::Status NiFakeService::CloseExtCal(::grpc::ServerContext* context, const CloseExtCalRequest* request, CloseExtCalResponse* response)
   {
     if (context->IsCancelled()) {
@@ -1339,7 +1362,7 @@ namespace nifake_grpc {
       };
       uint32_t session_id = 0;
       const std::string& grpc_device_session_name = request->session_name();
-      auto cleanup_lambda = [&] (ViSession id) { library_->close(id); };
+      auto cleanup_lambda = [&] (ViSession id) { library_->Close(id); };
       int status = session_repository_->add_session(grpc_device_session_name, init_lambda, cleanup_lambda, session_id);
       if (!status_ok(status)) {
         return ConvertApiErrorStatusForViSession(status, 0);
@@ -1393,7 +1416,7 @@ namespace nifake_grpc {
       };
       uint32_t session_id = 0;
       const std::string& grpc_device_session_name = request->session_name();
-      auto cleanup_lambda = [&] (ViSession id) { library_->close(id); };
+      auto cleanup_lambda = [&] (ViSession id) { library_->Close(id); };
       int status = session_repository_->add_session(grpc_device_session_name, init_lambda, cleanup_lambda, session_id);
       if (!status_ok(status)) {
         return ConvertApiErrorStatusForViSession(status, 0);
@@ -1407,6 +1430,26 @@ namespace nifake_grpc {
     }
     catch (nidevice_grpc::SessionException& ex) {
       return ::grpc::Status(::grpc::INVALID_ARGUMENT, ex.what());
+    }
+  }
+
+  //---------------------------------------------------------------------
+  //---------------------------------------------------------------------
+  ::grpc::Status NiFakeService::MethodWithGetLastErrorParam(::grpc::ServerContext* context, const MethodWithGetLastErrorParamRequest* request, MethodWithGetLastErrorParamResponse* response)
+  {
+    if (context->IsCancelled()) {
+      return ::grpc::Status::CANCELLED;
+    }
+    try {
+      auto status = library_->MethodWithGetLastErrorParam();
+      if (!status_ok(status)) {
+        return ConvertApiErrorStatusForViSession(status, 0);
+      }
+      response->set_status(status);
+      return ::grpc::Status::OK;
+    }
+    catch (nidevice_grpc::LibraryLoadException& ex) {
+      return ::grpc::Status(::grpc::NOT_FOUND, ex.what());
     }
   }
 
@@ -2182,29 +2225,6 @@ namespace nifake_grpc {
       ViInt32 number_of_samples = static_cast<ViInt32>(request->waveform().size());
       auto waveform = const_cast<ViReal64*>(request->waveform().data());
       auto status = library_->WriteWaveform(vi, number_of_samples, waveform);
-      if (!status_ok(status)) {
-        return ConvertApiErrorStatusForViSession(status, vi);
-      }
-      response->set_status(status);
-      return ::grpc::Status::OK;
-    }
-    catch (nidevice_grpc::LibraryLoadException& ex) {
-      return ::grpc::Status(::grpc::NOT_FOUND, ex.what());
-    }
-  }
-
-  //---------------------------------------------------------------------
-  //---------------------------------------------------------------------
-  ::grpc::Status NiFakeService::Close(::grpc::ServerContext* context, const CloseRequest* request, CloseResponse* response)
-  {
-    if (context->IsCancelled()) {
-      return ::grpc::Status::CANCELLED;
-    }
-    try {
-      auto vi_grpc_session = request->vi();
-      ViSession vi = session_repository_->access_session(vi_grpc_session.id(), vi_grpc_session.name());
-      session_repository_->remove_session(vi_grpc_session.id(), vi_grpc_session.name());
-      auto status = library_->close(vi);
       if (!status_ok(status)) {
         return ConvertApiErrorStatusForViSession(status, vi);
       }
