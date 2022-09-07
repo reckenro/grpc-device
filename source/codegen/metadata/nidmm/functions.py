@@ -1557,11 +1557,11 @@ functions = {
                 'direction': 'out',
                 'grpc_type': 'string',
                 'name': 'coercionRecord',
-                'type': 'ViChar[]',
-                "size": {
-                    "mechanism": "ivi-dance",
-                    "value": "bufferSize"
-                }
+                'size': {
+                    'mechanism': 'ivi-dance',
+                    'value': 'bufferSize'
+                },
+                'type': 'ViChar[]'
             }
         ],
         'returns': 'ViStatus'
@@ -1590,11 +1590,11 @@ functions = {
                 'direction': 'out',
                 'grpc_type': 'string',
                 'name': 'interchangeWarning',
-                'type': 'ViChar[]',
-                "size": {
-                    "mechanism": "ivi-dance",
-                    "value": "bufferSize"
+                'size': {
+                    'mechanism': 'ivi-dance',
+                    'value': 'bufferSize'
                 },
+                'type': 'ViChar[]'
             }
         ],
         'returns': 'ViStatus'
@@ -1718,9 +1718,9 @@ functions = {
             {
                 'cppName': 'errorMessage',
                 'direction': 'out',
+                'get_last_error': 'deprecated',
                 'grpc_type': 'string',
                 'name': 'errorMessage',
-                'get_last_error': 'deprecated',
                 'type': 'ViChar[]'
             }
         ],
