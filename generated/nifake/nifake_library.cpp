@@ -30,6 +30,7 @@ NiFakeLibrary::NiFakeLibrary() : shared_library_(kLibraryName)
   function_pointers_.Close = reinterpret_cast<ClosePtr>(shared_library_.get_function_pointer("niFake_close"));
   function_pointers_.CloseExtCal = reinterpret_cast<CloseExtCalPtr>(shared_library_.get_function_pointer("niFake_CloseExtCal"));
   function_pointers_.CommandWithReservedParam = reinterpret_cast<CommandWithReservedParamPtr>(shared_library_.get_function_pointer("niFake_CommandWithReservedParam"));
+  function_pointers_.Control4022 = reinterpret_cast<Control4022Ptr>(shared_library_.get_function_pointer("niFake_4022Control"));
   function_pointers_.CreateConfigurationList = reinterpret_cast<CreateConfigurationListPtr>(shared_library_.get_function_pointer("niFake_CreateConfigurationList"));
   function_pointers_.DoubleAllTheNums = reinterpret_cast<DoubleAllTheNumsPtr>(shared_library_.get_function_pointer("niFake_DoubleAllTheNums"));
   function_pointers_.EnumArrayOutputFunction = reinterpret_cast<EnumArrayOutputFunctionPtr>(shared_library_.get_function_pointer("niFake_EnumArrayOutputFunction"));
@@ -220,6 +221,18 @@ ViStatus NiFakeLibrary::CommandWithReservedParam(ViSession vi, ViBoolean* reserv
   return niFake_CommandWithReservedParam(vi, reserved);
 #else
   return function_pointers_.CommandWithReservedParam(vi, reserved);
+#endif
+}
+
+ViStatus NiFakeLibrary::Control4022(ViString resourceName, ViInt32 configuration)
+{
+  if (!function_pointers_.Control4022) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niFake_4022Control.");
+  }
+#if defined(_MSC_VER)
+  return niFake_4022Control(resourceName, configuration);
+#else
+  return function_pointers_.Control4022(resourceName, configuration);
 #endif
 }
 
