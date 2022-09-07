@@ -31,6 +31,7 @@ BoolArrayOutputFunctionResponse bool_array_output_function(const StubPtr& stub, 
 CloseResponse close(const StubPtr& stub, const nidevice_grpc::Session& vi);
 CloseExtCalResponse close_ext_cal(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& action);
 CommandWithReservedParamResponse command_with_reserved_param(const StubPtr& stub, const nidevice_grpc::Session& vi);
+Control4022Response control4022(const StubPtr& stub, const pb::string& resource_name, const pb::int32& configuration);
 CreateConfigurationListResponse create_configuration_list(const StubPtr& stub, const std::vector<NiFakeAttribute>& list_attribute_ids);
 DoubleAllTheNumsResponse double_all_the_nums(const StubPtr& stub, const nidevice_grpc::Session& vi, const std::vector<double>& numbers);
 EnumArrayOutputFunctionResponse enum_array_output_function(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& number_of_elements);

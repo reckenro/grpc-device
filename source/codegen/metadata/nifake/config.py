@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # This file is generated from NI-FAKE API metadata version 22.8.0d9999
 config = {
+    'additional_headers': {
+    },
     'api_version': '22.8.0d9999',
     'c_function_prefix': 'niFake_',
     'c_header': 'niFake.h',
@@ -10,10 +12,12 @@ config = {
         {
             'fields': [
                 {
+                    'grpc_type': 'sint32',
                     'name': 'structInt',
                     'type': 'ViInt32'
                 },
                 {
+                    'grpc_type': 'double',
                     'name': 'structDouble',
                     'type': 'ViReal64'
                 }
@@ -24,12 +28,14 @@ config = {
         {
             'fields': [
                 {
+                    'grpc_type': 'string',
                     'name': 'stringArg',
                     'type': 'ViConstString'
                 },
                 {
                     'coerced': True,
                     'enum': 'Turtle',
+                    'grpc_type': 'Turtle',
                     'name': 'turtle',
                     'type': 'ViInt16'
                 }

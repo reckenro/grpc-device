@@ -273,6 +273,28 @@ namespace nifake_grpc {
 
   //---------------------------------------------------------------------
   //---------------------------------------------------------------------
+  ::grpc::Status NiFakeService::Control4022(::grpc::ServerContext* context, const Control4022Request* request, Control4022Response* response)
+  {
+    if (context->IsCancelled()) {
+      return ::grpc::Status::CANCELLED;
+    }
+    try {
+      ViString resource_name = (ViString)request->resource_name().c_str();
+      ViInt32 configuration = request->configuration();
+      auto status = library_->Control4022(resource_name, configuration);
+      if (!status_ok(status)) {
+        return ConvertApiErrorStatusForViSession(status, 0);
+      }
+      response->set_status(status);
+      return ::grpc::Status::OK;
+    }
+    catch (nidevice_grpc::LibraryLoadException& ex) {
+      return ::grpc::Status(::grpc::NOT_FOUND, ex.what());
+    }
+  }
+
+  //---------------------------------------------------------------------
+  //---------------------------------------------------------------------
   ::grpc::Status NiFakeService::CreateConfigurationList(::grpc::ServerContext* context, const CreateConfigurationListRequest* request, CreateConfigurationListResponse* response)
   {
     if (context->IsCancelled()) {

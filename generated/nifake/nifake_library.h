@@ -27,6 +27,7 @@ class NiFakeLibrary : public nifake_grpc::NiFakeLibraryInterface {
   ViStatus Close(ViSession vi);
   ViStatus CloseExtCal(ViSession vi, ViInt32 action);
   ViStatus CommandWithReservedParam(ViSession vi, ViBoolean* reserved);
+  ViStatus Control4022(ViString resourceName, ViInt32 configuration);
   ViStatus CreateConfigurationList(ViInt32 numberOfListAttributes, ViAttr listAttributeIds[]);
   ViStatus DoubleAllTheNums(ViSession vi, ViInt32 numberCount, ViReal64 numbers[]);
   ViStatus EnumArrayOutputFunction(ViSession vi, ViInt32 numberOfElements, ViInt16 anArray[]);
@@ -110,6 +111,7 @@ class NiFakeLibrary : public nifake_grpc::NiFakeLibraryInterface {
   using ClosePtr = decltype(&niFake_close);
   using CloseExtCalPtr = decltype(&niFake_CloseExtCal);
   using CommandWithReservedParamPtr = decltype(&niFake_CommandWithReservedParam);
+  using Control4022Ptr = decltype(&niFake_4022Control);
   using CreateConfigurationListPtr = decltype(&niFake_CreateConfigurationList);
   using DoubleAllTheNumsPtr = decltype(&niFake_DoubleAllTheNums);
   using EnumArrayOutputFunctionPtr = decltype(&niFake_EnumArrayOutputFunction);
@@ -193,6 +195,7 @@ class NiFakeLibrary : public nifake_grpc::NiFakeLibraryInterface {
     ClosePtr Close;
     CloseExtCalPtr CloseExtCal;
     CommandWithReservedParamPtr CommandWithReservedParam;
+    Control4022Ptr Control4022;
     CreateConfigurationListPtr CreateConfigurationList;
     DoubleAllTheNumsPtr DoubleAllTheNums;
     EnumArrayOutputFunctionPtr EnumArrayOutputFunction;

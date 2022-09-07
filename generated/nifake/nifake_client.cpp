@@ -168,6 +168,23 @@ command_with_reserved_param(const StubPtr& stub, const nidevice_grpc::Session& v
   return response;
 }
 
+Control4022Response
+control4022(const StubPtr& stub, const pb::string& resource_name, const pb::int32& configuration)
+{
+  ::grpc::ClientContext context;
+
+  auto request = Control4022Request{};
+  request.set_resource_name(resource_name);
+  request.set_configuration(configuration);
+
+  auto response = Control4022Response{};
+
+  raise_if_error(
+      stub->Control4022(&context, request, &response));
+
+  return response;
+}
+
 CreateConfigurationListResponse
 create_configuration_list(const StubPtr& stub, const std::vector<NiFakeAttribute>& list_attribute_ids)
 {

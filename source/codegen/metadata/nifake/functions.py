@@ -235,6 +235,27 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+    'Control4022': {
+        'cname': 'niFake_4022Control',
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'resourceName',
+                'direction': 'in',
+                'grpc_type': 'string',
+                'name': 'resourceName',
+                'type': 'ViString'
+            },
+            {
+                'cppName': 'configuration',
+                'direction': 'in',
+                'grpc_type': 'sint32',
+                'name': 'configuration',
+                'type': 'ViInt32'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'CreateConfigurationList': {
         'codegen_method': 'public',
         'parameters': [

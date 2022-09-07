@@ -25,6 +25,7 @@ service NiFake {
   rpc Close(CloseRequest) returns (CloseResponse);
   rpc CloseExtCal(CloseExtCalRequest) returns (CloseExtCalResponse);
   rpc CommandWithReservedParam(CommandWithReservedParamRequest) returns (CommandWithReservedParamResponse);
+  rpc Control4022(Control4022Request) returns (Control4022Response);
   rpc CreateConfigurationList(CreateConfigurationListRequest) returns (CreateConfigurationListResponse);
   rpc DoubleAllTheNums(DoubleAllTheNumsRequest) returns (DoubleAllTheNumsResponse);
   rpc EnumArrayOutputFunction(EnumArrayOutputFunctionRequest) returns (EnumArrayOutputFunctionResponse);
@@ -248,6 +249,15 @@ message CommandWithReservedParamRequest {
 }
 
 message CommandWithReservedParamResponse {
+  int32 status = 1;
+}
+
+message Control4022Request {
+  string resource_name = 1;
+  sint32 configuration = 2;
+}
+
+message Control4022Response {
   int32 status = 1;
 }
 
