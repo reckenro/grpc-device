@@ -10,10 +10,12 @@ config = {
         {
             'fields': [
                 {
+                    'grpc_type': 'sint32',
                     'name': 'structInt',
                     'type': 'ViInt32'
                 },
                 {
+                    'grpc_type': 'double',
                     'name': 'structDouble',
                     'type': 'ViReal64'
                 }
@@ -24,12 +26,14 @@ config = {
         {
             'fields': [
                 {
+                    'grpc_type': 'string',
                     'name': 'stringArg',
                     'type': 'ViConstString'
                 },
                 {
                     'coerced': True,
                     'enum': 'Turtle',
+                    'grpc_type': 'Turtle',
                     'name': 'turtle',
                     'type': 'ViInt16'
                 }
