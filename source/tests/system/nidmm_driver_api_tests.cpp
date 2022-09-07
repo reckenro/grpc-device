@@ -292,7 +292,7 @@ TEST_F(NiDmmDriverApiTest, ConfigureMeasurementAbsolute_CompletesSuccessfully)
   ::grpc::ClientContext context;
   dmm::ConfigureMeasurementAbsoluteRequest request;
   request.mutable_vi()->set_id(GetSessionId());
-  request.set_measurement_function(dmm::Function::FUNCTION_NIDMM_VAL_DC_VOLTS);
+  request.set_measurement_function(dmm::Function::FUNCTION_DC_VOLTS);
   request.set_range(10);
   request.set_resolution_absolute(5.5);
   dmm::ConfigureMeasurementAbsoluteResponse response;
@@ -333,8 +333,8 @@ TEST_F(NiDmmDriverApiTest, ConfiguredTrigger_ConfiguresSuccessfully)
   ::grpc::ClientContext context;
   dmm::ConfigureTriggerRequest request;
   request.mutable_vi()->set_id(GetSessionId());
-  request.set_trigger_source(dmm::TriggerSource::TRIGGER_SOURCE_NIDMM_VAL_SOFTWARE_TRIG);
-  request.set_trigger_delay(dmm::TriggerDelays::TRIGGER_DELAYS_NIDMM_VAL_AUTO_DELAY_ON);
+  request.set_trigger_source(dmm::TriggerSource::TRIGGER_SOURCE_SOFTWARE_TRIG);
+  // request.set_trigger_delay(dmm::TriggerDelays::TRIGGER_DELAYS_AUTO_DELAY_ON);
   dmm::ConfigureTriggerResponse response;
   ::grpc::Status status = GetStub()->ConfigureTrigger(&context, request, &response);
 
@@ -347,7 +347,7 @@ TEST_F(NiDmmDriverApiTest, AcquireMeasurement_CompletesSuccesfully)
   ::grpc::ClientContext context;
   dmm::ReadRequest request;
   request.mutable_vi()->set_id(GetSessionId());
-  request.set_maximum_time_raw(1000);
+  // request.set_maximum_time_raw(1000);
   dmm::ReadResponse response;
   ::grpc::Status status = GetStub()->Read(&context, request, &response);
 
