@@ -146,6 +146,7 @@ ATTRIBUTE_SCHEMA = Schema(
         Optional("python_type"): str,
         Optional("python_name"): str,
         Optional("codegen_method"): str,
+        Optional("grpc_type"): str,
     }
 )
 
