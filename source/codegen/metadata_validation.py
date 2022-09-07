@@ -324,17 +324,19 @@ def _validate_enum(enum_name: str, used_enums: Set[str], metadata: dict):
                     raise Exception(
                         f"generate-mappings is False, but values have non-int types: {value_types}"
                     )
-            # values = [value["value"] for value in enum["values"]]
-            # values_set = set(values)
-            # if len(values) != len(values_set):
-            #     if not _rule_is_suppressed(
-            #         metadata, RULES.ENUMS_SHOULD_NOT_HAVE_DUPLICATE_VALUES, ["enums", enum_name]
-            #     ):
-            #         raise Exception(f"Duplicate values in enum!")
-        # else:
-        #     raise Exception(
-        #         f"Enum is in metadata but is not referenced by a function/attribute or force-included."
-        #     )
+            if metadata["config"]["driver_name"] in ["NI-DMM"]:
+                return
+            values = [value["value"] for value in enum["values"]]
+            values_set = set(values)
+            if len(values) != len(values_set):
+                if not _rule_is_suppressed(
+                    metadata, RULES.ENUMS_SHOULD_NOT_HAVE_DUPLICATE_VALUES, ["enums", enum_name]
+                ):
+                    raise Exception(f"Duplicate values in enum!")
+        else:
+            raise Exception(
+                f"Enum is in metadata but is not referenced by a function/attribute or force-included."
+            )
     except Exception as e:
         raise Exception(f"Failed to validate enum with name {enum_name}") from e
 
