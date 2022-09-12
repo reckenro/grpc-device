@@ -82,7 +82,7 @@ check_attribute_vi_int32(const StubPtr& stub, const nidevice_grpc::Session& vi, 
 }
 
 CheckAttributeViReal64Response
-check_attribute_vi_real64(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id, const simple_variant<NiDmmReal64AttributeValues, double>& attribute_value)
+check_attribute_vi_real64(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id, const simple_variant<NiDmmReal64AttributeValuesMapped, double>& attribute_value)
 {
   ::grpc::ClientContext context;
 
@@ -90,10 +90,10 @@ check_attribute_vi_real64(const StubPtr& stub, const nidevice_grpc::Session& vi,
   request.mutable_vi()->CopyFrom(vi);
   request.set_channel_name(channel_name);
   request.set_attribute_id(attribute_id);
-  const auto attribute_value_ptr = attribute_value.get_if<NiDmmReal64AttributeValues>();
+  const auto attribute_value_ptr = attribute_value.get_if<NiDmmReal64AttributeValuesMapped>();
   const auto attribute_value_raw_ptr = attribute_value.get_if<double>();
   if (attribute_value_ptr) {
-    request.set_attribute_value(*attribute_value_ptr);
+    request.set_attribute_value_mapped(*attribute_value_ptr);
   }
   else if (attribute_value_raw_ptr) {
     request.set_attribute_value_raw(*attribute_value_raw_ptr);
@@ -309,20 +309,13 @@ configure_fixed_ref_junction(const StubPtr& stub, const nidevice_grpc::Session& 
 }
 
 ConfigureFrequencyVoltageRangeResponse
-configure_frequency_voltage_range(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<FrequencyVoltageRange, double>& voltage_range)
+configure_frequency_voltage_range(const StubPtr& stub, const nidevice_grpc::Session& vi, const double& voltage_range)
 {
   ::grpc::ClientContext context;
 
   auto request = ConfigureFrequencyVoltageRangeRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto voltage_range_ptr = voltage_range.get_if<FrequencyVoltageRange>();
-  const auto voltage_range_raw_ptr = voltage_range.get_if<double>();
-  if (voltage_range_ptr) {
-    request.set_voltage_range(*voltage_range_ptr);
-  }
-  else if (voltage_range_raw_ptr) {
-    request.set_voltage_range_raw(*voltage_range_raw_ptr);
-  }
+  request.set_voltage_range(voltage_range);
 
   auto response = ConfigureFrequencyVoltageRangeResponse{};
 
@@ -424,28 +417,14 @@ configure_measurement_digits(const StubPtr& stub, const nidevice_grpc::Session& 
 }
 
 ConfigureMultiPointResponse
-configure_multi_point(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<TriggerCount, pb::int32>& trigger_count, const simple_variant<SampleCount, pb::int32>& sample_count, const simple_variant<SampleTrigger, pb::int32>& sample_trigger, const simple_variant<SampleInterval, double>& sample_interval)
+configure_multi_point(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& trigger_count, const pb::int32& sample_count, const simple_variant<SampleTrigger, pb::int32>& sample_trigger, const double& sample_interval)
 {
   ::grpc::ClientContext context;
 
   auto request = ConfigureMultiPointRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto trigger_count_ptr = trigger_count.get_if<TriggerCount>();
-  const auto trigger_count_raw_ptr = trigger_count.get_if<pb::int32>();
-  if (trigger_count_ptr) {
-    request.set_trigger_count(*trigger_count_ptr);
-  }
-  else if (trigger_count_raw_ptr) {
-    request.set_trigger_count_raw(*trigger_count_raw_ptr);
-  }
-  const auto sample_count_ptr = sample_count.get_if<SampleCount>();
-  const auto sample_count_raw_ptr = sample_count.get_if<pb::int32>();
-  if (sample_count_ptr) {
-    request.set_sample_count(*sample_count_ptr);
-  }
-  else if (sample_count_raw_ptr) {
-    request.set_sample_count_raw(*sample_count_raw_ptr);
-  }
+  request.set_trigger_count(trigger_count);
+  request.set_sample_count(sample_count);
   const auto sample_trigger_ptr = sample_trigger.get_if<SampleTrigger>();
   const auto sample_trigger_raw_ptr = sample_trigger.get_if<pb::int32>();
   if (sample_trigger_ptr) {
@@ -454,14 +433,7 @@ configure_multi_point(const StubPtr& stub, const nidevice_grpc::Session& vi, con
   else if (sample_trigger_raw_ptr) {
     request.set_sample_trigger_raw(*sample_trigger_raw_ptr);
   }
-  const auto sample_interval_ptr = sample_interval.get_if<SampleInterval>();
-  const auto sample_interval_raw_ptr = sample_interval.get_if<double>();
-  if (sample_interval_ptr) {
-    request.set_sample_interval(*sample_interval_ptr);
-  }
-  else if (sample_interval_raw_ptr) {
-    request.set_sample_interval_raw(*sample_interval_raw_ptr);
-  }
+  request.set_sample_interval(sample_interval);
 
   auto response = ConfigureMultiPointResponse{};
 
@@ -473,20 +445,13 @@ configure_multi_point(const StubPtr& stub, const nidevice_grpc::Session& vi, con
 }
 
 ConfigureOffsetCompOhmsResponse
-configure_offset_comp_ohms(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<CompensatedOhms, pb::int32>& offset_comp_ohms)
+configure_offset_comp_ohms(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& offset_comp_ohms)
 {
   ::grpc::ClientContext context;
 
   auto request = ConfigureOffsetCompOhmsRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto offset_comp_ohms_ptr = offset_comp_ohms.get_if<CompensatedOhms>();
-  const auto offset_comp_ohms_raw_ptr = offset_comp_ohms.get_if<pb::int32>();
-  if (offset_comp_ohms_ptr) {
-    request.set_offset_comp_ohms(*offset_comp_ohms_ptr);
-  }
-  else if (offset_comp_ohms_raw_ptr) {
-    request.set_offset_comp_ohms_raw(*offset_comp_ohms_raw_ptr);
-  }
+  request.set_offset_comp_ohms(offset_comp_ohms);
 
   auto response = ConfigureOffsetCompOhmsResponse{};
 
@@ -517,20 +482,13 @@ configure_open_cable_comp_values(const StubPtr& stub, const nidevice_grpc::Sessi
 }
 
 ConfigurePowerLineFrequencyResponse
-configure_power_line_frequency(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<PowerLineFrequencies, double>& power_line_frequency_hz)
+configure_power_line_frequency(const StubPtr& stub, const nidevice_grpc::Session& vi, const double& power_line_frequency_hz)
 {
   ::grpc::ClientContext context;
 
   auto request = ConfigurePowerLineFrequencyRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto power_line_frequency_hz_ptr = power_line_frequency_hz.get_if<PowerLineFrequencies>();
-  const auto power_line_frequency_hz_raw_ptr = power_line_frequency_hz.get_if<double>();
-  if (power_line_frequency_hz_ptr) {
-    request.set_power_line_frequency_hz(*power_line_frequency_hz_ptr);
-  }
-  else if (power_line_frequency_hz_raw_ptr) {
-    request.set_power_line_frequency_hz_raw(*power_line_frequency_hz_raw_ptr);
-  }
+  request.set_power_line_frequency_hz(power_line_frequency_hz);
 
   auto response = ConfigurePowerLineFrequencyResponse{};
 
@@ -562,13 +520,13 @@ configure_rtd_custom(const StubPtr& stub, const nidevice_grpc::Session& vi, cons
 }
 
 ConfigureRTDTypeResponse
-configure_rtd_type(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<RtdType, pb::int32>& rtd_type, const double& rtd_resistance)
+configure_rtd_type(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<RTDType, pb::int32>& rtd_type, const double& rtd_resistance)
 {
   ::grpc::ClientContext context;
 
   auto request = ConfigureRTDTypeRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto rtd_type_ptr = rtd_type.get_if<RtdType>();
+  const auto rtd_type_ptr = rtd_type.get_if<RTDType>();
   const auto rtd_type_raw_ptr = rtd_type.get_if<pb::int32>();
   if (rtd_type_ptr) {
     request.set_rtd_type(*rtd_type_ptr);
@@ -588,20 +546,13 @@ configure_rtd_type(const StubPtr& stub, const nidevice_grpc::Session& vi, const 
 }
 
 ConfigureSampleTriggerSlopeResponse
-configure_sample_trigger_slope(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<SampleTrigSlope, pb::int32>& sample_trigger_slope)
+configure_sample_trigger_slope(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& sample_trigger_slope)
 {
   ::grpc::ClientContext context;
 
   auto request = ConfigureSampleTriggerSlopeRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto sample_trigger_slope_ptr = sample_trigger_slope.get_if<SampleTrigSlope>();
-  const auto sample_trigger_slope_raw_ptr = sample_trigger_slope.get_if<pb::int32>();
-  if (sample_trigger_slope_ptr) {
-    request.set_sample_trigger_slope(*sample_trigger_slope_ptr);
-  }
-  else if (sample_trigger_slope_raw_ptr) {
-    request.set_sample_trigger_slope_raw(*sample_trigger_slope_raw_ptr);
-  }
+  request.set_sample_trigger_slope(sample_trigger_slope);
 
   auto response = ConfigureSampleTriggerSlopeResponse{};
 
@@ -721,7 +672,7 @@ configure_transducer_type(const StubPtr& stub, const nidevice_grpc::Session& vi,
 }
 
 ConfigureTriggerResponse
-configure_trigger(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<TriggerSource, pb::int32>& trigger_source, const simple_variant<TriggerDelays, double>& trigger_delay)
+configure_trigger(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<TriggerSource, pb::int32>& trigger_source, const double& trigger_delay)
 {
   ::grpc::ClientContext context;
 
@@ -735,14 +686,7 @@ configure_trigger(const StubPtr& stub, const nidevice_grpc::Session& vi, const s
   else if (trigger_source_raw_ptr) {
     request.set_trigger_source_raw(*trigger_source_raw_ptr);
   }
-  const auto trigger_delay_ptr = trigger_delay.get_if<TriggerDelays>();
-  const auto trigger_delay_raw_ptr = trigger_delay.get_if<double>();
-  if (trigger_delay_ptr) {
-    request.set_trigger_delay(*trigger_delay_ptr);
-  }
-  else if (trigger_delay_raw_ptr) {
-    request.set_trigger_delay_raw(*trigger_delay_raw_ptr);
-  }
+  request.set_trigger_delay(trigger_delay);
 
   auto response = ConfigureTriggerResponse{};
 
@@ -754,20 +698,13 @@ configure_trigger(const StubPtr& stub, const nidevice_grpc::Session& vi, const s
 }
 
 ConfigureTriggerSlopeResponse
-configure_trigger_slope(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<TriggerSlope, pb::int32>& trigger_slope)
+configure_trigger_slope(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& trigger_slope)
 {
   ::grpc::ClientContext context;
 
   auto request = ConfigureTriggerSlopeRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto trigger_slope_ptr = trigger_slope.get_if<TriggerSlope>();
-  const auto trigger_slope_raw_ptr = trigger_slope.get_if<pb::int32>();
-  if (trigger_slope_ptr) {
-    request.set_trigger_slope(*trigger_slope_ptr);
-  }
-  else if (trigger_slope_raw_ptr) {
-    request.set_trigger_slope_raw(*trigger_slope_raw_ptr);
-  }
+  request.set_trigger_slope(trigger_slope);
 
   auto response = ConfigureTriggerSlopeResponse{};
 
@@ -825,50 +762,18 @@ configure_waveform_coupling(const StubPtr& stub, const nidevice_grpc::Session& v
 }
 
 ControlResponse
-control(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<ControlCommit, pb::int32>& control_action)
+control(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& control_action)
 {
   ::grpc::ClientContext context;
 
   auto request = ControlRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto control_action_ptr = control_action.get_if<ControlCommit>();
-  const auto control_action_raw_ptr = control_action.get_if<pb::int32>();
-  if (control_action_ptr) {
-    request.set_control_action(*control_action_ptr);
-  }
-  else if (control_action_raw_ptr) {
-    request.set_control_action_raw(*control_action_raw_ptr);
-  }
+  request.set_control_action(control_action);
 
   auto response = ControlResponse{};
 
   raise_if_error(
       stub->Control(&context, request, &response),
-      context);
-
-  return response;
-}
-
-Control4022Response
-control4022(const StubPtr& stub, const pb::string& resource_name, const simple_variant<Configuration4022, pb::int32>& configuration)
-{
-  ::grpc::ClientContext context;
-
-  auto request = Control4022Request{};
-  request.set_resource_name(resource_name);
-  const auto configuration_ptr = configuration.get_if<Configuration4022>();
-  const auto configuration_raw_ptr = configuration.get_if<pb::int32>();
-  if (configuration_ptr) {
-    request.set_configuration(*configuration_ptr);
-  }
-  else if (configuration_raw_ptr) {
-    request.set_configuration_raw(*configuration_raw_ptr);
-  }
-
-  auto response = Control4022Response{};
-
-  raise_if_error(
-      stub->Control4022(&context, request, &response),
       context);
 
   return response;
@@ -927,20 +832,13 @@ export_attribute_configuration_file(const StubPtr& stub, const nidevice_grpc::Se
 }
 
 FetchResponse
-fetch(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<TimeLimit, pb::int32>& maximum_time)
+fetch(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& maximum_time)
 {
   ::grpc::ClientContext context;
 
   auto request = FetchRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto maximum_time_ptr = maximum_time.get_if<TimeLimit>();
-  const auto maximum_time_raw_ptr = maximum_time.get_if<pb::int32>();
-  if (maximum_time_ptr) {
-    request.set_maximum_time(*maximum_time_ptr);
-  }
-  else if (maximum_time_raw_ptr) {
-    request.set_maximum_time_raw(*maximum_time_raw_ptr);
-  }
+  request.set_maximum_time(maximum_time);
 
   auto response = FetchResponse{};
 
@@ -952,20 +850,13 @@ fetch(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_varian
 }
 
 FetchMultiPointResponse
-fetch_multi_point(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<TimeLimit, pb::int32>& maximum_time, const pb::int32& array_size)
+fetch_multi_point(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& maximum_time, const pb::int32& array_size)
 {
   ::grpc::ClientContext context;
 
   auto request = FetchMultiPointRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto maximum_time_ptr = maximum_time.get_if<TimeLimit>();
-  const auto maximum_time_raw_ptr = maximum_time.get_if<pb::int32>();
-  if (maximum_time_ptr) {
-    request.set_maximum_time(*maximum_time_ptr);
-  }
-  else if (maximum_time_raw_ptr) {
-    request.set_maximum_time_raw(*maximum_time_raw_ptr);
-  }
+  request.set_maximum_time(maximum_time);
   request.set_array_size(array_size);
 
   auto response = FetchMultiPointResponse{};
@@ -978,20 +869,13 @@ fetch_multi_point(const StubPtr& stub, const nidevice_grpc::Session& vi, const s
 }
 
 FetchWaveformResponse
-fetch_waveform(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<TimeLimit, pb::int32>& maximum_time, const pb::int32& array_size)
+fetch_waveform(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& maximum_time, const pb::int32& array_size)
 {
   ::grpc::ClientContext context;
 
   auto request = FetchWaveformRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto maximum_time_ptr = maximum_time.get_if<TimeLimit>();
-  const auto maximum_time_raw_ptr = maximum_time.get_if<pb::int32>();
-  if (maximum_time_ptr) {
-    request.set_maximum_time(*maximum_time_ptr);
-  }
-  else if (maximum_time_raw_ptr) {
-    request.set_maximum_time_raw(*maximum_time_raw_ptr);
-  }
+  request.set_maximum_time(maximum_time);
   request.set_array_size(array_size);
 
   auto response = FetchWaveformResponse{};
@@ -1133,20 +1017,13 @@ get_auto_range_value(const StubPtr& stub, const nidevice_grpc::Session& vi)
 }
 
 GetCalDateAndTimeResponse
-get_cal_date_and_time(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<CalibrationType, pb::int32>& cal_type)
+get_cal_date_and_time(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& cal_type)
 {
   ::grpc::ClientContext context;
 
   auto request = GetCalDateAndTimeRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto cal_type_ptr = cal_type.get_if<CalibrationType>();
-  const auto cal_type_raw_ptr = cal_type.get_if<pb::int32>();
-  if (cal_type_ptr) {
-    request.set_cal_type(*cal_type_ptr);
-  }
-  else if (cal_type_raw_ptr) {
-    request.set_cal_type_raw(*cal_type_raw_ptr);
-  }
+  request.set_cal_type(cal_type);
 
   auto response = GetCalDateAndTimeResponse{};
 
@@ -1246,20 +1123,13 @@ get_ext_cal_recommended_interval(const StubPtr& stub, const nidevice_grpc::Sessi
 }
 
 GetLastCalTempResponse
-get_last_cal_temp(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<CalibrationType, pb::int32>& cal_type)
+get_last_cal_temp(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& cal_type)
 {
   ::grpc::ClientContext context;
 
   auto request = GetLastCalTempRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto cal_type_ptr = cal_type.get_if<CalibrationType>();
-  const auto cal_type_raw_ptr = cal_type.get_if<pb::int32>();
-  if (cal_type_ptr) {
-    request.set_cal_type(*cal_type_ptr);
-  }
-  else if (cal_type_raw_ptr) {
-    request.set_cal_type_raw(*cal_type_raw_ptr);
-  }
+  request.set_cal_type(cal_type);
 
   auto response = GetLastCalTempResponse{};
 
@@ -1518,20 +1388,13 @@ perform_short_cable_comp(const StubPtr& stub, const nidevice_grpc::Session& vi)
 }
 
 ReadResponse
-read(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<TimeLimit, pb::int32>& maximum_time)
+read(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& maximum_time)
 {
   ::grpc::ClientContext context;
 
   auto request = ReadRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto maximum_time_ptr = maximum_time.get_if<TimeLimit>();
-  const auto maximum_time_raw_ptr = maximum_time.get_if<pb::int32>();
-  if (maximum_time_ptr) {
-    request.set_maximum_time(*maximum_time_ptr);
-  }
-  else if (maximum_time_raw_ptr) {
-    request.set_maximum_time_raw(*maximum_time_raw_ptr);
-  }
+  request.set_maximum_time(maximum_time);
 
   auto response = ReadResponse{};
 
@@ -1543,20 +1406,13 @@ read(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant
 }
 
 ReadMultiPointResponse
-read_multi_point(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<TimeLimit, pb::int32>& maximum_time, const pb::int32& array_size)
+read_multi_point(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& maximum_time, const pb::int32& array_size)
 {
   ::grpc::ClientContext context;
 
   auto request = ReadMultiPointRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto maximum_time_ptr = maximum_time.get_if<TimeLimit>();
-  const auto maximum_time_raw_ptr = maximum_time.get_if<pb::int32>();
-  if (maximum_time_ptr) {
-    request.set_maximum_time(*maximum_time_ptr);
-  }
-  else if (maximum_time_raw_ptr) {
-    request.set_maximum_time_raw(*maximum_time_raw_ptr);
-  }
+  request.set_maximum_time(maximum_time);
   request.set_array_size(array_size);
 
   auto response = ReadMultiPointResponse{};
@@ -1586,20 +1442,13 @@ read_status(const StubPtr& stub, const nidevice_grpc::Session& vi)
 }
 
 ReadWaveformResponse
-read_waveform(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<TimeLimit, pb::int32>& maximum_time, const pb::int32& array_size)
+read_waveform(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& maximum_time, const pb::int32& array_size)
 {
   ::grpc::ClientContext context;
 
   auto request = ReadWaveformRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  const auto maximum_time_ptr = maximum_time.get_if<TimeLimit>();
-  const auto maximum_time_raw_ptr = maximum_time.get_if<pb::int32>();
-  if (maximum_time_ptr) {
-    request.set_maximum_time(*maximum_time_ptr);
-  }
-  else if (maximum_time_raw_ptr) {
-    request.set_maximum_time_raw(*maximum_time_raw_ptr);
-  }
+  request.set_maximum_time(maximum_time);
   request.set_array_size(array_size);
 
   auto response = ReadWaveformResponse{};
@@ -1778,7 +1627,7 @@ set_attribute_vi_int32(const StubPtr& stub, const nidevice_grpc::Session& vi, co
 }
 
 SetAttributeViReal64Response
-set_attribute_vi_real64(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id, const simple_variant<NiDmmReal64AttributeValues, double>& attribute_value)
+set_attribute_vi_real64(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id, const simple_variant<NiDmmReal64AttributeValuesMapped, double>& attribute_value)
 {
   ::grpc::ClientContext context;
 
@@ -1786,10 +1635,10 @@ set_attribute_vi_real64(const StubPtr& stub, const nidevice_grpc::Session& vi, c
   request.mutable_vi()->CopyFrom(vi);
   request.set_channel_name(channel_name);
   request.set_attribute_id(attribute_id);
-  const auto attribute_value_ptr = attribute_value.get_if<NiDmmReal64AttributeValues>();
+  const auto attribute_value_ptr = attribute_value.get_if<NiDmmReal64AttributeValuesMapped>();
   const auto attribute_value_raw_ptr = attribute_value.get_if<double>();
   if (attribute_value_ptr) {
-    request.set_attribute_value(*attribute_value_ptr);
+    request.set_attribute_value_mapped(*attribute_value_ptr);
   }
   else if (attribute_value_raw_ptr) {
     request.set_attribute_value_raw(*attribute_value_raw_ptr);

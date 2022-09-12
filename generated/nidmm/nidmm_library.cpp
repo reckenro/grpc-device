@@ -58,8 +58,8 @@ NiDmmLibrary::NiDmmLibrary() : shared_library_(kLibraryName)
   function_pointers_.ConfigureWaveformAcquisition = reinterpret_cast<ConfigureWaveformAcquisitionPtr>(shared_library_.get_function_pointer("niDMM_ConfigureWaveformAcquisition"));
   function_pointers_.ConfigureWaveformCoupling = reinterpret_cast<ConfigureWaveformCouplingPtr>(shared_library_.get_function_pointer("niDMM_ConfigureWaveformCoupling"));
   function_pointers_.Control = reinterpret_cast<ControlPtr>(shared_library_.get_function_pointer("niDMM_Control"));
-  function_pointers_.Control4022 = reinterpret_cast<Control4022Ptr>(shared_library_.get_function_pointer("niDMM_4022Control"));
   function_pointers_.Disable = reinterpret_cast<DisablePtr>(shared_library_.get_function_pointer("niDMM_Disable"));
+  function_pointers_.ErrorMessage = reinterpret_cast<ErrorMessagePtr>(shared_library_.get_function_pointer("niDMM_error_message"));
   function_pointers_.ExportAttributeConfigurationBuffer = reinterpret_cast<ExportAttributeConfigurationBufferPtr>(shared_library_.get_function_pointer("niDMM_ExportAttributeConfigurationBuffer"));
   function_pointers_.ExportAttributeConfigurationFile = reinterpret_cast<ExportAttributeConfigurationFilePtr>(shared_library_.get_function_pointer("niDMM_ExportAttributeConfigurationFile"));
   function_pointers_.Fetch = reinterpret_cast<FetchPtr>(shared_library_.get_function_pointer("niDMM_Fetch"));
@@ -91,7 +91,6 @@ NiDmmLibrary::NiDmmLibrary() : shared_library_(kLibraryName)
   function_pointers_.InvalidateAllAttributes = reinterpret_cast<InvalidateAllAttributesPtr>(shared_library_.get_function_pointer("niDMM_InvalidateAllAttributes"));
   function_pointers_.IsOverRange = reinterpret_cast<IsOverRangePtr>(shared_library_.get_function_pointer("niDMM_IsOverRange"));
   function_pointers_.IsUnderRange = reinterpret_cast<IsUnderRangePtr>(shared_library_.get_function_pointer("niDMM_IsUnderRange"));
-  function_pointers_.LockSession = reinterpret_cast<LockSessionPtr>(shared_library_.get_function_pointer("niDMM_LockSession"));
   function_pointers_.PerformOpenCableComp = reinterpret_cast<PerformOpenCableCompPtr>(shared_library_.get_function_pointer("niDMM_PerformOpenCableComp"));
   function_pointers_.PerformShortCableComp = reinterpret_cast<PerformShortCableCompPtr>(shared_library_.get_function_pointer("niDMM_PerformShortCableComp"));
   function_pointers_.Read = reinterpret_cast<ReadPtr>(shared_library_.get_function_pointer("niDMM_Read"));
@@ -110,7 +109,6 @@ NiDmmLibrary::NiDmmLibrary() : shared_library_(kLibraryName)
   function_pointers_.SetAttributeViReal64 = reinterpret_cast<SetAttributeViReal64Ptr>(shared_library_.get_function_pointer("niDMM_SetAttributeViReal64"));
   function_pointers_.SetAttributeViSession = reinterpret_cast<SetAttributeViSessionPtr>(shared_library_.get_function_pointer("niDMM_SetAttributeViSession"));
   function_pointers_.SetAttributeViString = reinterpret_cast<SetAttributeViStringPtr>(shared_library_.get_function_pointer("niDMM_SetAttributeViString"));
-  function_pointers_.UnlockSession = reinterpret_cast<UnlockSessionPtr>(shared_library_.get_function_pointer("niDMM_UnlockSession"));
 }
 
 NiDmmLibrary::~NiDmmLibrary()
@@ -568,18 +566,6 @@ ViStatus NiDmmLibrary::Control(ViSession vi, ViInt32 controlAction)
 #endif
 }
 
-ViStatus NiDmmLibrary::Control4022(ViRsrc resourceName, ViInt32 configuration)
-{
-  if (!function_pointers_.Control4022) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDMM_4022Control.");
-  }
-#if defined(_MSC_VER)
-  return niDMM_4022Control(resourceName, configuration);
-#else
-  return function_pointers_.Control4022(resourceName, configuration);
-#endif
-}
-
 ViStatus NiDmmLibrary::Disable(ViSession vi)
 {
   if (!function_pointers_.Disable) {
@@ -590,6 +576,14 @@ ViStatus NiDmmLibrary::Disable(ViSession vi)
 #else
   return function_pointers_.Disable(vi);
 #endif
+}
+
+ViStatus NiDmmLibrary::ErrorMessage(ViSession vi, ViStatus errorCode, ViChar errorMessage[256])
+{
+  if (!function_pointers_.ErrorMessage) {
+    throw nidevice_grpc::LibraryLoadException("Could not find niDMM_error_message.");
+  }
+  return function_pointers_.ErrorMessage(vi, errorCode, errorMessage);
 }
 
 ViStatus NiDmmLibrary::ExportAttributeConfigurationBuffer(ViSession vi, ViInt32 size, ViInt8 configuration[])
@@ -892,7 +886,7 @@ ViStatus NiDmmLibrary::ImportAttributeConfigurationFile(ViSession vi, ViConstStr
 #endif
 }
 
-ViStatus NiDmmLibrary::Init(ViRsrc resourceName, ViBoolean idQuery, ViBoolean resetDevice, ViSession* vi)
+ViStatus NiDmmLibrary::Init(ViString resourceName, ViBoolean idQuery, ViBoolean resetDevice, ViSession* vi)
 {
   if (!function_pointers_.Init) {
     throw nidevice_grpc::LibraryLoadException("Could not find niDMM_init.");
@@ -962,14 +956,6 @@ ViStatus NiDmmLibrary::IsUnderRange(ViSession vi, ViReal64 measurementValue, ViB
 #else
   return function_pointers_.IsUnderRange(vi, measurementValue, isUnderRange);
 #endif
-}
-
-ViStatus NiDmmLibrary::LockSession(ViSession vi, ViBoolean* callerHasLock)
-{
-  if (!function_pointers_.LockSession) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDMM_LockSession.");
-  }
-  return function_pointers_.LockSession(vi, callerHasLock);
 }
 
 ViStatus NiDmmLibrary::PerformOpenCableComp(ViSession vi, ViReal64* conductance, ViReal64* susceptance)
@@ -1186,14 +1172,6 @@ ViStatus NiDmmLibrary::SetAttributeViString(ViSession vi, ViConstString channelN
 #else
   return function_pointers_.SetAttributeViString(vi, channelName, attributeId, attributeValue);
 #endif
-}
-
-ViStatus NiDmmLibrary::UnlockSession(ViSession vi, ViBoolean* callerHasLock)
-{
-  if (!function_pointers_.UnlockSession) {
-    throw nidevice_grpc::LibraryLoadException("Could not find niDMM_UnlockSession.");
-  }
-  return function_pointers_.UnlockSession(vi, callerHasLock);
 }
 
 }  // namespace nidmm_grpc
