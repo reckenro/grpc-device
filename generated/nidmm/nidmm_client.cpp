@@ -148,6 +148,23 @@ check_attribute_vi_string(const StubPtr& stub, const nidevice_grpc::Session& vi,
   return response;
 }
 
+ClearErrorResponse
+clear_error(const StubPtr& stub, const nidevice_grpc::Session& vi)
+{
+  ::grpc::ClientContext context;
+
+  auto request = ClearErrorRequest{};
+  request.mutable_vi()->CopyFrom(vi);
+
+  auto response = ClearErrorResponse{};
+
+  raise_if_error(
+      stub->ClearError(&context, request, &response),
+      context);
+
+  return response;
+}
+
 ClearInterchangeWarningsResponse
 clear_interchange_warnings(const StubPtr& stub, const nidevice_grpc::Session& vi)
 {
@@ -727,6 +744,24 @@ configure_waveform_coupling(const StubPtr& stub, const nidevice_grpc::Session& v
   return response;
 }
 
+ControlResponse
+control(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& control_action)
+{
+  ::grpc::ClientContext context;
+
+  auto request = ControlRequest{};
+  request.mutable_vi()->CopyFrom(vi);
+  request.set_control_action(control_action);
+
+  auto response = ControlResponse{};
+
+  raise_if_error(
+      stub->Control(&context, request, &response),
+      context);
+
+  return response;
+}
+
 DisableResponse
 disable(const StubPtr& stub, const nidevice_grpc::Session& vi)
 {
@@ -982,6 +1017,24 @@ get_cal_date_and_time(const StubPtr& stub, const nidevice_grpc::Session& vi, con
   return response;
 }
 
+GetChannelNameResponse
+get_channel_name(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& index)
+{
+  ::grpc::ClientContext context;
+
+  auto request = GetChannelNameRequest{};
+  request.mutable_vi()->CopyFrom(vi);
+  request.set_index(index);
+
+  auto response = GetChannelNameResponse{};
+
+  raise_if_error(
+      stub->GetChannelName(&context, request, &response),
+      context);
+
+  return response;
+}
+
 GetDevTempResponse
 get_dev_temp(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& options)
 {
@@ -995,6 +1048,23 @@ get_dev_temp(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::st
 
   raise_if_error(
       stub->GetDevTemp(&context, request, &response),
+      context);
+
+  return response;
+}
+
+GetErrorResponse
+get_error(const StubPtr& stub, const nidevice_grpc::Session& vi)
+{
+  ::grpc::ClientContext context;
+
+  auto request = GetErrorRequest{};
+  request.mutable_vi()->CopyFrom(vi);
+
+  auto response = GetErrorResponse{};
+
+  raise_if_error(
+      stub->GetError(&context, request, &response),
       context);
 
   return response;
@@ -1242,23 +1312,6 @@ is_under_range(const StubPtr& stub, const nidevice_grpc::Session& vi, const doub
 
   raise_if_error(
       stub->IsUnderRange(&context, request, &response),
-      context);
-
-  return response;
-}
-
-LockSessionResponse
-lock_session(const StubPtr& stub, const nidevice_grpc::Session& vi)
-{
-  ::grpc::ClientContext context;
-
-  auto request = LockSessionRequest{};
-  request.mutable_vi()->CopyFrom(vi);
-
-  auto response = LockSessionResponse{};
-
-  raise_if_error(
-      stub->LockSession(&context, request, &response),
       context);
 
   return response;
@@ -1548,23 +1601,6 @@ set_attribute_vi_string(const StubPtr& stub, const nidevice_grpc::Session& vi, c
 
   raise_if_error(
       stub->SetAttributeViString(&context, request, &response),
-      context);
-
-  return response;
-}
-
-UnlockSessionResponse
-unlock_session(const StubPtr& stub, const nidevice_grpc::Session& vi)
-{
-  ::grpc::ClientContext context;
-
-  auto request = UnlockSessionRequest{};
-  request.mutable_vi()->CopyFrom(vi);
-
-  auto response = UnlockSessionResponse{};
-
-  raise_if_error(
-      stub->UnlockSession(&context, request, &response),
       context);
 
   return response;

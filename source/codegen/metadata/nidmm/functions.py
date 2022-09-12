@@ -186,6 +186,19 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+    'ClearError': {
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'ClearInterchangeWarnings': {
         'codegen_method': 'public',
         'parameters': [
@@ -887,6 +900,26 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+    'Control': {
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            },
+            {
+                'cppName': 'controlAction',
+                'direction': 'in',
+                'grpc_type': 'sint32',
+                'name': 'controlAction',
+                'type': 'ViInt32'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'Disable': {
         'codegen_method': 'public',
         'parameters': [
@@ -1358,6 +1391,46 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+    'GetChannelName': {
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            },
+            {
+                'cppName': 'index',
+                'direction': 'in',
+                'grpc_type': 'sint32',
+                'name': 'index',
+                'type': 'ViInt32'
+            },
+            {
+                'cppName': 'bufferSize',
+                'direction': 'in',
+                'grpc_type': 'sint32',
+                'include_in_proto': False,
+                'is_size_param': True,
+                'name': 'bufferSize',
+                'type': 'ViInt32'
+            },
+            {
+                'cppName': 'channelString',
+                'direction': 'out',
+                'grpc_type': 'string',
+                'name': 'channelString',
+                'size': {
+                    'mechanism': 'ivi-dance',
+                    'value': 'bufferSize'
+                },
+                'type': 'ViChar[]'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'GetDevTemp': {
         'codegen_method': 'public',
         'parameters': [
@@ -1386,7 +1459,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetError': {
-        'codegen_method': 'private',
+        'codegen_method': 'public',
         'is_error_handling': True,
         'parameters': [
             {
@@ -1801,26 +1874,6 @@ functions = {
                 'direction': 'out',
                 'grpc_type': 'bool',
                 'name': 'isUnderRange',
-                'type': 'ViBoolean'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'LockSession': {
-        'codegen_method': 'public',
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'callerHasLock',
-                'direction': 'out',
-                'grpc_type': 'bool',
-                'name': 'callerHasLock',
                 'type': 'ViBoolean'
             }
         ],
@@ -2247,26 +2300,6 @@ functions = {
                 'grpc_type': 'string',
                 'name': 'attributeValue_raw',
                 'type': 'ViString'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'UnlockSession': {
-        'codegen_method': 'public',
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'callerHasLock',
-                'direction': 'out',
-                'grpc_type': 'bool',
-                'name': 'callerHasLock',
-                'type': 'ViBoolean'
             }
         ],
         'returns': 'ViStatus'

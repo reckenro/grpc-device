@@ -24,6 +24,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   ViStatus CheckAttributeViReal64(ViSession vi, ViConstString channelName, ViAttr attributeId, ViReal64 attributeValue);
   ViStatus CheckAttributeViSession(ViSession vi, ViConstString channelName, ViAttr attributeId, ViSession attributeValue);
   ViStatus CheckAttributeViString(ViSession vi, ViConstString channelName, ViAttr attributeId, ViString attributeValue);
+  ViStatus ClearError(ViSession vi);
   ViStatus ClearInterchangeWarnings(ViSession vi);
   ViStatus ConfigureADCCalibration(ViSession vi, ViInt32 adcCalibration);
   ViStatus ConfigureACBandwidth(ViSession vi, ViReal64 acMinimumFrequencyHz, ViReal64 acMaximumFrequencyHz);
@@ -52,6 +53,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   ViStatus ConfigureTriggerSlope(ViSession vi, ViInt32 triggerSlope);
   ViStatus ConfigureWaveformAcquisition(ViSession vi, ViInt32 measurementFunction, ViReal64 range, ViReal64 rate, ViInt32 waveformPoints);
   ViStatus ConfigureWaveformCoupling(ViSession vi, ViInt32 waveformCoupling);
+  ViStatus Control(ViSession vi, ViInt32 controlAction);
   ViStatus Disable(ViSession vi);
   ViStatus ExportAttributeConfigurationBuffer(ViSession vi, ViInt32 size, ViInt8 configuration[]);
   ViStatus ExportAttributeConfigurationFile(ViSession vi, ViConstString filePath);
@@ -66,6 +68,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   ViStatus GetAttributeViString(ViSession vi, ViConstString channelName, ViAttr attributeId, ViInt32 bufferSize, ViChar attributeValue[]);
   ViStatus GetAutoRangeValue(ViSession vi, ViReal64* actualRange);
   ViStatus GetCalDateAndTime(ViSession vi, ViInt32 calType, ViInt32* month, ViInt32* day, ViInt32* year, ViInt32* hour, ViInt32* minute);
+  ViStatus GetChannelName(ViSession vi, ViInt32 index, ViInt32 bufferSize, ViChar channelString[]);
   ViStatus GetDevTemp(ViSession vi, ViString options, ViReal64* temperature);
   ViStatus GetError(ViSession vi, ViStatus* errorCode, ViInt32 bufferSize, ViChar description[]);
   ViStatus GetErrorMessage(ViSession vi, ViStatus errorCode, ViInt32 bufferSize, ViChar errorMessage[]);
@@ -82,7 +85,6 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   ViStatus InvalidateAllAttributes(ViSession vi);
   ViStatus IsOverRange(ViSession vi, ViReal64 measurementValue, ViBoolean* isOverRange);
   ViStatus IsUnderRange(ViSession vi, ViReal64 measurementValue, ViBoolean* isUnderRange);
-  ViStatus LockSession(ViSession vi, ViBoolean* callerHasLock);
   ViStatus PerformOpenCableComp(ViSession vi, ViReal64* conductance, ViReal64* susceptance);
   ViStatus PerformShortCableComp(ViSession vi, ViReal64* resistance, ViReal64* reactance);
   ViStatus Read(ViSession vi, ViInt32 maximumTime, ViReal64* reading);
@@ -98,7 +100,6 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   ViStatus SetAttributeViReal64(ViSession vi, ViConstString channelName, ViAttr attributeId, ViReal64 attributeValue);
   ViStatus SetAttributeViSession(ViSession vi, ViConstString channelName, ViAttr attributeId, ViSession attributeValue);
   ViStatus SetAttributeViString(ViSession vi, ViConstString channelName, ViAttr attributeId, ViString attributeValue);
-  ViStatus UnlockSession(ViSession vi, ViBoolean* callerHasLock);
   ViStatus Close(ViSession vi);
   ViStatus error_message(ViSession vi, ViStatus errorCode, ViChar errorMessage[256]);
   ViStatus Init(ViString resourceName, ViBoolean idQuery, ViBoolean resetDevice, ViSession* vi);
@@ -113,6 +114,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   using CheckAttributeViReal64Ptr = decltype(&niDMM_CheckAttributeViReal64);
   using CheckAttributeViSessionPtr = decltype(&niDMM_CheckAttributeViSession);
   using CheckAttributeViStringPtr = decltype(&niDMM_CheckAttributeViString);
+  using ClearErrorPtr = decltype(&niDMM_ClearError);
   using ClearInterchangeWarningsPtr = decltype(&niDMM_ClearInterchangeWarnings);
   using ConfigureADCCalibrationPtr = decltype(&niDMM_ConfigureADCCalibration);
   using ConfigureACBandwidthPtr = decltype(&niDMM_ConfigureACBandwidth);
@@ -141,6 +143,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   using ConfigureTriggerSlopePtr = decltype(&niDMM_ConfigureTriggerSlope);
   using ConfigureWaveformAcquisitionPtr = decltype(&niDMM_ConfigureWaveformAcquisition);
   using ConfigureWaveformCouplingPtr = decltype(&niDMM_ConfigureWaveformCoupling);
+  using ControlPtr = decltype(&niDMM_Control);
   using DisablePtr = decltype(&niDMM_Disable);
   using ExportAttributeConfigurationBufferPtr = decltype(&niDMM_ExportAttributeConfigurationBuffer);
   using ExportAttributeConfigurationFilePtr = decltype(&niDMM_ExportAttributeConfigurationFile);
@@ -155,8 +158,9 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   using GetAttributeViStringPtr = decltype(&niDMM_GetAttributeViString);
   using GetAutoRangeValuePtr = decltype(&niDMM_GetAutoRangeValue);
   using GetCalDateAndTimePtr = decltype(&niDMM_GetCalDateAndTime);
+  using GetChannelNamePtr = decltype(&niDMM_GetChannelName);
   using GetDevTempPtr = decltype(&niDMM_GetDevTemp);
-  using GetErrorPtr = ViStatus (*)(ViSession vi, ViStatus* errorCode, ViInt32 bufferSize, ViChar description[]);
+  using GetErrorPtr = decltype(&niDMM_GetError);
   using GetErrorMessagePtr = decltype(&niDMM_GetErrorMessage);
   using GetExtCalRecommendedIntervalPtr = decltype(&niDMM_GetExtCalRecommendedInterval);
   using GetLastCalTempPtr = decltype(&niDMM_GetLastCalTemp);
@@ -171,7 +175,6 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   using InvalidateAllAttributesPtr = decltype(&niDMM_InvalidateAllAttributes);
   using IsOverRangePtr = decltype(&niDMM_IsOverRange);
   using IsUnderRangePtr = decltype(&niDMM_IsUnderRange);
-  using LockSessionPtr = decltype(&niDMM_LockSession);
   using PerformOpenCableCompPtr = decltype(&niDMM_PerformOpenCableComp);
   using PerformShortCableCompPtr = decltype(&niDMM_PerformShortCableComp);
   using ReadPtr = decltype(&niDMM_Read);
@@ -187,7 +190,6 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   using SetAttributeViReal64Ptr = decltype(&niDMM_SetAttributeViReal64);
   using SetAttributeViSessionPtr = decltype(&niDMM_SetAttributeViSession);
   using SetAttributeViStringPtr = decltype(&niDMM_SetAttributeViString);
-  using UnlockSessionPtr = decltype(&niDMM_UnlockSession);
   using ClosePtr = decltype(&niDMM_close);
   using error_messagePtr = ViStatus (*)(ViSession vi, ViStatus errorCode, ViChar errorMessage[256]);
   using InitPtr = decltype(&niDMM_init);
@@ -202,6 +204,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
     CheckAttributeViReal64Ptr CheckAttributeViReal64;
     CheckAttributeViSessionPtr CheckAttributeViSession;
     CheckAttributeViStringPtr CheckAttributeViString;
+    ClearErrorPtr ClearError;
     ClearInterchangeWarningsPtr ClearInterchangeWarnings;
     ConfigureADCCalibrationPtr ConfigureADCCalibration;
     ConfigureACBandwidthPtr ConfigureACBandwidth;
@@ -230,6 +233,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
     ConfigureTriggerSlopePtr ConfigureTriggerSlope;
     ConfigureWaveformAcquisitionPtr ConfigureWaveformAcquisition;
     ConfigureWaveformCouplingPtr ConfigureWaveformCoupling;
+    ControlPtr Control;
     DisablePtr Disable;
     ExportAttributeConfigurationBufferPtr ExportAttributeConfigurationBuffer;
     ExportAttributeConfigurationFilePtr ExportAttributeConfigurationFile;
@@ -244,6 +248,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
     GetAttributeViStringPtr GetAttributeViString;
     GetAutoRangeValuePtr GetAutoRangeValue;
     GetCalDateAndTimePtr GetCalDateAndTime;
+    GetChannelNamePtr GetChannelName;
     GetDevTempPtr GetDevTemp;
     GetErrorPtr GetError;
     GetErrorMessagePtr GetErrorMessage;
@@ -260,7 +265,6 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
     InvalidateAllAttributesPtr InvalidateAllAttributes;
     IsOverRangePtr IsOverRange;
     IsUnderRangePtr IsUnderRange;
-    LockSessionPtr LockSession;
     PerformOpenCableCompPtr PerformOpenCableComp;
     PerformShortCableCompPtr PerformShortCableComp;
     ReadPtr Read;
@@ -276,7 +280,6 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
     SetAttributeViReal64Ptr SetAttributeViReal64;
     SetAttributeViSessionPtr SetAttributeViSession;
     SetAttributeViStringPtr SetAttributeViString;
-    UnlockSessionPtr UnlockSession;
     ClosePtr Close;
     error_messagePtr error_message;
     InitPtr Init;

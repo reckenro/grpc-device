@@ -28,6 +28,7 @@ CheckAttributeViInt32Response check_attribute_vi_int32(const StubPtr& stub, cons
 CheckAttributeViReal64Response check_attribute_vi_real64(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id, const simple_variant<NiDmmReal64AttributeValuesMapped, double>& attribute_value);
 CheckAttributeViSessionResponse check_attribute_vi_session(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id, const nidevice_grpc::Session& attribute_value);
 CheckAttributeViStringResponse check_attribute_vi_string(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id, const pb::string& attribute_value);
+ClearErrorResponse clear_error(const StubPtr& stub, const nidevice_grpc::Session& vi);
 ClearInterchangeWarningsResponse clear_interchange_warnings(const StubPtr& stub, const nidevice_grpc::Session& vi);
 ConfigureADCCalibrationResponse configure_adc_calibration(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& adc_calibration);
 ConfigureACBandwidthResponse configure_ac_bandwidth(const StubPtr& stub, const nidevice_grpc::Session& vi, const double& ac_minimum_frequency_hz, const double& ac_maximum_frequency_hz);
@@ -56,6 +57,7 @@ ConfigureTriggerResponse configure_trigger(const StubPtr& stub, const nidevice_g
 ConfigureTriggerSlopeResponse configure_trigger_slope(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& trigger_slope);
 ConfigureWaveformAcquisitionResponse configure_waveform_acquisition(const StubPtr& stub, const nidevice_grpc::Session& vi, const simple_variant<Function, pb::int32>& measurement_function, const double& range, const double& rate, const pb::int32& waveform_points);
 ConfigureWaveformCouplingResponse configure_waveform_coupling(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& waveform_coupling);
+ControlResponse control(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& control_action);
 DisableResponse disable(const StubPtr& stub, const nidevice_grpc::Session& vi);
 ExportAttributeConfigurationBufferResponse export_attribute_configuration_buffer(const StubPtr& stub, const nidevice_grpc::Session& vi);
 ExportAttributeConfigurationFileResponse export_attribute_configuration_file(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& file_path);
@@ -70,7 +72,9 @@ GetAttributeViSessionResponse get_attribute_vi_session(const StubPtr& stub, cons
 GetAttributeViStringResponse get_attribute_vi_string(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id);
 GetAutoRangeValueResponse get_auto_range_value(const StubPtr& stub, const nidevice_grpc::Session& vi);
 GetCalDateAndTimeResponse get_cal_date_and_time(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& cal_type);
+GetChannelNameResponse get_channel_name(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& index);
 GetDevTempResponse get_dev_temp(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& options);
+GetErrorResponse get_error(const StubPtr& stub, const nidevice_grpc::Session& vi);
 GetErrorMessageResponse get_error_message(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& error_code);
 GetExtCalRecommendedIntervalResponse get_ext_cal_recommended_interval(const StubPtr& stub, const nidevice_grpc::Session& vi);
 GetLastCalTempResponse get_last_cal_temp(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& cal_type);
@@ -85,7 +89,6 @@ InitiateResponse initiate(const StubPtr& stub, const nidevice_grpc::Session& vi)
 InvalidateAllAttributesResponse invalidate_all_attributes(const StubPtr& stub, const nidevice_grpc::Session& vi);
 IsOverRangeResponse is_over_range(const StubPtr& stub, const nidevice_grpc::Session& vi, const double& measurement_value);
 IsUnderRangeResponse is_under_range(const StubPtr& stub, const nidevice_grpc::Session& vi, const double& measurement_value);
-LockSessionResponse lock_session(const StubPtr& stub, const nidevice_grpc::Session& vi);
 PerformOpenCableCompResponse perform_open_cable_comp(const StubPtr& stub, const nidevice_grpc::Session& vi);
 PerformShortCableCompResponse perform_short_cable_comp(const StubPtr& stub, const nidevice_grpc::Session& vi);
 ReadResponse read(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& maximum_time);
@@ -101,7 +104,6 @@ SetAttributeViInt32Response set_attribute_vi_int32(const StubPtr& stub, const ni
 SetAttributeViReal64Response set_attribute_vi_real64(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id, const simple_variant<NiDmmReal64AttributeValuesMapped, double>& attribute_value);
 SetAttributeViSessionResponse set_attribute_vi_session(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id, const nidevice_grpc::Session& attribute_value);
 SetAttributeViStringResponse set_attribute_vi_string(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::string& channel_name, const NiDmmAttribute& attribute_id, const pb::string& attribute_value);
-UnlockSessionResponse unlock_session(const StubPtr& stub, const nidevice_grpc::Session& vi);
 CloseResponse close(const StubPtr& stub, const nidevice_grpc::Session& vi);
 InitResponse init(const StubPtr& stub, const pb::string& resource_name, const bool& id_query, const bool& reset_device);
 ResetResponse reset(const StubPtr& stub, const nidevice_grpc::Session& vi);
