@@ -212,7 +212,8 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
-    'ConfigureADCCalibration': {
+    'Close': {
+        'cname': 'niDMM_close',
         'codegen_method': 'public',
         'parameters': [
             {
@@ -221,13 +222,6 @@ functions = {
                 'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
-            },
-            {
-                'cppName': 'adcCalibration',
-                'direction': 'in',
-                'grpc_type': 'sint32',
-                'name': 'adcCalibration',
-                'type': 'ViInt32'
             }
         ],
         'returns': 'ViStatus'
@@ -255,6 +249,26 @@ functions = {
                 'grpc_type': 'double',
                 'name': 'acMaximumFrequencyHz',
                 'type': 'ViReal64'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
+    'ConfigureADCCalibration': {
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            },
+            {
+                'cppName': 'adcCalibration',
+                'direction': 'in',
+                'grpc_type': 'sint32',
+                'name': 'adcCalibration',
+                'type': 'ViInt32'
             }
         ],
         'returns': 'ViStatus'
@@ -929,6 +943,39 @@ functions = {
                 'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
+    'ErrorMessage': {
+        'cname': 'niDMM_error_message',
+        'codegen_method': 'private',
+        'is_error_handling': True,
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            },
+            {
+                'cppName': 'errorCode',
+                'direction': 'in',
+                'grpc_type': 'sint32',
+                'name': 'errorCode',
+                'type': 'ViStatus'
+            },
+            {
+                'cppName': 'errorMessage',
+                'direction': 'out',
+                'grpc_type': 'string',
+                'name': 'errorMessage',
+                'size': {
+                    'mechanism': 'fixed',
+                    'value': 256
+                },
+                'type': 'ViChar[]'
             }
         ],
         'returns': 'ViStatus'
@@ -1749,6 +1796,50 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+    'Init': {
+        'cname': 'niDMM_init',
+        'codegen_method': 'public',
+        'init_method': True,
+        'parameters': [
+            {
+                'cppName': 'resourceName',
+                'direction': 'in',
+                'grpc_type': 'string',
+                'name': 'resourceName',
+                'type': 'ViString'
+            },
+            {
+                'cppName': 'idQuery',
+                'direction': 'in',
+                'grpc_type': 'bool',
+                'name': 'idQuery',
+                'type': 'ViBoolean'
+            },
+            {
+                'cppName': 'resetDevice',
+                'direction': 'in',
+                'grpc_type': 'bool',
+                'name': 'resetDevice',
+                'type': 'ViBoolean'
+            },
+            {
+                'cppName': 'vi',
+                'direction': 'out',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            },
+            {
+                'cppName': 'errorMessage',
+                'direction': 'out',
+                'get_last_error': 'deprecated',
+                'grpc_type': 'string',
+                'name': 'errorMessage',
+                'type': 'ViChar[]'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'InitWithOptions': {
         'codegen_method': 'public',
         'init_method': True,
@@ -2080,6 +2171,20 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+    'Reset': {
+        'cname': 'niDMM_reset',
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'ResetInterchangeCheck': {
         'codegen_method': 'public',
         'parameters': [
@@ -2106,6 +2211,42 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+    'RevisionQuery': {
+        'cname': 'niDMM_revision_query',
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            },
+            {
+                'cppName': 'instrumentDriverRevision',
+                'direction': 'out',
+                'grpc_type': 'string',
+                'name': 'instrumentDriverRevision',
+                'size': {
+                    'mechanism': 'fixed',
+                    'value': 256
+                },
+                'type': 'ViChar[]'
+            },
+            {
+                'cppName': 'firmwareRevision',
+                'direction': 'out',
+                'grpc_type': 'string',
+                'name': 'firmwareRevision',
+                'size': {
+                    'mechanism': 'fixed',
+                    'value': 256
+                },
+                'type': 'ViChar[]'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'SelfCal': {
         'codegen_method': 'public',
         'parameters': [
@@ -2115,6 +2256,38 @@ functions = {
                 'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
+    'SelfTest': {
+        'cname': 'niDMM_self_test',
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'vi',
+                'direction': 'in',
+                'grpc_type': 'nidevice_grpc.Session',
+                'name': 'vi',
+                'type': 'ViSession'
+            },
+            {
+                'cppName': 'selfTestResult',
+                'direction': 'out',
+                'grpc_type': 'sint32',
+                'name': 'selfTestResult',
+                'type': 'ViInt16'
+            },
+            {
+                'cppName': 'selfTestMessage',
+                'direction': 'out',
+                'grpc_type': 'string',
+                'name': 'selfTestMessage',
+                'size': {
+                    'mechanism': 'fixed',
+                    'value': 256
+                },
+                'type': 'ViChar[]'
             }
         ],
         'returns': 'ViStatus'
@@ -2300,177 +2473,6 @@ functions = {
                 'grpc_type': 'string',
                 'name': 'attributeValue_raw',
                 'type': 'ViString'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'Close': {
-        'cname': 'niDMM_close',
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'error_message': {
-        'codegen_method': 'private',
-        'is_error_handling': True,
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'errorCode',
-                'direction': 'in',
-                'grpc_type': 'sint32',
-                'name': 'errorCode',
-                'type': 'ViStatus'
-            },
-            {
-                'cppName': 'errorMessage',
-                'direction': 'out',
-                'grpc_type': 'string',
-                'name': 'errorMessage',
-                'size': {
-                    'mechanism': 'fixed',
-                    'value': 256
-                },
-                'type': 'ViChar[]'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'Init': {
-        'codegen_method': 'public',
-        'init_method': True,
-        'cname': 'niDMM_init',
-        'parameters': [
-            {
-                'cppName': 'resourceName',
-                'direction': 'in',
-                'grpc_type': 'string',
-                'name': 'resourceName',
-                'type': 'ViString'
-            },
-            {
-                'cppName': 'idQuery',
-                'direction': 'in',
-                'grpc_type': 'bool',
-                'name': 'idQuery',
-                'type': 'ViBoolean'
-            },
-            {
-                'cppName': 'resetDevice',
-                'direction': 'in',
-                'grpc_type': 'bool',
-                'name': 'resetDevice',
-                'type': 'ViBoolean'
-            },
-            {
-                'cppName': 'vi',
-                'direction': 'out',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'errorMessage',
-                'direction': 'out',
-                'grpc_type': 'string',
-                'name': 'errorMessage',
-                'get_last_error': 'deprecated',
-                'type': 'ViChar[]'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'Reset': {
-        'codegen_method': 'public',
-        'cname': 'niDMM_reset',
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'RevisionQuery': {
-        'codegen_method': 'public',
-        "cname":"niDMM_revision_query",
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'instrumentDriverRevision',
-                'direction': 'out',
-                'grpc_type': 'string',
-                'name': 'instrumentDriverRevision',
-                'type': 'ViChar[]',
-                "size": {
-                    "mechanism": "fixed",
-                    "value": 256
-                }
-            },
-            {
-                'cppName': 'firmwareRevision',
-                'direction': 'out',
-                'grpc_type': 'string',
-                'name': 'firmwareRevision',
-                'type': 'ViChar[]',
-                "size": {
-                    "mechanism": "fixed",
-                    "value": 256
-                }
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'SelfTest': {
-        'codegen_method': 'public',
-        'cname': 'niDMM_self_test',
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'selfTestResult',
-                'direction': 'out',
-                'grpc_type': 'sint32',
-                'name': 'selfTestResult',
-                'type': 'ViInt16'
-            },
-            {
-                'cppName': 'selfTestMessage',
-                'direction': 'out',
-                'grpc_type': 'string',
-                'name': 'selfTestMessage',
-                'size': {
-                    'mechanism': 'fixed',
-                    'value': 256
-                },
-                'type': 'ViChar[]'
             }
         ],
         'returns': 'ViStatus'

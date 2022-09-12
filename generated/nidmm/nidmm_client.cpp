@@ -182,19 +182,18 @@ clear_interchange_warnings(const StubPtr& stub, const nidevice_grpc::Session& vi
   return response;
 }
 
-ConfigureADCCalibrationResponse
-configure_adc_calibration(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& adc_calibration)
+CloseResponse
+close(const StubPtr& stub, const nidevice_grpc::Session& vi)
 {
   ::grpc::ClientContext context;
 
-  auto request = ConfigureADCCalibrationRequest{};
+  auto request = CloseRequest{};
   request.mutable_vi()->CopyFrom(vi);
-  request.set_adc_calibration(adc_calibration);
 
-  auto response = ConfigureADCCalibrationResponse{};
+  auto response = CloseResponse{};
 
   raise_if_error(
-      stub->ConfigureADCCalibration(&context, request, &response),
+      stub->Close(&context, request, &response),
       context);
 
   return response;
@@ -214,6 +213,24 @@ configure_ac_bandwidth(const StubPtr& stub, const nidevice_grpc::Session& vi, co
 
   raise_if_error(
       stub->ConfigureACBandwidth(&context, request, &response),
+      context);
+
+  return response;
+}
+
+ConfigureADCCalibrationResponse
+configure_adc_calibration(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::int32& adc_calibration)
+{
+  ::grpc::ClientContext context;
+
+  auto request = ConfigureADCCalibrationRequest{};
+  request.mutable_vi()->CopyFrom(vi);
+  request.set_adc_calibration(adc_calibration);
+
+  auto response = ConfigureADCCalibrationResponse{};
+
+  raise_if_error(
+      stub->ConfigureADCCalibration(&context, request, &response),
       context);
 
   return response;
@@ -1227,6 +1244,25 @@ import_attribute_configuration_file(const StubPtr& stub, const nidevice_grpc::Se
   return response;
 }
 
+InitResponse
+init(const StubPtr& stub, const pb::string& resource_name, const bool& id_query, const bool& reset_device)
+{
+  ::grpc::ClientContext context;
+
+  auto request = InitRequest{};
+  request.set_resource_name(resource_name);
+  request.set_id_query(id_query);
+  request.set_reset_device(reset_device);
+
+  auto response = InitResponse{};
+
+  raise_if_error(
+      stub->Init(&context, request, &response),
+      context);
+
+  return response;
+}
+
 InitWithOptionsResponse
 init_with_options(const StubPtr& stub, const pb::string& resource_name, const bool& id_query, const bool& reset_device, const pb::string& option_string)
 {
@@ -1424,6 +1460,23 @@ read_waveform(const StubPtr& stub, const nidevice_grpc::Session& vi, const pb::i
   return response;
 }
 
+ResetResponse
+reset(const StubPtr& stub, const nidevice_grpc::Session& vi)
+{
+  ::grpc::ClientContext context;
+
+  auto request = ResetRequest{};
+  request.mutable_vi()->CopyFrom(vi);
+
+  auto response = ResetResponse{};
+
+  raise_if_error(
+      stub->Reset(&context, request, &response),
+      context);
+
+  return response;
+}
+
 ResetInterchangeCheckResponse
 reset_interchange_check(const StubPtr& stub, const nidevice_grpc::Session& vi)
 {
@@ -1458,6 +1511,23 @@ reset_with_defaults(const StubPtr& stub, const nidevice_grpc::Session& vi)
   return response;
 }
 
+RevisionQueryResponse
+revision_query(const StubPtr& stub, const nidevice_grpc::Session& vi)
+{
+  ::grpc::ClientContext context;
+
+  auto request = RevisionQueryRequest{};
+  request.mutable_vi()->CopyFrom(vi);
+
+  auto response = RevisionQueryResponse{};
+
+  raise_if_error(
+      stub->RevisionQuery(&context, request, &response),
+      context);
+
+  return response;
+}
+
 SelfCalResponse
 self_cal(const StubPtr& stub, const nidevice_grpc::Session& vi)
 {
@@ -1470,6 +1540,23 @@ self_cal(const StubPtr& stub, const nidevice_grpc::Session& vi)
 
   raise_if_error(
       stub->SelfCal(&context, request, &response),
+      context);
+
+  return response;
+}
+
+SelfTestResponse
+self_test(const StubPtr& stub, const nidevice_grpc::Session& vi)
+{
+  ::grpc::ClientContext context;
+
+  auto request = SelfTestRequest{};
+  request.mutable_vi()->CopyFrom(vi);
+
+  auto response = SelfTestResponse{};
+
+  raise_if_error(
+      stub->SelfTest(&context, request, &response),
       context);
 
   return response;
@@ -1601,93 +1688,6 @@ set_attribute_vi_string(const StubPtr& stub, const nidevice_grpc::Session& vi, c
 
   raise_if_error(
       stub->SetAttributeViString(&context, request, &response),
-      context);
-
-  return response;
-}
-
-CloseResponse
-close(const StubPtr& stub, const nidevice_grpc::Session& vi)
-{
-  ::grpc::ClientContext context;
-
-  auto request = CloseRequest{};
-  request.mutable_vi()->CopyFrom(vi);
-
-  auto response = CloseResponse{};
-
-  raise_if_error(
-      stub->Close(&context, request, &response),
-      context);
-
-  return response;
-}
-
-InitResponse
-init(const StubPtr& stub, const pb::string& resource_name, const bool& id_query, const bool& reset_device)
-{
-  ::grpc::ClientContext context;
-
-  auto request = InitRequest{};
-  request.set_resource_name(resource_name);
-  request.set_id_query(id_query);
-  request.set_reset_device(reset_device);
-
-  auto response = InitResponse{};
-
-  raise_if_error(
-      stub->Init(&context, request, &response),
-      context);
-
-  return response;
-}
-
-ResetResponse
-reset(const StubPtr& stub, const nidevice_grpc::Session& vi)
-{
-  ::grpc::ClientContext context;
-
-  auto request = ResetRequest{};
-  request.mutable_vi()->CopyFrom(vi);
-
-  auto response = ResetResponse{};
-
-  raise_if_error(
-      stub->Reset(&context, request, &response),
-      context);
-
-  return response;
-}
-
-RevisionQueryResponse
-revision_query(const StubPtr& stub, const nidevice_grpc::Session& vi)
-{
-  ::grpc::ClientContext context;
-
-  auto request = RevisionQueryRequest{};
-  request.mutable_vi()->CopyFrom(vi);
-
-  auto response = RevisionQueryResponse{};
-
-  raise_if_error(
-      stub->RevisionQuery(&context, request, &response),
-      context);
-
-  return response;
-}
-
-SelfTestResponse
-self_test(const StubPtr& stub, const nidevice_grpc::Session& vi)
-{
-  ::grpc::ClientContext context;
-
-  auto request = SelfTestRequest{};
-  request.mutable_vi()->CopyFrom(vi);
-
-  auto response = SelfTestResponse{};
-
-  raise_if_error(
-      stub->SelfTest(&context, request, &response),
       context);
 
   return response;

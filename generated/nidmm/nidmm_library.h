@@ -26,8 +26,9 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   ViStatus CheckAttributeViString(ViSession vi, ViConstString channelName, ViAttr attributeId, ViString attributeValue);
   ViStatus ClearError(ViSession vi);
   ViStatus ClearInterchangeWarnings(ViSession vi);
-  ViStatus ConfigureADCCalibration(ViSession vi, ViInt32 adcCalibration);
+  ViStatus Close(ViSession vi);
   ViStatus ConfigureACBandwidth(ViSession vi, ViReal64 acMinimumFrequencyHz, ViReal64 acMaximumFrequencyHz);
+  ViStatus ConfigureADCCalibration(ViSession vi, ViInt32 adcCalibration);
   ViStatus ConfigureAutoZeroMode(ViSession vi, ViInt32 autoZeroMode);
   ViStatus ConfigureCableCompType(ViSession vi, ViInt32 cableCompType);
   ViStatus ConfigureCurrentSource(ViSession vi, ViReal64 currentSource);
@@ -55,6 +56,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   ViStatus ConfigureWaveformCoupling(ViSession vi, ViInt32 waveformCoupling);
   ViStatus Control(ViSession vi, ViInt32 controlAction);
   ViStatus Disable(ViSession vi);
+  ViStatus ErrorMessage(ViSession vi, ViStatus errorCode, ViChar errorMessage[256]);
   ViStatus ExportAttributeConfigurationBuffer(ViSession vi, ViInt32 size, ViInt8 configuration[]);
   ViStatus ExportAttributeConfigurationFile(ViSession vi, ViConstString filePath);
   ViStatus Fetch(ViSession vi, ViInt32 maximumTime, ViReal64* reading);
@@ -80,6 +82,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   ViStatus GetSelfCalSupported(ViSession vi, ViBoolean* selfCalSupported);
   ViStatus ImportAttributeConfigurationBuffer(ViSession vi, ViInt32 size, ViInt8 configuration[]);
   ViStatus ImportAttributeConfigurationFile(ViSession vi, ViConstString filePath);
+  ViStatus Init(ViString resourceName, ViBoolean idQuery, ViBoolean resetDevice, ViSession* vi);
   ViStatus InitWithOptions(ViString resourceName, ViBoolean idQuery, ViBoolean resetDevice, ViString optionString, ViSession* vi);
   ViStatus Initiate(ViSession vi);
   ViStatus InvalidateAllAttributes(ViSession vi);
@@ -91,21 +94,18 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   ViStatus ReadMultiPoint(ViSession vi, ViInt32 maximumTime, ViInt32 arraySize, ViReal64 readingArray[], ViInt32* actualNumberOfPoints);
   ViStatus ReadStatus(ViSession vi, ViInt32* acquisitionBacklog, ViInt16* acquisitionStatus);
   ViStatus ReadWaveform(ViSession vi, ViInt32 maximumTime, ViInt32 arraySize, ViReal64 waveformArray[], ViInt32* actualNumberOfPoints);
+  ViStatus Reset(ViSession vi);
   ViStatus ResetInterchangeCheck(ViSession vi);
   ViStatus ResetWithDefaults(ViSession vi);
+  ViStatus RevisionQuery(ViSession vi, ViChar instrumentDriverRevision[256], ViChar firmwareRevision[256]);
   ViStatus SelfCal(ViSession vi);
+  ViStatus SelfTest(ViSession vi, ViInt16* selfTestResult, ViChar selfTestMessage[256]);
   ViStatus SendSoftwareTrigger(ViSession vi);
   ViStatus SetAttributeViBoolean(ViSession vi, ViConstString channelName, ViAttr attributeId, ViBoolean attributeValue);
   ViStatus SetAttributeViInt32(ViSession vi, ViConstString channelName, ViAttr attributeId, ViInt32 attributeValue);
   ViStatus SetAttributeViReal64(ViSession vi, ViConstString channelName, ViAttr attributeId, ViReal64 attributeValue);
   ViStatus SetAttributeViSession(ViSession vi, ViConstString channelName, ViAttr attributeId, ViSession attributeValue);
   ViStatus SetAttributeViString(ViSession vi, ViConstString channelName, ViAttr attributeId, ViString attributeValue);
-  ViStatus Close(ViSession vi);
-  ViStatus error_message(ViSession vi, ViStatus errorCode, ViChar errorMessage[256]);
-  ViStatus Init(ViString resourceName, ViBoolean idQuery, ViBoolean resetDevice, ViSession* vi);
-  ViStatus Reset(ViSession vi);
-  ViStatus RevisionQuery(ViSession vi, ViChar instrumentDriverRevision[256], ViChar firmwareRevision[256]);
-  ViStatus SelfTest(ViSession vi, ViInt16* selfTestResult, ViChar selfTestMessage[256]);
 
  private:
   using AbortPtr = decltype(&niDMM_Abort);
@@ -116,8 +116,9 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   using CheckAttributeViStringPtr = decltype(&niDMM_CheckAttributeViString);
   using ClearErrorPtr = decltype(&niDMM_ClearError);
   using ClearInterchangeWarningsPtr = decltype(&niDMM_ClearInterchangeWarnings);
-  using ConfigureADCCalibrationPtr = decltype(&niDMM_ConfigureADCCalibration);
+  using ClosePtr = decltype(&niDMM_close);
   using ConfigureACBandwidthPtr = decltype(&niDMM_ConfigureACBandwidth);
+  using ConfigureADCCalibrationPtr = decltype(&niDMM_ConfigureADCCalibration);
   using ConfigureAutoZeroModePtr = decltype(&niDMM_ConfigureAutoZeroMode);
   using ConfigureCableCompTypePtr = decltype(&niDMM_ConfigureCableCompType);
   using ConfigureCurrentSourcePtr = decltype(&niDMM_ConfigureCurrentSource);
@@ -145,6 +146,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   using ConfigureWaveformCouplingPtr = decltype(&niDMM_ConfigureWaveformCoupling);
   using ControlPtr = decltype(&niDMM_Control);
   using DisablePtr = decltype(&niDMM_Disable);
+  using ErrorMessagePtr = ViStatus (*)(ViSession vi, ViStatus errorCode, ViChar errorMessage[256]);
   using ExportAttributeConfigurationBufferPtr = decltype(&niDMM_ExportAttributeConfigurationBuffer);
   using ExportAttributeConfigurationFilePtr = decltype(&niDMM_ExportAttributeConfigurationFile);
   using FetchPtr = decltype(&niDMM_Fetch);
@@ -170,6 +172,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   using GetSelfCalSupportedPtr = decltype(&niDMM_GetSelfCalSupported);
   using ImportAttributeConfigurationBufferPtr = decltype(&niDMM_ImportAttributeConfigurationBuffer);
   using ImportAttributeConfigurationFilePtr = decltype(&niDMM_ImportAttributeConfigurationFile);
+  using InitPtr = decltype(&niDMM_init);
   using InitWithOptionsPtr = decltype(&niDMM_InitWithOptions);
   using InitiatePtr = decltype(&niDMM_Initiate);
   using InvalidateAllAttributesPtr = decltype(&niDMM_InvalidateAllAttributes);
@@ -181,21 +184,18 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   using ReadMultiPointPtr = decltype(&niDMM_ReadMultiPoint);
   using ReadStatusPtr = decltype(&niDMM_ReadStatus);
   using ReadWaveformPtr = decltype(&niDMM_ReadWaveform);
+  using ResetPtr = decltype(&niDMM_reset);
   using ResetInterchangeCheckPtr = decltype(&niDMM_ResetInterchangeCheck);
   using ResetWithDefaultsPtr = decltype(&niDMM_ResetWithDefaults);
+  using RevisionQueryPtr = decltype(&niDMM_revision_query);
   using SelfCalPtr = decltype(&niDMM_SelfCal);
+  using SelfTestPtr = decltype(&niDMM_self_test);
   using SendSoftwareTriggerPtr = decltype(&niDMM_SendSoftwareTrigger);
   using SetAttributeViBooleanPtr = decltype(&niDMM_SetAttributeViBoolean);
   using SetAttributeViInt32Ptr = decltype(&niDMM_SetAttributeViInt32);
   using SetAttributeViReal64Ptr = decltype(&niDMM_SetAttributeViReal64);
   using SetAttributeViSessionPtr = decltype(&niDMM_SetAttributeViSession);
   using SetAttributeViStringPtr = decltype(&niDMM_SetAttributeViString);
-  using ClosePtr = decltype(&niDMM_close);
-  using error_messagePtr = ViStatus (*)(ViSession vi, ViStatus errorCode, ViChar errorMessage[256]);
-  using InitPtr = decltype(&niDMM_init);
-  using ResetPtr = decltype(&niDMM_reset);
-  using RevisionQueryPtr = decltype(&niDMM_revision_query);
-  using SelfTestPtr = decltype(&niDMM_self_test);
 
   typedef struct FunctionPointers {
     AbortPtr Abort;
@@ -206,8 +206,9 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
     CheckAttributeViStringPtr CheckAttributeViString;
     ClearErrorPtr ClearError;
     ClearInterchangeWarningsPtr ClearInterchangeWarnings;
-    ConfigureADCCalibrationPtr ConfigureADCCalibration;
+    ClosePtr Close;
     ConfigureACBandwidthPtr ConfigureACBandwidth;
+    ConfigureADCCalibrationPtr ConfigureADCCalibration;
     ConfigureAutoZeroModePtr ConfigureAutoZeroMode;
     ConfigureCableCompTypePtr ConfigureCableCompType;
     ConfigureCurrentSourcePtr ConfigureCurrentSource;
@@ -235,6 +236,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
     ConfigureWaveformCouplingPtr ConfigureWaveformCoupling;
     ControlPtr Control;
     DisablePtr Disable;
+    ErrorMessagePtr ErrorMessage;
     ExportAttributeConfigurationBufferPtr ExportAttributeConfigurationBuffer;
     ExportAttributeConfigurationFilePtr ExportAttributeConfigurationFile;
     FetchPtr Fetch;
@@ -260,6 +262,7 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
     GetSelfCalSupportedPtr GetSelfCalSupported;
     ImportAttributeConfigurationBufferPtr ImportAttributeConfigurationBuffer;
     ImportAttributeConfigurationFilePtr ImportAttributeConfigurationFile;
+    InitPtr Init;
     InitWithOptionsPtr InitWithOptions;
     InitiatePtr Initiate;
     InvalidateAllAttributesPtr InvalidateAllAttributes;
@@ -271,21 +274,18 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
     ReadMultiPointPtr ReadMultiPoint;
     ReadStatusPtr ReadStatus;
     ReadWaveformPtr ReadWaveform;
+    ResetPtr Reset;
     ResetInterchangeCheckPtr ResetInterchangeCheck;
     ResetWithDefaultsPtr ResetWithDefaults;
+    RevisionQueryPtr RevisionQuery;
     SelfCalPtr SelfCal;
+    SelfTestPtr SelfTest;
     SendSoftwareTriggerPtr SendSoftwareTrigger;
     SetAttributeViBooleanPtr SetAttributeViBoolean;
     SetAttributeViInt32Ptr SetAttributeViInt32;
     SetAttributeViReal64Ptr SetAttributeViReal64;
     SetAttributeViSessionPtr SetAttributeViSession;
     SetAttributeViStringPtr SetAttributeViString;
-    ClosePtr Close;
-    error_messagePtr error_message;
-    InitPtr Init;
-    ResetPtr Reset;
-    RevisionQueryPtr RevisionQuery;
-    SelfTestPtr SelfTest;
   } FunctionLoadStatus;
 
   nidevice_grpc::SharedLibrary shared_library_;

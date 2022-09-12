@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 # This file is generated from NI-DMM API metadata version 22.8.0d9999
 config = {
+    'additional_headers': {
+    },
     'api_version': '22.8.0d9999',
     'c_function_prefix': 'niDMM_',
     'c_header': 'nidmm.h',
     'close_function': 'Close',
-    'csharp_namespace': 'NationalInstruments.Grpc.DMM',
+    'csharp_namespace': 'NationalInstruments.Grpc.Dmm',
     'custom_types': [
     ],
     'driver_name': 'NI-DMM',
-    'init_function': 'InitWithOptions',
     'java_package': 'com.ni.grpc.dmm',
     'library_info': {
         'Linux': {

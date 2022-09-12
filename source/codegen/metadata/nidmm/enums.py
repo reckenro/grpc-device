@@ -5,15 +5,15 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'ADC_CALIBRATION_OFF',
+                'name': 'NIDMM_VAL_ADC_CALIBRATION_OFF',
                 'value': 0
             },
             {
-                'name': 'ADC_CALIBRATION_AUTO',
+                'name': 'NIDMM_VAL_ADC_CALIBRATION_AUTO',
                 'value': -1
             },
             {
-                'name': 'ADC_CALIBRATION_ON',
+                'name': 'NIDMM_VAL_ADC_CALIBRATION_ON',
                 'value': 1
             }
         ]
@@ -22,23 +22,23 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'ACQUISITION_STATUS_RUNNING',
+                'name': 'NIDMM_VAL_ACQUISITION_STATUS_RUNNING',
                 'value': 0
             },
             {
-                'name': 'ACQUISITION_STATUS_FINISHED_WITH_BACKLOG',
+                'name': 'NIDMM_VAL_ACQUISITION_STATUS_FINISHED_WITH_BACKLOG',
                 'value': 1
             },
             {
-                'name': 'ACQUISITION_STATUS_FINISHED_WITH_NO_BACKLOG',
+                'name': 'NIDMM_VAL_ACQUISITION_STATUS_FINISHED_WITH_NO_BACKLOG',
                 'value': 2
             },
             {
-                'name': 'ACQUISITION_STATUS_PAUSED',
+                'name': 'NIDMM_VAL_ACQUISITION_STATUS_PAUSED',
                 'value': 3
             },
             {
-                'name': 'ACQUISITION_STATUS_NO_ACQUISITION_IN_PROGRESS',
+                'name': 'NIDMM_VAL_ACQUISITION_STATUS_NO_ACQUISITION_IN_PROGRESS',
                 'value': 4
             }
         ]
@@ -47,11 +47,11 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'SECONDS',
+                'name': 'NIDMM_VAL_SECONDS',
                 'value': 0
             },
             {
-                'name': 'POWER_LINE_CYCLES',
+                'name': 'NIDMM_VAL_POWER_LINE_CYCLES',
                 'value': 1
             }
         ]
@@ -60,19 +60,19 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'AUTO_ZERO_OFF',
+                'name': 'NIDMM_VAL_AUTO_ZERO_OFF',
                 'value': 0
             },
             {
-                'name': 'AUTO_ZERO_AUTO',
+                'name': 'NIDMM_VAL_AUTO_ZERO_AUTO',
                 'value': -1
             },
             {
-                'name': 'AUTO_ZERO_ON',
+                'name': 'NIDMM_VAL_AUTO_ZERO_ON',
                 'value': 1
             },
             {
-                'name': 'AUTO_ZERO_ONCE',
+                'name': 'NIDMM_VAL_AUTO_ZERO_ONCE',
                 'value': 2
             }
         ]
@@ -81,19 +81,19 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'CABLE_COMP_NONE',
+                'name': 'NIDMM_VAL_CABLE_COMP_NONE',
                 'value': 0
             },
             {
-                'name': 'CABLE_COMP_OPEN',
+                'name': 'NIDMM_VAL_CABLE_COMP_OPEN',
                 'value': 1
             },
             {
-                'name': 'CABLE_COMP_SHORT',
+                'name': 'NIDMM_VAL_CABLE_COMP_SHORT',
                 'value': 2
             },
             {
-                'name': 'CABLE_COMP_OPEN_AND_SHORT',
+                'name': 'NIDMM_VAL_CABLE_COMP_OPEN_AND_SHORT',
                 'value': 3
             }
         ]
@@ -103,19 +103,19 @@ enums = {
         'generate-mappings': True,
         'values': [
             {
-                'name': '1_MICROAMP',
+                'name': 'NIDMM_VAL_1_MICROAMP',
                 'value': 1e-06
             },
             {
-                'name': '10_MICROAMP',
+                'name': 'NIDMM_VAL_10_MICROAMP',
                 'value': 1e-05
             },
             {
-                'name': '100_MICROAMP',
+                'name': 'NIDMM_VAL_100_MICROAMP',
                 'value': 0.0001
             },
             {
-                'name': '1_MILLIAMP',
+                'name': 'NIDMM_VAL_1_MILLIAMP',
                 'value': 0.001
             }
         ]
@@ -124,11 +124,11 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'DC_BIAS_OFF',
+                'name': 'NIDMM_VAL_DC_BIAS_OFF',
                 'value': 0
             },
             {
-                'name': 'DC_BIAS_ON',
+                'name': 'NIDMM_VAL_DC_BIAS_ON',
                 'value': 1
             }
         ]
@@ -137,19 +137,19 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'DCNR_NORMAL',
+                'name': 'NIDMM_VAL_DCNR_NORMAL',
                 'value': 0
             },
             {
-                'name': 'DCNR_AUTO',
+                'name': 'NIDMM_VAL_DCNR_AUTO',
                 'value': -1
             },
             {
-                'name': 'DCNR_SECOND_ORDER',
+                'name': 'NIDMM_VAL_DCNR_SECOND_ORDER',
                 'value': 1
             },
             {
-                'name': 'DCNR_HIGH_ORDER',
+                'name': 'NIDMM_VAL_DCNR_HIGH_ORDER',
                 'value': 2
             }
         ]
@@ -158,63 +158,63 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'DC_VOLTS',
+                'name': 'NIDMM_VAL_DC_VOLTS',
                 'value': 1
             },
             {
-                'name': 'AC_VOLTS',
+                'name': 'NIDMM_VAL_AC_VOLTS',
                 'value': 2
             },
             {
-                'name': 'DC_CURRENT',
+                'name': 'NIDMM_VAL_DC_CURRENT',
                 'value': 3
             },
             {
-                'name': 'AC_CURRENT',
+                'name': 'NIDMM_VAL_AC_CURRENT',
                 'value': 4
             },
             {
-                'name': '2_WIRE_RES',
+                'name': 'NIDMM_VAL_2_WIRE_RES',
                 'value': 5
             },
             {
-                'name': '4_WIRE_RES',
+                'name': 'NIDMM_VAL_4_WIRE_RES',
                 'value': 101
             },
             {
-                'name': 'FREQ',
+                'name': 'NIDMM_VAL_FREQ',
                 'value': 104
             },
             {
-                'name': 'PERIOD',
+                'name': 'NIDMM_VAL_PERIOD',
                 'value': 105
             },
             {
-                'name': 'TEMPERATURE',
+                'name': 'NIDMM_VAL_TEMPERATURE',
                 'value': 108
             },
             {
-                'name': 'AC_VOLTS_DC_COUPLED',
+                'name': 'NIDMM_VAL_AC_VOLTS_DC_COUPLED',
                 'value': 1001
             },
             {
-                'name': 'DIODE',
+                'name': 'NIDMM_VAL_DIODE',
                 'value': 1002
             },
             {
-                'name': 'WAVEFORM_VOLTAGE',
+                'name': 'NIDMM_VAL_WAVEFORM_VOLTAGE',
                 'value': 1003
             },
             {
-                'name': 'WAVEFORM_CURRENT',
+                'name': 'NIDMM_VAL_WAVEFORM_CURRENT',
                 'value': 1004
             },
             {
-                'name': 'CAPACITANCE',
+                'name': 'NIDMM_VAL_CAPACITANCE',
                 'value': 1005
             },
             {
-                'name': 'INDUCTANCE',
+                'name': 'NIDMM_VAL_INDUCTANCE',
                 'value': 1006
             }
         ]
@@ -224,15 +224,15 @@ enums = {
         'generate-mappings': True,
         'values': [
             {
-                'name': '1_MEGAOHM',
+                'name': 'NIDMM_VAL_1_MEGAOHM',
                 'value': 1000000.0
             },
             {
-                'name': '10_MEGAOHM',
+                'name': 'NIDMM_VAL_10_MEGAOHM',
                 'value': 10000000.0
             },
             {
-                'name': 'GREATER_THAN_10_GIGAOHM',
+                'name': 'NIDMM_VAL_GREATER_THAN_10_GIGAOHM',
                 'value': 10000000000.0
             }
         ]
@@ -241,15 +241,15 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'CALC_MODEL_SERIES',
+                'name': 'NIDMM_VAL_CALC_MODEL_SERIES',
                 'value': 0
             },
             {
-                'name': 'CALC_MODEL_AUTO',
+                'name': 'NIDMM_VAL_CALC_MODEL_AUTO',
                 'value': -1
             },
             {
-                'name': 'CALC_MODEL_PARALLEL',
+                'name': 'NIDMM_VAL_CALC_MODEL_PARALLEL',
                 'value': 1
             }
         ]
@@ -258,47 +258,47 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'NONE',
+                'name': 'NIDMM_VAL_NONE',
                 'value': -1
             },
             {
-                'name': 'EXTERNAL',
+                'name': 'NIDMM_VAL_EXTERNAL',
                 'value': 2
             },
             {
-                'name': 'PXI_TRIG0',
+                'name': 'NIDMM_VAL_PXI_TRIG0',
                 'value': 111
             },
             {
-                'name': 'PXI_TRIG1',
+                'name': 'NIDMM_VAL_PXI_TRIG1',
                 'value': 112
             },
             {
-                'name': 'PXI_TRIG2',
+                'name': 'NIDMM_VAL_PXI_TRIG2',
                 'value': 113
             },
             {
-                'name': 'PXI_TRIG3',
+                'name': 'NIDMM_VAL_PXI_TRIG3',
                 'value': 114
             },
             {
-                'name': 'PXI_TRIG4',
+                'name': 'NIDMM_VAL_PXI_TRIG4',
                 'value': 115
             },
             {
-                'name': 'PXI_TRIG5',
+                'name': 'NIDMM_VAL_PXI_TRIG5',
                 'value': 116
             },
             {
-                'name': 'PXI_TRIG6',
+                'name': 'NIDMM_VAL_PXI_TRIG6',
                 'value': 117
             },
             {
-                'name': 'PXI_TRIG7',
+                'name': 'NIDMM_VAL_PXI_TRIG7',
                 'value': 118
             },
             {
-                'name': 'LBR_TRIG0',
+                'name': 'NIDMM_VAL_LBR_TRIG0',
                 'value': 1003
             }
         ]
@@ -307,11 +307,11 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'POSITIVE',
+                'name': 'NIDMM_VAL_POSITIVE',
                 'value': 0
             },
             {
-                'name': 'NEGATIVE',
+                'name': 'NIDMM_VAL_NEGATIVE',
                 'value': 1
             }
         ]
@@ -321,455 +321,455 @@ enums = {
         'generate-mappings': False,
         'values': [
             {
-                'name': 'ADC_CALIBRATION_ADC_CALIBRATION_OFF',
+                'name': 'ADC_CALIBRATION_VAL_ADC_CALIBRATION_OFF',
                 'value': 0
             },
             {
-                'name': 'ADC_CALIBRATION_ADC_CALIBRATION_AUTO',
+                'name': 'ADC_CALIBRATION_VAL_ADC_CALIBRATION_AUTO',
                 'value': -1
             },
             {
-                'name': 'ADC_CALIBRATION_ADC_CALIBRATION_ON',
+                'name': 'ADC_CALIBRATION_VAL_ADC_CALIBRATION_ON',
                 'value': 1
             },
             {
-                'name': 'APERTURE_TIME_UNITS_SECONDS',
+                'name': 'APERTURE_TIME_UNITS_VAL_SECONDS',
                 'value': 0
             },
             {
-                'name': 'APERTURE_TIME_UNITS_POWER_LINE_CYCLES',
+                'name': 'APERTURE_TIME_UNITS_VAL_POWER_LINE_CYCLES',
                 'value': 1
             },
             {
-                'name': 'AUTO_ZERO_AUTO_ZERO_OFF',
+                'name': 'AUTO_ZERO_VAL_AUTO_ZERO_OFF',
                 'value': 0
             },
             {
-                'name': 'AUTO_ZERO_AUTO_ZERO_AUTO',
+                'name': 'AUTO_ZERO_VAL_AUTO_ZERO_AUTO',
                 'value': -1
             },
             {
-                'name': 'AUTO_ZERO_AUTO_ZERO_ON',
+                'name': 'AUTO_ZERO_VAL_AUTO_ZERO_ON',
                 'value': 1
             },
             {
-                'name': 'AUTO_ZERO_AUTO_ZERO_ONCE',
+                'name': 'AUTO_ZERO_VAL_AUTO_ZERO_ONCE',
                 'value': 2
             },
             {
-                'name': 'CABLE_COMPENSATION_TYPE_CABLE_COMP_NONE',
+                'name': 'CABLE_COMPENSATION_TYPE_VAL_CABLE_COMP_NONE',
                 'value': 0
             },
             {
-                'name': 'CABLE_COMPENSATION_TYPE_CABLE_COMP_OPEN',
+                'name': 'CABLE_COMPENSATION_TYPE_VAL_CABLE_COMP_OPEN',
                 'value': 1
             },
             {
-                'name': 'CABLE_COMPENSATION_TYPE_CABLE_COMP_SHORT',
+                'name': 'CABLE_COMPENSATION_TYPE_VAL_CABLE_COMP_SHORT',
                 'value': 2
             },
             {
-                'name': 'CABLE_COMPENSATION_TYPE_CABLE_COMP_OPEN_AND_SHORT',
+                'name': 'CABLE_COMPENSATION_TYPE_VAL_CABLE_COMP_OPEN_AND_SHORT',
                 'value': 3
             },
             {
-                'name': 'DC_BIAS_DC_BIAS_OFF',
+                'name': 'DC_BIAS_VAL_DC_BIAS_OFF',
                 'value': 0
             },
             {
-                'name': 'DC_BIAS_DC_BIAS_ON',
+                'name': 'DC_BIAS_VAL_DC_BIAS_ON',
                 'value': 1
             },
             {
-                'name': 'DC_NOISE_REJECTION_DCNR_NORMAL',
+                'name': 'DC_NOISE_REJECTION_VAL_DCNR_NORMAL',
                 'value': 0
             },
             {
-                'name': 'DC_NOISE_REJECTION_DCNR_AUTO',
+                'name': 'DC_NOISE_REJECTION_VAL_DCNR_AUTO',
                 'value': -1
             },
             {
-                'name': 'DC_NOISE_REJECTION_DCNR_SECOND_ORDER',
+                'name': 'DC_NOISE_REJECTION_VAL_DCNR_SECOND_ORDER',
                 'value': 1
             },
             {
-                'name': 'DC_NOISE_REJECTION_DCNR_HIGH_ORDER',
+                'name': 'DC_NOISE_REJECTION_VAL_DCNR_HIGH_ORDER',
                 'value': 2
             },
             {
-                'name': 'FUNCTION_DC_VOLTS',
+                'name': 'FUNCTION_VAL_DC_VOLTS',
                 'value': 1
             },
             {
-                'name': 'FUNCTION_AC_VOLTS',
+                'name': 'FUNCTION_VAL_AC_VOLTS',
                 'value': 2
             },
             {
-                'name': 'FUNCTION_DC_CURRENT',
+                'name': 'FUNCTION_VAL_DC_CURRENT',
                 'value': 3
             },
             {
-                'name': 'FUNCTION_AC_CURRENT',
+                'name': 'FUNCTION_VAL_AC_CURRENT',
                 'value': 4
             },
             {
-                'name': 'FUNCTION_2_WIRE_RES',
+                'name': 'FUNCTION_VAL_2_WIRE_RES',
                 'value': 5
             },
             {
-                'name': 'FUNCTION_4_WIRE_RES',
+                'name': 'FUNCTION_VAL_4_WIRE_RES',
                 'value': 101
             },
             {
-                'name': 'FUNCTION_FREQ',
+                'name': 'FUNCTION_VAL_FREQ',
                 'value': 104
             },
             {
-                'name': 'FUNCTION_PERIOD',
+                'name': 'FUNCTION_VAL_PERIOD',
                 'value': 105
             },
             {
-                'name': 'FUNCTION_TEMPERATURE',
+                'name': 'FUNCTION_VAL_TEMPERATURE',
                 'value': 108
             },
             {
-                'name': 'FUNCTION_AC_VOLTS_DC_COUPLED',
+                'name': 'FUNCTION_VAL_AC_VOLTS_DC_COUPLED',
                 'value': 1001
             },
             {
-                'name': 'FUNCTION_DIODE',
+                'name': 'FUNCTION_VAL_DIODE',
                 'value': 1002
             },
             {
-                'name': 'FUNCTION_WAVEFORM_VOLTAGE',
+                'name': 'FUNCTION_VAL_WAVEFORM_VOLTAGE',
                 'value': 1003
             },
             {
-                'name': 'FUNCTION_WAVEFORM_CURRENT',
+                'name': 'FUNCTION_VAL_WAVEFORM_CURRENT',
                 'value': 1004
             },
             {
-                'name': 'FUNCTION_CAPACITANCE',
+                'name': 'FUNCTION_VAL_CAPACITANCE',
                 'value': 1005
             },
             {
-                'name': 'FUNCTION_INDUCTANCE',
+                'name': 'FUNCTION_VAL_INDUCTANCE',
                 'value': 1006
             },
             {
-                'name': 'LC_CALCULATION_MODEL_CALC_MODEL_SERIES',
+                'name': 'LC_CALCULATION_MODEL_VAL_CALC_MODEL_SERIES',
                 'value': 0
             },
             {
-                'name': 'LC_CALCULATION_MODEL_CALC_MODEL_AUTO',
+                'name': 'LC_CALCULATION_MODEL_VAL_CALC_MODEL_AUTO',
                 'value': -1
             },
             {
-                'name': 'LC_CALCULATION_MODEL_CALC_MODEL_PARALLEL',
+                'name': 'LC_CALCULATION_MODEL_VAL_CALC_MODEL_PARALLEL',
                 'value': 1
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_NONE',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_NONE',
                 'value': -1
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_EXTERNAL',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_EXTERNAL',
                 'value': 2
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_PXI_TRIG0',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_PXI_TRIG0',
                 'value': 111
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_PXI_TRIG1',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_PXI_TRIG1',
                 'value': 112
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_PXI_TRIG2',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_PXI_TRIG2',
                 'value': 113
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_PXI_TRIG3',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_PXI_TRIG3',
                 'value': 114
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_PXI_TRIG4',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_PXI_TRIG4',
                 'value': 115
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_PXI_TRIG5',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_PXI_TRIG5',
                 'value': 116
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_PXI_TRIG6',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_PXI_TRIG6',
                 'value': 117
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_PXI_TRIG7',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_PXI_TRIG7',
                 'value': 118
             },
             {
-                'name': 'MEASUREMENT_COMPLETE_DEST_LBR_TRIG0',
+                'name': 'MEASUREMENT_COMPLETE_DEST_VAL_LBR_TRIG0',
                 'value': 1003
             },
             {
-                'name': 'MEASUREMENT_DESTINATION_SLOPE_POSITIVE',
+                'name': 'MEASUREMENT_DESTINATION_SLOPE_VAL_POSITIVE',
                 'value': 0
             },
             {
-                'name': 'MEASUREMENT_DESTINATION_SLOPE_NEGATIVE',
+                'name': 'MEASUREMENT_DESTINATION_SLOPE_VAL_NEGATIVE',
                 'value': 1
             },
             {
-                'name': 'OFFSET_COMPENSATED_OHMS_OFFSET_COMP_OHMS_OFF',
+                'name': 'OFFSET_COMPENSATED_OHMS_VAL_OFFSET_COMP_OHMS_OFF',
                 'value': 0
             },
             {
-                'name': 'OFFSET_COMPENSATED_OHMS_OFFSET_COMP_OHMS_ON',
+                'name': 'OFFSET_COMPENSATED_OHMS_VAL_OFFSET_COMP_OHMS_ON',
                 'value': 1
             },
             {
-                'name': 'OPERATION_MODE_IVIDMM_MODE',
+                'name': 'OPERATION_MODE_VAL_IVIDMM_MODE',
                 'value': 0
             },
             {
-                'name': 'OPERATION_MODE_WAVEFORM_MODE',
+                'name': 'OPERATION_MODE_VAL_WAVEFORM_MODE',
                 'value': 1
             },
             {
-                'name': 'RTD_TYPE_TEMP_RTD_CUSTOM',
+                'name': 'RTD_TYPE_VAL_TEMP_RTD_CUSTOM',
                 'value': 0
             },
             {
-                'name': 'RTD_TYPE_TEMP_RTD_PT3750',
+                'name': 'RTD_TYPE_VAL_TEMP_RTD_PT3750',
                 'value': 1
             },
             {
-                'name': 'RTD_TYPE_TEMP_RTD_PT3851',
+                'name': 'RTD_TYPE_VAL_TEMP_RTD_PT3851',
                 'value': 2
             },
             {
-                'name': 'RTD_TYPE_TEMP_RTD_PT3911',
+                'name': 'RTD_TYPE_VAL_TEMP_RTD_PT3911',
                 'value': 3
             },
             {
-                'name': 'RTD_TYPE_TEMP_RTD_PT3916',
+                'name': 'RTD_TYPE_VAL_TEMP_RTD_PT3916',
                 'value': 4
             },
             {
-                'name': 'RTD_TYPE_TEMP_RTD_PT3920',
+                'name': 'RTD_TYPE_VAL_TEMP_RTD_PT3920',
                 'value': 5
             },
             {
-                'name': 'RTD_TYPE_TEMP_RTD_PT3928',
+                'name': 'RTD_TYPE_VAL_TEMP_RTD_PT3928',
                 'value': 6
             },
             {
-                'name': 'SAMPLE_TRIG_SLOPE_POSITIVE',
+                'name': 'SAMPLE_TRIG_SLOPE_VAL_POSITIVE',
                 'value': 0
             },
             {
-                'name': 'SAMPLE_TRIG_SLOPE_NEGATIVE',
+                'name': 'SAMPLE_TRIG_SLOPE_VAL_NEGATIVE',
                 'value': 1
             },
             {
-                'name': 'SAMPLE_TRIGGER_IMMEDIATE',
+                'name': 'SAMPLE_TRIGGER_VAL_IMMEDIATE',
                 'value': 1
             },
             {
-                'name': 'SAMPLE_TRIGGER_EXTERNAL',
+                'name': 'SAMPLE_TRIGGER_VAL_EXTERNAL',
                 'value': 2
             },
             {
-                'name': 'SAMPLE_TRIGGER_SOFTWARE_TRIG',
+                'name': 'SAMPLE_TRIGGER_VAL_SOFTWARE_TRIG',
                 'value': 3
             },
             {
-                'name': 'SAMPLE_TRIGGER_INTERVAL',
+                'name': 'SAMPLE_TRIGGER_VAL_INTERVAL',
                 'value': 10
             },
             {
-                'name': 'SAMPLE_TRIGGER_PXI_TRIG0',
+                'name': 'SAMPLE_TRIGGER_VAL_PXI_TRIG0',
                 'value': 111
             },
             {
-                'name': 'SAMPLE_TRIGGER_PXI_TRIG1',
+                'name': 'SAMPLE_TRIGGER_VAL_PXI_TRIG1',
                 'value': 112
             },
             {
-                'name': 'SAMPLE_TRIGGER_PXI_TRIG2',
+                'name': 'SAMPLE_TRIGGER_VAL_PXI_TRIG2',
                 'value': 113
             },
             {
-                'name': 'SAMPLE_TRIGGER_PXI_TRIG3',
+                'name': 'SAMPLE_TRIGGER_VAL_PXI_TRIG3',
                 'value': 114
             },
             {
-                'name': 'SAMPLE_TRIGGER_PXI_TRIG4',
+                'name': 'SAMPLE_TRIGGER_VAL_PXI_TRIG4',
                 'value': 115
             },
             {
-                'name': 'SAMPLE_TRIGGER_PXI_TRIG5',
+                'name': 'SAMPLE_TRIGGER_VAL_PXI_TRIG5',
                 'value': 116
             },
             {
-                'name': 'SAMPLE_TRIGGER_PXI_TRIG6',
+                'name': 'SAMPLE_TRIGGER_VAL_PXI_TRIG6',
                 'value': 117
             },
             {
-                'name': 'SAMPLE_TRIGGER_PXI_TRIG7',
+                'name': 'SAMPLE_TRIGGER_VAL_PXI_TRIG7',
                 'value': 118
             },
             {
-                'name': 'SAMPLE_TRIGGER_PXI_STAR',
+                'name': 'SAMPLE_TRIGGER_VAL_PXI_STAR',
                 'value': 131
             },
             {
-                'name': 'SAMPLE_TRIGGER_AUX_TRIG1',
+                'name': 'SAMPLE_TRIGGER_VAL_AUX_TRIG1',
                 'value': 1001
             },
             {
-                'name': 'SAMPLE_TRIGGER_LBR_TRIG1',
+                'name': 'SAMPLE_TRIGGER_VAL_LBR_TRIG1',
                 'value': 1004
             },
             {
-                'name': 'THERMISTOR_TYPE_TEMP_THERMISTOR_CUSTOM',
+                'name': 'THERMISTOR_TYPE_VAL_TEMP_THERMISTOR_CUSTOM',
                 'value': 0
             },
             {
-                'name': 'THERMISTOR_TYPE_TEMP_THERMISTOR_44004',
+                'name': 'THERMISTOR_TYPE_VAL_TEMP_THERMISTOR_44004',
                 'value': 1
             },
             {
-                'name': 'THERMISTOR_TYPE_TEMP_THERMISTOR_44006',
+                'name': 'THERMISTOR_TYPE_VAL_TEMP_THERMISTOR_44006',
                 'value': 2
             },
             {
-                'name': 'THERMISTOR_TYPE_TEMP_THERMISTOR_44007',
+                'name': 'THERMISTOR_TYPE_VAL_TEMP_THERMISTOR_44007',
                 'value': 3
             },
             {
-                'name': 'THERMOCOUPLE_REFERENCE_JUNCTION_TYPE_FIXED',
+                'name': 'THERMOCOUPLE_REFERENCE_JUNCTION_TYPE_VAL_FIXED',
                 'value': 2
             },
             {
-                'name': 'THERMOCOUPLE_TYPE_TEMP_TC_B',
+                'name': 'THERMOCOUPLE_TYPE_VAL_TEMP_TC_B',
                 'value': 1
             },
             {
-                'name': 'THERMOCOUPLE_TYPE_TEMP_TC_E',
+                'name': 'THERMOCOUPLE_TYPE_VAL_TEMP_TC_E',
                 'value': 4
             },
             {
-                'name': 'THERMOCOUPLE_TYPE_TEMP_TC_J',
+                'name': 'THERMOCOUPLE_TYPE_VAL_TEMP_TC_J',
                 'value': 6
             },
             {
-                'name': 'THERMOCOUPLE_TYPE_TEMP_TC_K',
+                'name': 'THERMOCOUPLE_TYPE_VAL_TEMP_TC_K',
                 'value': 7
             },
             {
-                'name': 'THERMOCOUPLE_TYPE_TEMP_TC_N',
+                'name': 'THERMOCOUPLE_TYPE_VAL_TEMP_TC_N',
                 'value': 8
             },
             {
-                'name': 'THERMOCOUPLE_TYPE_TEMP_TC_R',
+                'name': 'THERMOCOUPLE_TYPE_VAL_TEMP_TC_R',
                 'value': 9
             },
             {
-                'name': 'THERMOCOUPLE_TYPE_TEMP_TC_S',
+                'name': 'THERMOCOUPLE_TYPE_VAL_TEMP_TC_S',
                 'value': 10
             },
             {
-                'name': 'THERMOCOUPLE_TYPE_TEMP_TC_T',
+                'name': 'THERMOCOUPLE_TYPE_VAL_TEMP_TC_T',
                 'value': 11
             },
             {
-                'name': 'TRANSDUCER_TYPE_THERMOCOUPLE',
+                'name': 'TRANSDUCER_TYPE_VAL_THERMOCOUPLE',
                 'value': 1
             },
             {
-                'name': 'TRANSDUCER_TYPE_THERMISTOR',
+                'name': 'TRANSDUCER_TYPE_VAL_THERMISTOR',
                 'value': 2
             },
             {
-                'name': 'TRANSDUCER_TYPE_2_WIRE_RTD',
+                'name': 'TRANSDUCER_TYPE_VAL_2_WIRE_RTD',
                 'value': 3
             },
             {
-                'name': 'TRANSDUCER_TYPE_4_WIRE_RTD',
+                'name': 'TRANSDUCER_TYPE_VAL_4_WIRE_RTD',
                 'value': 4
             },
             {
-                'name': 'TRIGGER_SLOPE_POSITIVE',
+                'name': 'TRIGGER_SLOPE_VAL_POSITIVE',
                 'value': 0
             },
             {
-                'name': 'TRIGGER_SLOPE_NEGATIVE',
+                'name': 'TRIGGER_SLOPE_VAL_NEGATIVE',
                 'value': 1
             },
             {
-                'name': 'TRIGGER_SOURCE_IMMEDIATE',
+                'name': 'TRIGGER_SOURCE_VAL_IMMEDIATE',
                 'value': 1
             },
             {
-                'name': 'TRIGGER_SOURCE_EXTERNAL',
+                'name': 'TRIGGER_SOURCE_VAL_EXTERNAL',
                 'value': 2
             },
             {
-                'name': 'TRIGGER_SOURCE_SOFTWARE_TRIG',
+                'name': 'TRIGGER_SOURCE_VAL_SOFTWARE_TRIG',
                 'value': 3
             },
             {
-                'name': 'TRIGGER_SOURCE_PXI_TRIG0',
+                'name': 'TRIGGER_SOURCE_VAL_PXI_TRIG0',
                 'value': 111
             },
             {
-                'name': 'TRIGGER_SOURCE_PXI_TRIG1',
+                'name': 'TRIGGER_SOURCE_VAL_PXI_TRIG1',
                 'value': 112
             },
             {
-                'name': 'TRIGGER_SOURCE_PXI_TRIG2',
+                'name': 'TRIGGER_SOURCE_VAL_PXI_TRIG2',
                 'value': 113
             },
             {
-                'name': 'TRIGGER_SOURCE_PXI_TRIG3',
+                'name': 'TRIGGER_SOURCE_VAL_PXI_TRIG3',
                 'value': 114
             },
             {
-                'name': 'TRIGGER_SOURCE_PXI_TRIG4',
+                'name': 'TRIGGER_SOURCE_VAL_PXI_TRIG4',
                 'value': 115
             },
             {
-                'name': 'TRIGGER_SOURCE_PXI_TRIG5',
+                'name': 'TRIGGER_SOURCE_VAL_PXI_TRIG5',
                 'value': 116
             },
             {
-                'name': 'TRIGGER_SOURCE_PXI_TRIG6',
+                'name': 'TRIGGER_SOURCE_VAL_PXI_TRIG6',
                 'value': 117
             },
             {
-                'name': 'TRIGGER_SOURCE_PXI_TRIG7',
+                'name': 'TRIGGER_SOURCE_VAL_PXI_TRIG7',
                 'value': 118
             },
             {
-                'name': 'TRIGGER_SOURCE_PXI_STAR',
+                'name': 'TRIGGER_SOURCE_VAL_PXI_STAR',
                 'value': 131
             },
             {
-                'name': 'TRIGGER_SOURCE_AUX_TRIG1',
+                'name': 'TRIGGER_SOURCE_VAL_AUX_TRIG1',
                 'value': 1001
             },
             {
-                'name': 'TRIGGER_SOURCE_LBR_TRIG1',
+                'name': 'TRIGGER_SOURCE_VAL_LBR_TRIG1',
                 'value': 1004
             },
             {
-                'name': 'WAVEFORM_COUPLING_WAVEFORM_COUPLING_AC',
+                'name': 'WAVEFORM_COUPLING_VAL_WAVEFORM_COUPLING_AC',
                 'value': 0
             },
             {
-                'name': 'WAVEFORM_COUPLING_WAVEFORM_COUPLING_DC',
+                'name': 'WAVEFORM_COUPLING_VAL_WAVEFORM_COUPLING_DC',
                 'value': 1
             }
         ]
@@ -779,39 +779,39 @@ enums = {
         'generate-mappings': True,
         'values': [
             {
-                'name': 'CURRENT_SOURCE_1_MICROAMP',
+                'name': 'CURRENT_SOURCE_VAL_1_MICROAMP',
                 'value': 1e-06
             },
             {
-                'name': 'CURRENT_SOURCE_10_MICROAMP',
+                'name': 'CURRENT_SOURCE_VAL_10_MICROAMP',
                 'value': 1e-05
             },
             {
-                'name': 'CURRENT_SOURCE_100_MICROAMP',
+                'name': 'CURRENT_SOURCE_VAL_100_MICROAMP',
                 'value': 0.0001
             },
             {
-                'name': 'CURRENT_SOURCE_1_MILLIAMP',
+                'name': 'CURRENT_SOURCE_VAL_1_MILLIAMP',
                 'value': 0.001
             },
             {
-                'name': 'INPUT_RESISTANCE_1_MEGAOHM',
+                'name': 'INPUT_RESISTANCE_VAL_1_MEGAOHM',
                 'value': 1000000.0
             },
             {
-                'name': 'INPUT_RESISTANCE_10_MEGAOHM',
+                'name': 'INPUT_RESISTANCE_VAL_10_MEGAOHM',
                 'value': 10000000.0
             },
             {
-                'name': 'INPUT_RESISTANCE_GREATER_THAN_10_GIGAOHM',
+                'name': 'INPUT_RESISTANCE_VAL_GREATER_THAN_10_GIGAOHM',
                 'value': 10000000000.0
             },
             {
-                'name': 'POWERLINE_FREQUENCY_50_HERTZ',
+                'name': 'POWERLINE_FREQUENCY_VAL_50_HERTZ',
                 'value': 50.0
             },
             {
-                'name': 'POWERLINE_FREQUENCY_60_HERTZ',
+                'name': 'POWERLINE_FREQUENCY_VAL_60_HERTZ',
                 'value': 60.0
             }
         ]
@@ -820,11 +820,11 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'OFFSET_COMP_OHMS_OFF',
+                'name': 'NIDMM_VAL_OFFSET_COMP_OHMS_OFF',
                 'value': 0
             },
             {
-                'name': 'OFFSET_COMP_OHMS_ON',
+                'name': 'NIDMM_VAL_OFFSET_COMP_OHMS_ON',
                 'value': 1
             }
         ]
@@ -833,11 +833,11 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'IVIDMM_MODE',
+                'name': 'NIDMM_VAL_IVIDMM_MODE',
                 'value': 0
             },
             {
-                'name': 'WAVEFORM_MODE',
+                'name': 'NIDMM_VAL_WAVEFORM_MODE',
                 'value': 1
             }
         ]
@@ -847,11 +847,11 @@ enums = {
         'generate-mappings': True,
         'values': [
             {
-                'name': '50_HERTZ',
+                'name': 'NIDMM_VAL_50_HERTZ',
                 'value': 50.0
             },
             {
-                'name': '60_HERTZ',
+                'name': 'NIDMM_VAL_60_HERTZ',
                 'value': 60.0
             }
         ]
@@ -860,31 +860,31 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'TEMP_RTD_CUSTOM',
+                'name': 'NIDMM_VAL_TEMP_RTD_CUSTOM',
                 'value': 0
             },
             {
-                'name': 'TEMP_RTD_PT3750',
+                'name': 'NIDMM_VAL_TEMP_RTD_PT3750',
                 'value': 1
             },
             {
-                'name': 'TEMP_RTD_PT3851',
+                'name': 'NIDMM_VAL_TEMP_RTD_PT3851',
                 'value': 2
             },
             {
-                'name': 'TEMP_RTD_PT3911',
+                'name': 'NIDMM_VAL_TEMP_RTD_PT3911',
                 'value': 3
             },
             {
-                'name': 'TEMP_RTD_PT3916',
+                'name': 'NIDMM_VAL_TEMP_RTD_PT3916',
                 'value': 4
             },
             {
-                'name': 'TEMP_RTD_PT3920',
+                'name': 'NIDMM_VAL_TEMP_RTD_PT3920',
                 'value': 5
             },
             {
-                'name': 'TEMP_RTD_PT3928',
+                'name': 'NIDMM_VAL_TEMP_RTD_PT3928',
                 'value': 6
             }
         ]
@@ -893,11 +893,11 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'POSITIVE',
+                'name': 'NIDMM_VAL_POSITIVE',
                 'value': 0
             },
             {
-                'name': 'NEGATIVE',
+                'name': 'NIDMM_VAL_NEGATIVE',
                 'value': 1
             }
         ]
@@ -906,63 +906,63 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'IMMEDIATE',
+                'name': 'NIDMM_VAL_IMMEDIATE',
                 'value': 1
             },
             {
-                'name': 'EXTERNAL',
+                'name': 'NIDMM_VAL_EXTERNAL',
                 'value': 2
             },
             {
-                'name': 'SOFTWARE_TRIG',
+                'name': 'NIDMM_VAL_SOFTWARE_TRIG',
                 'value': 3
             },
             {
-                'name': 'INTERVAL',
+                'name': 'NIDMM_VAL_INTERVAL',
                 'value': 10
             },
             {
-                'name': 'PXI_TRIG0',
+                'name': 'NIDMM_VAL_PXI_TRIG0',
                 'value': 111
             },
             {
-                'name': 'PXI_TRIG1',
+                'name': 'NIDMM_VAL_PXI_TRIG1',
                 'value': 112
             },
             {
-                'name': 'PXI_TRIG2',
+                'name': 'NIDMM_VAL_PXI_TRIG2',
                 'value': 113
             },
             {
-                'name': 'PXI_TRIG3',
+                'name': 'NIDMM_VAL_PXI_TRIG3',
                 'value': 114
             },
             {
-                'name': 'PXI_TRIG4',
+                'name': 'NIDMM_VAL_PXI_TRIG4',
                 'value': 115
             },
             {
-                'name': 'PXI_TRIG5',
+                'name': 'NIDMM_VAL_PXI_TRIG5',
                 'value': 116
             },
             {
-                'name': 'PXI_TRIG6',
+                'name': 'NIDMM_VAL_PXI_TRIG6',
                 'value': 117
             },
             {
-                'name': 'PXI_TRIG7',
+                'name': 'NIDMM_VAL_PXI_TRIG7',
                 'value': 118
             },
             {
-                'name': 'PXI_STAR',
+                'name': 'NIDMM_VAL_PXI_STAR',
                 'value': 131
             },
             {
-                'name': 'AUX_TRIG1',
+                'name': 'NIDMM_VAL_AUX_TRIG1',
                 'value': 1001
             },
             {
-                'name': 'LBR_TRIG1',
+                'name': 'NIDMM_VAL_LBR_TRIG1',
                 'value': 1004
             }
         ]
@@ -971,19 +971,19 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'TEMP_THERMISTOR_CUSTOM',
+                'name': 'NIDMM_VAL_TEMP_THERMISTOR_CUSTOM',
                 'value': 0
             },
             {
-                'name': 'TEMP_THERMISTOR_44004',
+                'name': 'NIDMM_VAL_TEMP_THERMISTOR_44004',
                 'value': 1
             },
             {
-                'name': 'TEMP_THERMISTOR_44006',
+                'name': 'NIDMM_VAL_TEMP_THERMISTOR_44006',
                 'value': 2
             },
             {
-                'name': 'TEMP_THERMISTOR_44007',
+                'name': 'NIDMM_VAL_TEMP_THERMISTOR_44007',
                 'value': 3
             }
         ]
@@ -992,7 +992,7 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'FIXED',
+                'name': 'NIDMM_VAL_FIXED',
                 'value': 2
             }
         ]
@@ -1001,35 +1001,35 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'TEMP_TC_B',
+                'name': 'NIDMM_VAL_TEMP_TC_B',
                 'value': 1
             },
             {
-                'name': 'TEMP_TC_E',
+                'name': 'NIDMM_VAL_TEMP_TC_E',
                 'value': 4
             },
             {
-                'name': 'TEMP_TC_J',
+                'name': 'NIDMM_VAL_TEMP_TC_J',
                 'value': 6
             },
             {
-                'name': 'TEMP_TC_K',
+                'name': 'NIDMM_VAL_TEMP_TC_K',
                 'value': 7
             },
             {
-                'name': 'TEMP_TC_N',
+                'name': 'NIDMM_VAL_TEMP_TC_N',
                 'value': 8
             },
             {
-                'name': 'TEMP_TC_R',
+                'name': 'NIDMM_VAL_TEMP_TC_R',
                 'value': 9
             },
             {
-                'name': 'TEMP_TC_S',
+                'name': 'NIDMM_VAL_TEMP_TC_S',
                 'value': 10
             },
             {
-                'name': 'TEMP_TC_T',
+                'name': 'NIDMM_VAL_TEMP_TC_T',
                 'value': 11
             }
         ]
@@ -1038,19 +1038,19 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'THERMOCOUPLE',
+                'name': 'NIDMM_VAL_THERMOCOUPLE',
                 'value': 1
             },
             {
-                'name': 'THERMISTOR',
+                'name': 'NIDMM_VAL_THERMISTOR',
                 'value': 2
             },
             {
-                'name': '2_WIRE_RTD',
+                'name': 'NIDMM_VAL_2_WIRE_RTD',
                 'value': 3
             },
             {
-                'name': '4_WIRE_RTD',
+                'name': 'NIDMM_VAL_4_WIRE_RTD',
                 'value': 4
             }
         ]
@@ -1059,11 +1059,11 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'POSITIVE',
+                'name': 'NIDMM_VAL_POSITIVE',
                 'value': 0
             },
             {
-                'name': 'NEGATIVE',
+                'name': 'NIDMM_VAL_NEGATIVE',
                 'value': 1
             }
         ]
@@ -1072,59 +1072,59 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'IMMEDIATE',
+                'name': 'NIDMM_VAL_IMMEDIATE',
                 'value': 1
             },
             {
-                'name': 'EXTERNAL',
+                'name': 'NIDMM_VAL_EXTERNAL',
                 'value': 2
             },
             {
-                'name': 'SOFTWARE_TRIG',
+                'name': 'NIDMM_VAL_SOFTWARE_TRIG',
                 'value': 3
             },
             {
-                'name': 'PXI_TRIG0',
+                'name': 'NIDMM_VAL_PXI_TRIG0',
                 'value': 111
             },
             {
-                'name': 'PXI_TRIG1',
+                'name': 'NIDMM_VAL_PXI_TRIG1',
                 'value': 112
             },
             {
-                'name': 'PXI_TRIG2',
+                'name': 'NIDMM_VAL_PXI_TRIG2',
                 'value': 113
             },
             {
-                'name': 'PXI_TRIG3',
+                'name': 'NIDMM_VAL_PXI_TRIG3',
                 'value': 114
             },
             {
-                'name': 'PXI_TRIG4',
+                'name': 'NIDMM_VAL_PXI_TRIG4',
                 'value': 115
             },
             {
-                'name': 'PXI_TRIG5',
+                'name': 'NIDMM_VAL_PXI_TRIG5',
                 'value': 116
             },
             {
-                'name': 'PXI_TRIG6',
+                'name': 'NIDMM_VAL_PXI_TRIG6',
                 'value': 117
             },
             {
-                'name': 'PXI_TRIG7',
+                'name': 'NIDMM_VAL_PXI_TRIG7',
                 'value': 118
             },
             {
-                'name': 'PXI_STAR',
+                'name': 'NIDMM_VAL_PXI_STAR',
                 'value': 131
             },
             {
-                'name': 'AUX_TRIG1',
+                'name': 'NIDMM_VAL_AUX_TRIG1',
                 'value': 1001
             },
             {
-                'name': 'LBR_TRIG1',
+                'name': 'NIDMM_VAL_LBR_TRIG1',
                 'value': 1004
             }
         ]
@@ -1133,11 +1133,11 @@ enums = {
         'codegen_method': 'public',
         'values': [
             {
-                'name': 'WAVEFORM_COUPLING_AC',
+                'name': 'NIDMM_VAL_WAVEFORM_COUPLING_AC',
                 'value': 0
             },
             {
-                'name': 'WAVEFORM_COUPLING_DC',
+                'name': 'NIDMM_VAL_WAVEFORM_COUPLING_DC',
                 'value': 1
             }
         ]
