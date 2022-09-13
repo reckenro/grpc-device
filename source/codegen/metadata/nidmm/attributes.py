@@ -50,27 +50,6 @@ attributes = {
         'resettable': False,
         'type': 'ViBoolean'
     },
-    1050101: {
-        'codegen_method': 'public',
-        'grpc_type': 'sint32',
-        'name': 'PRIMARY_ERROR',
-        'resettable': False,
-        'type': 'ViInt32'
-    },
-    1050102: {
-        'codegen_method': 'public',
-        'grpc_type': 'sint32',
-        'name': 'SECONDARY_ERROR',
-        'resettable': False,
-        'type': 'ViInt32'
-    },
-    1050103: {
-        'codegen_method': 'public',
-        'grpc_type': 'string',
-        'name': 'ERROR_ELABORATION',
-        'resettable': False,
-        'type': 'ViString'
-    },
     1050203: {
         'codegen_method': 'public',
         'grpc_type': 'sint32',
@@ -112,20 +91,6 @@ attributes = {
         'name': 'GROUP_CAPABILITIES',
         'resettable': False,
         'type': 'ViString'
-    },
-    1050501: {
-        'codegen_method': 'public',
-        'grpc_type': 'sint32',
-        'name': 'ENGINE_MAJOR_VERSION',
-        'resettable': False,
-        'type': 'ViInt32'
-    },
-    1050502: {
-        'codegen_method': 'public',
-        'grpc_type': 'sint32',
-        'name': 'ENGINE_MINOR_VERSION',
-        'resettable': False,
-        'type': 'ViInt32'
     },
     1050503: {
         'codegen_method': 'public',
@@ -194,20 +159,6 @@ attributes = {
         'codegen_method': 'public',
         'grpc_type': 'string',
         'name': 'SPECIFIC_DRIVER_REVISION',
-        'resettable': False,
-        'type': 'ViString'
-    },
-    1050553: {
-        'codegen_method': 'public',
-        'grpc_type': 'string',
-        'name': 'ENGINE_REVISION',
-        'resettable': False,
-        'type': 'ViString'
-    },
-    1150001: {
-        'codegen_method': 'public',
-        'grpc_type': 'string',
-        'name': 'ID_QUERY_RESPONSE',
         'resettable': False,
         'type': 'ViString'
     },
@@ -310,13 +261,6 @@ attributes = {
         'name': 'INPUT_RESISTANCE',
         'resettable': False,
         'type': 'ViReal64'
-    },
-    1150031: {
-        'codegen_method': 'public',
-        'grpc_type': 'sint32',
-        'name': 'SAMPLE_DELAY_MODE',
-        'resettable': False,
-        'type': 'ViInt32'
     },
     1150032: {
         'codegen_method': 'public',
