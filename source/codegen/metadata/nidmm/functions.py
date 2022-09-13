@@ -542,7 +542,7 @@ functions = {
             {
                 'cppName': 'offsetCompOhms',
                 'direction': 'in',
-                'enum': 'CompensatedOhms',
+                'enum': 'OffsetCompensatedOhms',
                 'grpc_type': 'sint32',
                 'name': 'offsetCompOhms',
                 'type': 'ViInt32'

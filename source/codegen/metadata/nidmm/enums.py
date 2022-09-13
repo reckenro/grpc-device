@@ -158,19 +158,6 @@ enums = {
             }
         ]
     },
-    'CompensatedOhms': {
-        'codegen_method': 'public',
-        'values': [
-            {
-                'name': 'NIDMM_VAL_OFFSET_COMP_OHMS_OFF',
-                'value': 0
-            },
-            {
-                'name': 'NIDMM_VAL_OFFSET_COMP_OHMS_ON',
-                'value': 1
-            }
-        ]
-    },
     'Configuration4022': {
         'codegen_method': 'public',
         'values': [

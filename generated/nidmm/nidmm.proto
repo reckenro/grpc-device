@@ -223,11 +223,6 @@ enum CalibrationType {
   CALIBRATION_TYPE_NIDMM_VAL_EXTERNAL_AREA = 1;
 }
 
-enum CompensatedOhms {
-  COMPENSATED_OHMS_NIDMM_VAL_OFFSET_COMP_OHMS_OFF = 0;
-  COMPENSATED_OHMS_NIDMM_VAL_OFFSET_COMP_OHMS_ON = 1;
-}
-
 enum Configuration4022 {
   CONFIGURATION4022_NIDMM_VAL_4022_CONFIG_GUARD = 0;
   CONFIGURATION4022_NIDMM_VAL_4022_CONFIG_CURRENT_100_NANOAMP = 2;
@@ -415,6 +410,11 @@ enum NiDmmReal64AttributeValuesMapped {
   NIDMM_REAL64_SETTLE_TIME_VAL_SETTLE_TIME_AUTO = 24;
   NIDMM_REAL64_TRIGGER_DELAYS_VAL_AUTO_DELAY_ON = 25;
   NIDMM_REAL64_TRIGGER_DELAYS_VAL_AUTO_DELAY_OFF = 26;
+}
+
+enum OffsetCompensatedOhms {
+  OFFSET_COMPENSATED_OHMS_NIDMM_VAL_OFFSET_COMP_OHMS_OFF = 0;
+  OFFSET_COMPENSATED_OHMS_NIDMM_VAL_OFFSET_COMP_OHMS_ON = 1;
 }
 
 enum PowerLineFrequencies {
@@ -754,7 +754,7 @@ message ConfigureMultiPointResponse {
 message ConfigureOffsetCompOhmsRequest {
   nidevice_grpc.Session vi = 1;
   oneof offset_comp_ohms_enum {
-    CompensatedOhms offset_comp_ohms = 2;
+    OffsetCompensatedOhms offset_comp_ohms = 2;
     sint32 offset_comp_ohms_raw = 3;
   }
 }
