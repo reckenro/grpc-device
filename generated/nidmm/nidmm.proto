@@ -209,6 +209,18 @@ enum AcquisitionStatus {
   ACQUISITION_STATUS_NIDMM_VAL_ACQUISITION_STATUS_NO_ACQUISITION_IN_PROGRESS = 4;
 }
 
+enum ApertureTime {
+  APERTURE_TIME_UNSPECIFIED = 0;
+  APERTURE_TIME_NIDMM_VAL_APERTURE_TIME_AUTO = 1;
+  APERTURE_TIME_NIDMM_VAL_1_PLC = 2;
+  APERTURE_TIME_NIDMM_VAL_5_PLC = 3;
+  APERTURE_TIME_NIDMM_VAL_6_PLC = 4;
+  APERTURE_TIME_NIDMM_VAL_10_PLC = 5;
+  APERTURE_TIME_NIDMM_VAL_12_PLC = 6;
+  APERTURE_TIME_NIDMM_VAL_100_PLC = 7;
+  APERTURE_TIME_NIDMM_VAL_120_PLC = 8;
+}
+
 enum ApertureTimeUnits {
   APERTURE_TIME_UNITS_NIDMM_VAL_SECONDS = 0;
   APERTURE_TIME_UNITS_NIDMM_VAL_POWER_LINE_CYCLES = 1;
@@ -1002,9 +1014,10 @@ message GetApertureTimeInfoRequest {
 
 message GetApertureTimeInfoResponse {
   int32 status = 1;
-  double aperture_time = 2;
-  ApertureTimeUnits aperture_time_units = 3;
-  sint32 aperture_time_units_raw = 4;
+  ApertureTime aperture_time_mapped = 2;
+  double aperture_time_raw = 3;
+  ApertureTimeUnits aperture_time_units = 4;
+  sint32 aperture_time_units_raw = 5;
 }
 
 message GetAttributeViBooleanRequest {

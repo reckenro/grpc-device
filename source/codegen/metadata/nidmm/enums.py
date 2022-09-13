@@ -43,6 +43,44 @@ enums = {
             }
         ]
     },
+    'ApertureTime': {
+        'codegen_method': 'public',
+        'generate-mappings': True,
+        'values': [
+            {
+                'name': 'NIDMM_VAL_APERTURE_TIME_AUTO',
+                'value': -1.0
+            },
+            {
+                'name': 'NIDMM_VAL_1_PLC',
+                'value': 1.0
+            },
+            {
+                'name': 'NIDMM_VAL_5_PLC',
+                'value': 5.0
+            },
+            {
+                'name': 'NIDMM_VAL_6_PLC',
+                'value': 6.0
+            },
+            {
+                'name': 'NIDMM_VAL_10_PLC',
+                'value': 10.0
+            },
+            {
+                'name': 'NIDMM_VAL_12_PLC',
+                'value': 12.0
+            },
+            {
+                'name': 'NIDMM_VAL_100_PLC',
+                'value': 100.0
+            },
+            {
+                'name': 'NIDMM_VAL_120_PLC',
+                'value': 120.0
+            }
+        ]
+    },
     'ApertureTimeUnits': {
         'codegen_method': 'public',
         'values': [

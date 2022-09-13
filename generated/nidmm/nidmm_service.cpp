@@ -1505,7 +1505,11 @@ namespace nidmm_grpc {
         return ConvertApiErrorStatusForViSession(context, status, vi);
       }
       response->set_status(status);
-      response->set_aperture_time(aperture_time);
+      auto aperture_time_omap_it = aperturetime_output_map_.find(aperture_time);
+      if(aperture_time_omap_it != aperturetime_output_map_.end()) {
+        response->set_aperture_time_mapped(static_cast<nidmm_grpc::ApertureTime>(aperture_time_omap_it->second));
+      }
+      response->set_aperture_time_raw(aperture_time);
       response->set_aperture_time_units(static_cast<nidmm_grpc::ApertureTimeUnits>(aperture_time_units));
       response->set_aperture_time_units_raw(aperture_time_units);
       return ::grpc::Status::OK;

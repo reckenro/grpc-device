@@ -1168,6 +1168,7 @@ functions = {
                 'cppName': 'apertureTime',
                 'direction': 'out',
                 'grpc_type': 'double',
+                'mapped-enum': 'ApertureTime',
                 'name': 'apertureTime',
                 'type': 'ViReal64'
             },
