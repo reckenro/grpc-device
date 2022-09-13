@@ -1252,7 +1252,22 @@ namespace nidmm_grpc {
     }
     try {
       ViRsrc resource_name = (ViRsrc)request->resource_name().c_str();
-      ViInt32 configuration = request->configuration();
+      ViInt32 configuration;
+      switch (request->configuration_enum_case()) {
+        case nidmm_grpc::Control4022Request::ConfigurationEnumCase::kConfiguration: {
+          configuration = static_cast<ViInt32>(request->configuration());
+          break;
+        }
+        case nidmm_grpc::Control4022Request::ConfigurationEnumCase::kConfigurationRaw: {
+          configuration = static_cast<ViInt32>(request->configuration_raw());
+          break;
+        }
+        case nidmm_grpc::Control4022Request::ConfigurationEnumCase::CONFIGURATION_ENUM_NOT_SET: {
+          return ::grpc::Status(::grpc::INVALID_ARGUMENT, "The value for configuration was not specified or out of range");
+          break;
+        }
+      }
+
       auto status = library_->Control4022(resource_name, configuration);
       if (!status_ok(status)) {
         return ConvertApiErrorStatusForViSession(context, status, 0);

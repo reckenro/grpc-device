@@ -124,6 +124,31 @@ enums = {
             }
         ]
     },
+    'Configuration4022': {
+        'codegen_method': 'public',
+        'values': [
+            {
+                'name': 'NIDMM_VAL_4022_CONFIG_GUARD',
+                'value': 0
+            },
+            {
+                'name': 'NIDMM_VAL_4022_CONFIG_CURRENT_100_NANOAMP',
+                'value': 2
+            },
+            {
+                'name': 'NIDMM_VAL_4022_CONFIG_CURRENT_10_MICROAMP',
+                'value': 3
+            },
+            {
+                'name': 'NIDMM_VAL_4022_CONFIG_CURRENT_1_MILLIAMP',
+                'value': 7
+            },
+            {
+                'name': 'NIDMM_VAL_4022_CONFIG_CURRENT_DISCONNECT_AGND',
+                'value': 8
+            }
+        ]
+    },
     'ControlCommit': {
         'codegen_method': 'public',
         'values': [

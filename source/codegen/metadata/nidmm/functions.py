@@ -958,6 +958,7 @@ functions = {
             {
                 'cppName': 'configuration',
                 'direction': 'in',
+                'enum': 'Configuration4022',
                 'grpc_type': 'sint32',
                 'name': 'configuration',
                 'type': 'ViInt32'
