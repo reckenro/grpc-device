@@ -1,7 +1,8 @@
-﻿# -*- coding: utf-8 -*-
-# This file is generated from NI-DMM API metadata version 19.6.0d7
+# -*- coding: utf-8 -*-
+# This file is generated from NI-DMM API metadata version 22.8.0d9999
 functions = {
     'Abort': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -14,6 +15,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'CheckAttributeViBoolean': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -47,6 +49,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'CheckAttributeViInt32': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -81,6 +84,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'CheckAttributeViReal64': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -106,8 +110,8 @@ functions = {
             {
                 'cppName': 'attributeValue',
                 'direction': 'in',
-                'enum': 'NiDmmReal64AttributeValues',
                 'grpc_type': 'double',
+                'mapped-enum': 'NiDmmReal64AttributeValuesMapped',
                 'name': 'attributeValue',
                 'type': 'ViReal64'
             }
@@ -115,6 +119,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'CheckAttributeViSession': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -148,6 +153,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'CheckAttributeViString': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -181,6 +187,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ClearError': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -193,6 +200,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ClearInterchangeWarnings': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -206,6 +214,7 @@ functions = {
     },
     'Close': {
         'cname': 'niDMM_close',
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -218,6 +227,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureACBandwidth': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -244,6 +254,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureADCCalibration': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -263,6 +274,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureAutoZeroMode': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -282,6 +294,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureCableCompType': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -301,6 +314,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureCurrentSource': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -320,6 +334,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureFixedRefJunction': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -339,6 +354,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureFrequencyVoltageRange': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -350,8 +366,8 @@ functions = {
             {
                 'cppName': 'voltageRange',
                 'direction': 'in',
-                'enum': 'FrequencyVoltageRange',
                 'grpc_type': 'double',
+                'mapped-enum': 'FrequencyVoltageRange',
                 'name': 'voltageRange',
                 'type': 'ViReal64'
             }
@@ -359,6 +375,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureMeasCompleteDest': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -378,6 +395,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureMeasCompleteSlope': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -397,6 +415,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureMeasurementAbsolute': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -431,6 +450,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureMeasurementDigits': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -465,6 +485,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureMultiPoint': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -491,7 +512,6 @@ functions = {
             },
             {
                 'cppName': 'sampleTrigger',
-                'default_value': 'SampleTrigger.IMMEDIATE',
                 'direction': 'in',
                 'enum': 'SampleTrigger',
                 'grpc_type': 'sint32',
@@ -501,8 +521,8 @@ functions = {
             {
                 'cppName': 'sampleInterval',
                 'direction': 'in',
-                'enum': 'SampleInterval',
                 'grpc_type': 'double',
+                'mapped-enum': 'SampleInterval',
                 'name': 'sampleInterval',
                 'type': 'ViReal64'
             }
@@ -510,6 +530,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureOffsetCompOhms': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -530,6 +551,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureOpenCableCompValues': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -556,6 +578,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigurePowerLineFrequency': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -567,8 +590,8 @@ functions = {
             {
                 'cppName': 'powerLineFrequencyHz',
                 'direction': 'in',
-                'enum': 'PowerLineFrequencies',
                 'grpc_type': 'double',
+                'mapped-enum': 'PowerLineFrequencies',
                 'name': 'powerLineFrequencyHz',
                 'type': 'ViReal64'
             }
@@ -576,6 +599,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureRTDCustom': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -609,6 +633,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureRTDType': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -620,7 +645,7 @@ functions = {
             {
                 'cppName': 'rtdType',
                 'direction': 'in',
-                'enum': 'RtdType',
+                'enum': 'RTDType',
                 'grpc_type': 'sint32',
                 'name': 'rtdType',
                 'type': 'ViInt32'
@@ -636,6 +661,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureSampleTriggerSlope': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -656,6 +682,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureShortCableCompValues': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -682,6 +709,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureThermistorCustom': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -715,6 +743,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureThermistorType': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -734,6 +763,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureThermocouple': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -752,7 +782,6 @@ functions = {
             },
             {
                 'cppName': 'referenceJunctionType',
-                'default_value': 'ThermocoupleReferenceJunctionType.FIXED',
                 'direction': 'in',
                 'enum': 'ThermocoupleReferenceJunctionType',
                 'grpc_type': 'sint32',
@@ -763,6 +792,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureTransducerType': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -782,6 +812,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureTrigger': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -801,8 +832,8 @@ functions = {
             {
                 'cppName': 'triggerDelay',
                 'direction': 'in',
-                'enum': 'TriggerDelays',
                 'grpc_type': 'double',
+                'mapped-enum': 'TriggerDelays',
                 'name': 'triggerDelay',
                 'type': 'ViReal64'
             }
@@ -810,6 +841,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureTriggerSlope': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -830,6 +862,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureWaveformAcquisition': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -871,6 +904,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ConfigureWaveformCoupling': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -890,6 +924,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'Control': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -911,6 +946,7 @@ functions = {
     },
     'Control4022': {
         'cname': 'niDMM_4022Control',
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'resourceName',
@@ -922,7 +958,6 @@ functions = {
             {
                 'cppName': 'configuration',
                 'direction': 'in',
-                'enum': 'Configuration4022',
                 'grpc_type': 'sint32',
                 'name': 'configuration',
                 'type': 'ViInt32'
@@ -931,6 +966,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'Disable': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -943,6 +979,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ExportAttributeConfigurationBuffer': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -975,6 +1012,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ExportAttributeConfigurationFile': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -994,6 +1032,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'Fetch': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1021,6 +1060,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'FetchMultiPoint': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1054,8 +1094,7 @@ functions = {
                     'mechanism': 'passed-in',
                     'value': 'arraySize'
                 },
-                'type': 'ViReal64[]',
-                'use_array': True
+                'type': 'ViReal64[]'
             },
             {
                 'cppName': 'actualNumberOfPoints',
@@ -1068,6 +1107,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'FetchWaveform': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1097,13 +1137,11 @@ functions = {
                 'direction': 'out',
                 'grpc_type': 'repeated double',
                 'name': 'waveformArray',
-                'numpy': True,
                 'size': {
                     'mechanism': 'passed-in',
                     'value': 'arraySize'
                 },
-                'type': 'ViReal64[]',
-                'use_array': True
+                'type': 'ViReal64[]'
             },
             {
                 'cppName': 'actualNumberOfPoints',
@@ -1116,6 +1154,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetApertureTimeInfo': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1127,7 +1166,6 @@ functions = {
             {
                 'cppName': 'apertureTime',
                 'direction': 'out',
-                'enum': 'ApertureTime',
                 'grpc_type': 'double',
                 'name': 'apertureTime',
                 'type': 'ViReal64'
@@ -1144,6 +1182,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViBoolean': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1177,6 +1216,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViInt32': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1210,6 +1250,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViReal64': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1243,6 +1284,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViSession': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1276,6 +1318,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAttributeViString': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1322,6 +1365,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetAutoRangeValue': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1341,6 +1385,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetCalDateAndTime': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1436,6 +1481,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetDevTemp': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1462,6 +1508,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetError': {
+        'codegen_method': 'public',
         'is_error_handling': True,
         'parameters': [
             {
@@ -1502,6 +1549,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetErrorMessage': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1541,6 +1589,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetExtCalRecommendedInterval': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1560,6 +1609,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetLastCalTemp': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1587,6 +1637,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetMeasurementPeriod': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1672,6 +1723,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetSelfCalSupported': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1691,6 +1743,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ImportAttributeConfigurationBuffer': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1727,6 +1780,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ImportAttributeConfigurationFile': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1747,6 +1801,7 @@ functions = {
     },
     'Init': {
         'cname': 'niDMM_init',
+        'codegen_method': 'public',
         'init_method': True,
         'parameters': [
             {
@@ -1754,7 +1809,7 @@ functions = {
                 'direction': 'in',
                 'grpc_type': 'string',
                 'name': 'resourceName',
-                'type': 'ViRsrc'
+                'type': 'ViString'
             },
             {
                 'cppName': 'idQuery',
@@ -1780,7 +1835,7 @@ functions = {
             {
                 'cppName': 'errorMessage',
                 'direction': 'out',
-                'get_last_error': 'get_last_error_message',
+                'get_last_error': 'deprecated',
                 'grpc_type': 'string',
                 'name': 'errorMessage',
                 'type': 'ViChar[]'
@@ -1789,6 +1844,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'InitWithOptions': {
+        'codegen_method': 'public',
         'init_method': True,
         'parameters': [
             {
@@ -1800,7 +1856,6 @@ functions = {
             },
             {
                 'cppName': 'idQuery',
-                'default_value': False,
                 'direction': 'in',
                 'grpc_type': 'bool',
                 'name': 'idQuery',
@@ -1808,7 +1863,6 @@ functions = {
             },
             {
                 'cppName': 'resetDevice',
-                'default_value': False,
                 'direction': 'in',
                 'grpc_type': 'bool',
                 'name': 'resetDevice',
@@ -1816,7 +1870,6 @@ functions = {
             },
             {
                 'cppName': 'optionString',
-                'default_value': '""',
                 'direction': 'in',
                 'grpc_type': 'string',
                 'name': 'optionString',
@@ -1832,7 +1885,7 @@ functions = {
             {
                 'cppName': 'errorMessage',
                 'direction': 'out',
-                'get_last_error': 'get_last_error_message',
+                'get_last_error': 'deprecated',
                 'grpc_type': 'string',
                 'name': 'errorMessage',
                 'type': 'ViChar[]'
@@ -1841,6 +1894,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'Initiate': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1853,6 +1907,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'InvalidateAllAttributes': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1865,6 +1920,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'IsOverRange': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1891,6 +1947,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'IsUnderRange': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1916,27 +1973,8 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
-    'LockSession': {
-        'codegen_method': 'private',
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'callerHasLock',
-                'direction': 'out',
-                'grpc_type': 'bool',
-                'name': 'callerHasLock',
-                'type': 'ViBoolean'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
     'PerformOpenCableComp': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1963,6 +2001,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'PerformShortCableComp': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1989,6 +2028,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'Read': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -1999,7 +2039,6 @@ functions = {
             },
             {
                 'cppName': 'maximumTime',
-                'default_value': 'hightime.timedelta(milliseconds=-1)',
                 'direction': 'in',
                 'enum': 'TimeLimit',
                 'grpc_type': 'sint32',
@@ -2017,6 +2056,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ReadMultiPoint': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2050,8 +2090,7 @@ functions = {
                     'mechanism': 'passed-in',
                     'value': 'arraySize'
                 },
-                'type': 'ViReal64[]',
-                'use_array': True
+                'type': 'ViReal64[]'
             },
             {
                 'cppName': 'actualNumberOfPoints',
@@ -2064,6 +2103,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ReadStatus': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2091,6 +2131,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ReadWaveform': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2124,8 +2165,7 @@ functions = {
                     'mechanism': 'passed-in',
                     'value': 'arraySize'
                 },
-                'type': 'ViReal64[]',
-                'use_array': True
+                'type': 'ViReal64[]'
             },
             {
                 'cppName': 'actualNumberOfPoints',
@@ -2139,6 +2179,7 @@ functions = {
     },
     'Reset': {
         'cname': 'niDMM_reset',
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2151,6 +2192,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ResetInterchangeCheck': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2163,6 +2205,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'ResetWithDefaults': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2176,6 +2219,7 @@ functions = {
     },
     'RevisionQuery': {
         'cname': 'niDMM_revision_query',
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2210,6 +2254,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'SelfCal': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2223,6 +2268,7 @@ functions = {
     },
     'SelfTest': {
         'cname': 'niDMM_self_test',
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2253,6 +2299,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'SendSoftwareTrigger': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2265,6 +2312,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'SetAttributeViBoolean': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2298,6 +2346,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'SetAttributeViInt32': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2332,6 +2381,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'SetAttributeViReal64': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2357,8 +2407,8 @@ functions = {
             {
                 'cppName': 'attributeValue',
                 'direction': 'in',
-                'enum': 'NiDmmReal64AttributeValues',
                 'grpc_type': 'double',
+                'mapped-enum': 'NiDmmReal64AttributeValuesMapped',
                 'name': 'attributeValue',
                 'type': 'ViReal64'
             }
@@ -2366,6 +2416,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'SetAttributeViSession': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2399,6 +2450,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'SetAttributeViString': {
+        'codegen_method': 'public',
         'parameters': [
             {
                 'cppName': 'vi',
@@ -2427,26 +2479,6 @@ functions = {
                 'grpc_type': 'string',
                 'name': 'attributeValue_raw',
                 'type': 'ViString'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'UnlockSession': {
-        'codegen_method': 'private',
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'callerHasLock',
-                'direction': 'out',
-                'grpc_type': 'bool',
-                'name': 'callerHasLock',
-                'type': 'ViBoolean'
             }
         ],
         'returns': 'ViStatus'

@@ -133,6 +133,16 @@ private:
   NiDmmLibraryInterface* library_;
   ResourceRepositorySharedPtr session_repository_;
   ::grpc::Status ConvertApiErrorStatusForViSession(::grpc::ServerContext* context, int32_t status, ViSession vi);
+  std::map<std::int32_t, double> frequencyvoltagerange_input_map_ { {1, -1.0f},{2, -2.0f}, };
+  std::map<double, std::int32_t> frequencyvoltagerange_output_map_ { {-1.0f, 1},{-2.0f, 2}, };
+  std::map<std::int32_t, double> nidmmreal64attributevaluesmapped_input_map_ { {1, 1e-06f},{2, 1e-05f},{3, 0.0001f},{4, 0.001f},{5, 1000000.0f},{6, 10000000.0f},{7, 10000000000.0f},{8, 50.0f},{9, 60.0f}, };
+  std::map<double, std::int32_t> nidmmreal64attributevaluesmapped_output_map_ { {1e-06f, 1},{1e-05f, 2},{0.0001f, 3},{0.001f, 4},{1000000.0f, 5},{10000000.0f, 6},{10000000000.0f, 7},{50.0f, 8},{60.0f, 9}, };
+  std::map<std::int32_t, double> powerlinefrequencies_input_map_ { {1, 50.0f},{2, 60.0f}, };
+  std::map<double, std::int32_t> powerlinefrequencies_output_map_ { {50.0f, 1},{60.0f, 2}, };
+  std::map<std::int32_t, double> sampleinterval_input_map_ { {1, -1.0f}, };
+  std::map<double, std::int32_t> sampleinterval_output_map_ { {-1.0f, 1}, };
+  std::map<std::int32_t, double> triggerdelays_input_map_ { {1, -1.0f},{2, -2.0f}, };
+  std::map<double, std::int32_t> triggerdelays_output_map_ { {-1.0f, 1},{-2.0f, 2}, };
 
   NiDmmFeatureToggles feature_toggles_;
 };
