@@ -98,6 +98,41 @@ enums = {
             }
         ]
     },
+    'CalibrationType': {
+        'codegen_method': 'public',
+        'values': [
+            {
+                'name': 'NIDMM_VAL_INTERNAL_AREA',
+                'value': 0
+            },
+            {
+                'name': 'NIDMM_VAL_EXTERNAL_AREA',
+                'value': 1
+            }
+        ]
+    },
+    'CompensatedOhms': {
+        'codegen_method': 'public',
+        'values': [
+            {
+                'name': 'NIDMM_VAL_OFFSET_COMP_OHMS_OFF',
+                'value': 0
+            },
+            {
+                'name': 'NIDMM_VAL_OFFSET_COMP_OHMS_ON',
+                'value': 1
+            }
+        ]
+    },
+    'ControlCommit': {
+        'codegen_method': 'public',
+        'values': [
+            {
+                'name': 'NIDMM_VAL_CONTROL_COMMIT',
+                'value': 0
+            }
+        ]
+    },
     'CurrentSource': {
         'codegen_method': 'public',
         'generate-mappings': True,
@@ -151,6 +186,20 @@ enums = {
             {
                 'name': 'NIDMM_VAL_DCNR_HIGH_ORDER',
                 'value': 2
+            }
+        ]
+    },
+    'FrequencyVoltageRange': {
+        'codegen_method': 'public',
+        'generate-mappings': True,
+        'values': [
+            {
+                'name': 'NIDMM_VAL_AUTO_RANGE_ON',
+                'value': -1.0
+            },
+            {
+                'name': 'NIDMM_VAL_AUTO_RANGE_OFF',
+                'value': -2.0
             }
         ]
     },
@@ -842,6 +891,20 @@ enums = {
             }
         ]
     },
+    'PowerLineFrequencies': {
+        'codegen_method': 'public',
+        'generate-mappings': True,
+        'values': [
+            {
+                'name': 'NIDMM_VAL_50_HERTZ',
+                'value': 50.0
+            },
+            {
+                'name': 'NIDMM_VAL_60_HERTZ',
+                'value': 60.0
+            }
+        ]
+    },
     'PowerlineFrequency': {
         'codegen_method': 'public',
         'generate-mappings': True,
@@ -886,6 +949,25 @@ enums = {
             {
                 'name': 'NIDMM_VAL_TEMP_RTD_PT3928',
                 'value': 6
+            }
+        ]
+    },
+    'SampleCount': {
+        'codegen_method': 'public',
+        'values': [
+            {
+                'name': 'NIDMM_VAL_SAMPLE_COUNT_INFINITE',
+                'value': 0
+            }
+        ]
+    },
+    'SampleInterval': {
+        'codegen_method': 'public',
+        'generate-mappings': True,
+        'values': [
+            {
+                'name': 'NIDMM_VAL_AUTO_DELAY',
+                'value': -1.0
             }
         ]
     },
@@ -1034,6 +1116,15 @@ enums = {
             }
         ]
     },
+    'TimeLimit': {
+        'codegen_method': 'public',
+        'values': [
+            {
+                'name': 'NIDMM_VAL_TIME_LIMIT_AUTO',
+                'value': -1
+            }
+        ]
+    },
     'TransducerType': {
         'codegen_method': 'public',
         'values': [
@@ -1052,6 +1143,29 @@ enums = {
             {
                 'name': 'NIDMM_VAL_4_WIRE_RTD',
                 'value': 4
+            }
+        ]
+    },
+    'TriggerCount': {
+        'codegen_method': 'public',
+        'values': [
+            {
+                'name': 'NIDMM_VAL_TRIG_COUNT_INFINITE',
+                'value': 0
+            }
+        ]
+    },
+    'TriggerDelays': {
+        'codegen_method': 'public',
+        'generate-mappings': True,
+        'values': [
+            {
+                'name': 'NIDMM_VAL_AUTO_DELAY_ON',
+                'value': -1.0
+            },
+            {
+                'name': 'NIDMM_VAL_AUTO_DELAY_OFF',
+                'value': -2.0
             }
         ]
     },

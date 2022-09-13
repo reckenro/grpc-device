@@ -367,6 +367,7 @@ functions = {
                 'cppName': 'voltageRange',
                 'direction': 'in',
                 'grpc_type': 'double',
+                'mapped-enum': 'FrequencyVoltageRange',
                 'name': 'voltageRange',
                 'type': 'ViReal64'
             }
@@ -496,6 +497,7 @@ functions = {
             {
                 'cppName': 'triggerCount',
                 'direction': 'in',
+                'enum': 'TriggerCount',
                 'grpc_type': 'sint32',
                 'name': 'triggerCount',
                 'type': 'ViInt32'
@@ -503,6 +505,7 @@ functions = {
             {
                 'cppName': 'sampleCount',
                 'direction': 'in',
+                'enum': 'SampleCount',
                 'grpc_type': 'sint32',
                 'name': 'sampleCount',
                 'type': 'ViInt32'
@@ -519,6 +522,7 @@ functions = {
                 'cppName': 'sampleInterval',
                 'direction': 'in',
                 'grpc_type': 'double',
+                'mapped-enum': 'SampleInterval',
                 'name': 'sampleInterval',
                 'type': 'ViReal64'
             }
@@ -538,6 +542,7 @@ functions = {
             {
                 'cppName': 'offsetCompOhms',
                 'direction': 'in',
+                'enum': 'CompensatedOhms',
                 'grpc_type': 'sint32',
                 'name': 'offsetCompOhms',
                 'type': 'ViInt32'
@@ -586,6 +591,7 @@ functions = {
                 'cppName': 'powerLineFrequencyHz',
                 'direction': 'in',
                 'grpc_type': 'double',
+                'mapped-enum': 'PowerLineFrequencies',
                 'name': 'powerLineFrequencyHz',
                 'type': 'ViReal64'
             }
@@ -667,6 +673,7 @@ functions = {
             {
                 'cppName': 'sampleTriggerSlope',
                 'direction': 'in',
+                'enum': 'SampleTrigSlope',
                 'grpc_type': 'sint32',
                 'name': 'sampleTriggerSlope',
                 'type': 'ViInt32'
@@ -826,6 +833,7 @@ functions = {
                 'cppName': 'triggerDelay',
                 'direction': 'in',
                 'grpc_type': 'double',
+                'mapped-enum': 'TriggerDelays',
                 'name': 'triggerDelay',
                 'type': 'ViReal64'
             }
@@ -845,6 +853,7 @@ functions = {
             {
                 'cppName': 'triggerSlope',
                 'direction': 'in',
+                'enum': 'TriggerSlope',
                 'grpc_type': 'sint32',
                 'name': 'triggerSlope',
                 'type': 'ViInt32'
@@ -927,8 +936,30 @@ functions = {
             {
                 'cppName': 'controlAction',
                 'direction': 'in',
+                'enum': 'ControlCommit',
                 'grpc_type': 'sint32',
                 'name': 'controlAction',
+                'type': 'ViInt32'
+            }
+        ],
+        'returns': 'ViStatus'
+    },
+    'Control4022': {
+        'cname': 'niDMM_4022Control',
+        'codegen_method': 'public',
+        'parameters': [
+            {
+                'cppName': 'resourceName',
+                'direction': 'in',
+                'grpc_type': 'string',
+                'name': 'resourceName',
+                'type': 'ViRsrc'
+            },
+            {
+                'cppName': 'configuration',
+                'direction': 'in',
+                'grpc_type': 'sint32',
+                'name': 'configuration',
                 'type': 'ViInt32'
             }
         ],
@@ -943,39 +974,6 @@ functions = {
                 'grpc_type': 'nidevice_grpc.Session',
                 'name': 'vi',
                 'type': 'ViSession'
-            }
-        ],
-        'returns': 'ViStatus'
-    },
-    'ErrorMessage': {
-        'cname': 'niDMM_error_message',
-        'codegen_method': 'private',
-        'is_error_handling': True,
-        'parameters': [
-            {
-                'cppName': 'vi',
-                'direction': 'in',
-                'grpc_type': 'nidevice_grpc.Session',
-                'name': 'vi',
-                'type': 'ViSession'
-            },
-            {
-                'cppName': 'errorCode',
-                'direction': 'in',
-                'grpc_type': 'sint32',
-                'name': 'errorCode',
-                'type': 'ViStatus'
-            },
-            {
-                'cppName': 'errorMessage',
-                'direction': 'out',
-                'grpc_type': 'string',
-                'name': 'errorMessage',
-                'size': {
-                    'mechanism': 'fixed',
-                    'value': 256
-                },
-                'type': 'ViChar[]'
             }
         ],
         'returns': 'ViStatus'
@@ -1046,6 +1044,7 @@ functions = {
             {
                 'cppName': 'maximumTime',
                 'direction': 'in',
+                'enum': 'TimeLimit',
                 'grpc_type': 'sint32',
                 'name': 'maximumTime',
                 'type': 'ViInt32'
@@ -1073,6 +1072,7 @@ functions = {
             {
                 'cppName': 'maximumTime',
                 'direction': 'in',
+                'enum': 'TimeLimit',
                 'grpc_type': 'sint32',
                 'name': 'maximumTime',
                 'type': 'ViInt32'
@@ -1119,6 +1119,7 @@ functions = {
             {
                 'cppName': 'maximumTime',
                 'direction': 'in',
+                'enum': 'TimeLimit',
                 'grpc_type': 'sint32',
                 'name': 'maximumTime',
                 'type': 'ViInt32'
@@ -1396,6 +1397,7 @@ functions = {
             {
                 'cppName': 'calType',
                 'direction': 'in',
+                'enum': 'CalibrationType',
                 'grpc_type': 'sint32',
                 'name': 'calType',
                 'type': 'ViInt32'
@@ -1619,6 +1621,7 @@ functions = {
             {
                 'cppName': 'calType',
                 'direction': 'in',
+                'enum': 'CalibrationType',
                 'grpc_type': 'sint32',
                 'name': 'calType',
                 'type': 'ViInt32'
@@ -2037,6 +2040,7 @@ functions = {
             {
                 'cppName': 'maximumTime',
                 'direction': 'in',
+                'enum': 'TimeLimit',
                 'grpc_type': 'sint32',
                 'name': 'maximumTime',
                 'type': 'ViInt32'
@@ -2064,6 +2068,7 @@ functions = {
             {
                 'cppName': 'maximumTime',
                 'direction': 'in',
+                'enum': 'TimeLimit',
                 'grpc_type': 'sint32',
                 'name': 'maximumTime',
                 'type': 'ViInt32'
@@ -2138,6 +2143,7 @@ functions = {
             {
                 'cppName': 'maximumTime',
                 'direction': 'in',
+                'enum': 'TimeLimit',
                 'grpc_type': 'sint32',
                 'name': 'maximumTime',
                 'type': 'ViInt32'

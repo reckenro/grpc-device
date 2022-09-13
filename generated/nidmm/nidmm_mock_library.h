@@ -54,8 +54,8 @@ class NiDmmMockLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   MOCK_METHOD(ViStatus, ConfigureWaveformAcquisition, (ViSession vi, ViInt32 measurementFunction, ViReal64 range, ViReal64 rate, ViInt32 waveformPoints), (override));
   MOCK_METHOD(ViStatus, ConfigureWaveformCoupling, (ViSession vi, ViInt32 waveformCoupling), (override));
   MOCK_METHOD(ViStatus, Control, (ViSession vi, ViInt32 controlAction), (override));
+  MOCK_METHOD(ViStatus, Control4022, (ViRsrc resourceName, ViInt32 configuration), (override));
   MOCK_METHOD(ViStatus, Disable, (ViSession vi), (override));
-  MOCK_METHOD(ViStatus, ErrorMessage, (ViSession vi, ViStatus errorCode, ViChar errorMessage[256]), (override));
   MOCK_METHOD(ViStatus, ExportAttributeConfigurationBuffer, (ViSession vi, ViInt32 size, ViInt8 configuration[]), (override));
   MOCK_METHOD(ViStatus, ExportAttributeConfigurationFile, (ViSession vi, ViConstString filePath), (override));
   MOCK_METHOD(ViStatus, Fetch, (ViSession vi, ViInt32 maximumTime, ViReal64* reading), (override));

@@ -55,8 +55,8 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   ViStatus ConfigureWaveformAcquisition(ViSession vi, ViInt32 measurementFunction, ViReal64 range, ViReal64 rate, ViInt32 waveformPoints);
   ViStatus ConfigureWaveformCoupling(ViSession vi, ViInt32 waveformCoupling);
   ViStatus Control(ViSession vi, ViInt32 controlAction);
+  ViStatus Control4022(ViRsrc resourceName, ViInt32 configuration);
   ViStatus Disable(ViSession vi);
-  ViStatus ErrorMessage(ViSession vi, ViStatus errorCode, ViChar errorMessage[256]);
   ViStatus ExportAttributeConfigurationBuffer(ViSession vi, ViInt32 size, ViInt8 configuration[]);
   ViStatus ExportAttributeConfigurationFile(ViSession vi, ViConstString filePath);
   ViStatus Fetch(ViSession vi, ViInt32 maximumTime, ViReal64* reading);
@@ -145,8 +145,8 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
   using ConfigureWaveformAcquisitionPtr = decltype(&niDMM_ConfigureWaveformAcquisition);
   using ConfigureWaveformCouplingPtr = decltype(&niDMM_ConfigureWaveformCoupling);
   using ControlPtr = decltype(&niDMM_Control);
+  using Control4022Ptr = decltype(&niDMM_4022Control);
   using DisablePtr = decltype(&niDMM_Disable);
-  using ErrorMessagePtr = ViStatus (*)(ViSession vi, ViStatus errorCode, ViChar errorMessage[256]);
   using ExportAttributeConfigurationBufferPtr = decltype(&niDMM_ExportAttributeConfigurationBuffer);
   using ExportAttributeConfigurationFilePtr = decltype(&niDMM_ExportAttributeConfigurationFile);
   using FetchPtr = decltype(&niDMM_Fetch);
@@ -235,8 +235,8 @@ class NiDmmLibrary : public nidmm_grpc::NiDmmLibraryInterface {
     ConfigureWaveformAcquisitionPtr ConfigureWaveformAcquisition;
     ConfigureWaveformCouplingPtr ConfigureWaveformCoupling;
     ControlPtr Control;
+    Control4022Ptr Control4022;
     DisablePtr Disable;
-    ErrorMessagePtr ErrorMessage;
     ExportAttributeConfigurationBufferPtr ExportAttributeConfigurationBuffer;
     ExportAttributeConfigurationFilePtr ExportAttributeConfigurationFile;
     FetchPtr Fetch;

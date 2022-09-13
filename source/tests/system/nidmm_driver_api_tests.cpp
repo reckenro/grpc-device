@@ -334,7 +334,7 @@ TEST_F(NiDmmDriverApiTest, ConfiguredTrigger_ConfiguresSuccessfully)
   dmm::ConfigureTriggerRequest request;
   request.mutable_vi()->set_id(GetSessionId());
   request.set_trigger_source(dmm::TriggerSource::TRIGGER_SOURCE_NIDMM_VAL_SOFTWARE_TRIG);
-  // request.set_trigger_delay(dmm::TriggerDelays::TRIGGER_DELAYS_NIDMM_VAL_AUTO_DELAY_ON); TODO: Fix this
+  request.set_trigger_delay_mapped(dmm::TriggerDelays::TRIGGER_DELAYS_NIDMM_VAL_AUTO_DELAY_ON);  // TODO: Fix this to be set_trigger_delay
   dmm::ConfigureTriggerResponse response;
   ::grpc::Status status = GetStub()->ConfigureTrigger(&context, request, &response);
 
@@ -347,7 +347,7 @@ TEST_F(NiDmmDriverApiTest, AcquireMeasurement_CompletesSuccesfully)
   ::grpc::ClientContext context;
   dmm::ReadRequest request;
   request.mutable_vi()->set_id(GetSessionId());
-  // request.set_maximum_time_raw(1000); TODO: Fix this
+  request.set_maximum_time_raw(1000);
   dmm::ReadResponse response;
   ::grpc::Status status = GetStub()->Read(&context, request, &response);
 
