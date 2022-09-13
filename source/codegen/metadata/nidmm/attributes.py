@@ -249,6 +249,7 @@ attributes = {
     },
     1150028: {
         'codegen_method': 'public',
+        'enum': 'SettleTime',
         'grpc_type': 'double',
         'name': 'SETTLE_TIME',
         'resettable': False,
@@ -271,6 +272,7 @@ attributes = {
     },
     1150034: {
         'codegen_method': 'public',
+        'enum': 'Latency',
         'grpc_type': 'sint32',
         'name': 'LATENCY',
         'resettable': False,
@@ -278,6 +280,7 @@ attributes = {
     },
     1150037: {
         'codegen_method': 'public',
+        'enum': 'BufferSize',
         'grpc_type': 'sint32',
         'name': 'BUFFER_SIZE',
         'resettable': False,
@@ -431,6 +434,7 @@ attributes = {
     },
     1250002: {
         'codegen_method': 'public',
+        'enum': 'Range',
         'grpc_type': 'double',
         'name': 'RANGE',
         'resettable': False,
@@ -453,6 +457,7 @@ attributes = {
     },
     1250005: {
         'codegen_method': 'public',
+        'enum': 'TriggerDelays',
         'grpc_type': 'double',
         'name': 'TRIGGER_DELAY',
         'resettable': False,
@@ -481,6 +486,7 @@ attributes = {
     },
     1250101: {
         'codegen_method': 'public',
+        'enum': 'FrequencyVoltageRange',
         'grpc_type': 'double',
         'name': 'FREQ_VOLTAGE_RANGE',
         'resettable': False,
@@ -526,6 +532,7 @@ attributes = {
     },
     1250301: {
         'codegen_method': 'public',
+        'enum': 'SampleCount',
         'grpc_type': 'sint32',
         'name': 'SAMPLE_COUNT',
         'resettable': False,
@@ -541,6 +548,7 @@ attributes = {
     },
     1250303: {
         'codegen_method': 'public',
+        'enum': 'SampleInterval',
         'grpc_type': 'double',
         'name': 'SAMPLE_INTERVAL',
         'resettable': False,
@@ -548,6 +556,7 @@ attributes = {
     },
     1250304: {
         'codegen_method': 'public',
+        'enum': 'TriggerCount',
         'grpc_type': 'sint32',
         'name': 'TRIGGER_COUNT',
         'resettable': False,
@@ -563,6 +572,7 @@ attributes = {
     },
     1250321: {
         'codegen_method': 'public',
+        'enum': 'ApertureTime',
         'grpc_type': 'double',
         'name': 'APERTURE_TIME',
         'resettable': False,

@@ -115,6 +115,15 @@ enums = {
             }
         ]
     },
+    'BufferSize': {
+        'codegen_method': 'public',
+        'values': [
+            {
+                'name': 'NIDMM_VAL_BUFFER_SIZE_AUTO',
+                'value': -1
+            }
+        ]
+    },
     'CableCompensationType': {
         'codegen_method': 'public',
         'values': [
@@ -366,6 +375,15 @@ enums = {
             }
         ]
     },
+    'Latency': {
+        'codegen_method': 'public',
+        'values': [
+            {
+                'name': 'NIDMM_VAL_LATENCY_AUTO',
+                'value': -1
+            }
+        ]
+    },
     'MeasurementCompleteDest': {
         'codegen_method': 'public',
         'values': [
@@ -467,6 +485,10 @@ enums = {
             {
                 'name': 'AUTO_ZERO_VAL_AUTO_ZERO_ONCE',
                 'value': 2
+            },
+            {
+                'name': 'BUFFER_SIZE_VAL_BUFFER_SIZE_AUTO',
+                'value': -1
             },
             {
                 'name': 'CABLE_COMPENSATION_TYPE_VAL_CABLE_COMP_NONE',
@@ -581,6 +603,10 @@ enums = {
                 'value': 1
             },
             {
+                'name': 'LATENCY_VAL_LATENCY_AUTO',
+                'value': -1
+            },
+            {
                 'name': 'MEASUREMENT_COMPLETE_DEST_VAL_NONE',
                 'value': -1
             },
@@ -675,6 +701,10 @@ enums = {
             {
                 'name': 'RTD_TYPE_VAL_TEMP_RTD_PT3928',
                 'value': 6
+            },
+            {
+                'name': 'SAMPLE_COUNT_VAL_SAMPLE_COUNT_INFINITE',
+                'value': 0
             },
             {
                 'name': 'SAMPLE_TRIG_SLOPE_VAL_POSITIVE',
@@ -813,6 +843,10 @@ enums = {
                 'value': 4
             },
             {
+                'name': 'TRIGGER_COUNT_VAL_TRIG_COUNT_INFINITE',
+                'value': 0
+            },
+            {
                 'name': 'TRIGGER_SLOPE_VAL_POSITIVE',
                 'value': 0
             },
@@ -891,6 +925,38 @@ enums = {
         'generate-mappings': True,
         'values': [
             {
+                'name': 'APERTURE_TIME_VAL_APERTURE_TIME_AUTO',
+                'value': -1.0
+            },
+            {
+                'name': 'APERTURE_TIME_VAL_1_PLC',
+                'value': 1.0
+            },
+            {
+                'name': 'APERTURE_TIME_VAL_5_PLC',
+                'value': 5.0
+            },
+            {
+                'name': 'APERTURE_TIME_VAL_6_PLC',
+                'value': 6.0
+            },
+            {
+                'name': 'APERTURE_TIME_VAL_10_PLC',
+                'value': 10.0
+            },
+            {
+                'name': 'APERTURE_TIME_VAL_12_PLC',
+                'value': 12.0
+            },
+            {
+                'name': 'APERTURE_TIME_VAL_100_PLC',
+                'value': 100.0
+            },
+            {
+                'name': 'APERTURE_TIME_VAL_120_PLC',
+                'value': 120.0
+            },
+            {
                 'name': 'CURRENT_SOURCE_VAL_1_MICROAMP',
                 'value': 1e-06
             },
@@ -905,6 +971,14 @@ enums = {
             {
                 'name': 'CURRENT_SOURCE_VAL_1_MILLIAMP',
                 'value': 0.001
+            },
+            {
+                'name': 'FREQUENCY_VOLTAGE_RANGE_VAL_AUTO_RANGE_ON',
+                'value': -1.0
+            },
+            {
+                'name': 'FREQUENCY_VOLTAGE_RANGE_VAL_AUTO_RANGE_OFF',
+                'value': -2.0
             },
             {
                 'name': 'INPUT_RESISTANCE_VAL_1_MEGAOHM',
@@ -925,6 +999,34 @@ enums = {
             {
                 'name': 'POWERLINE_FREQUENCY_VAL_60_HERTZ',
                 'value': 60.0
+            },
+            {
+                'name': 'RANGE_VAL_AUTO_RANGE_ON',
+                'value': -1.0
+            },
+            {
+                'name': 'RANGE_VAL_AUTO_RANGE_OFF',
+                'value': -2.0
+            },
+            {
+                'name': 'RANGE_VAL_AUTO_RANGE_ONCE',
+                'value': -3.0
+            },
+            {
+                'name': 'SAMPLE_INTERVAL_VAL_AUTO_DELAY',
+                'value': -1.0
+            },
+            {
+                'name': 'SETTLE_TIME_VAL_SETTLE_TIME_AUTO',
+                'value': -1.0
+            },
+            {
+                'name': 'TRIGGER_DELAYS_VAL_AUTO_DELAY_ON',
+                'value': -1.0
+            },
+            {
+                'name': 'TRIGGER_DELAYS_VAL_AUTO_DELAY_OFF',
+                'value': -2.0
             }
         ]
     },
@@ -1012,6 +1114,24 @@ enums = {
             {
                 'name': 'NIDMM_VAL_TEMP_RTD_PT3928',
                 'value': 6
+            }
+        ]
+    },
+    'Range': {
+        'codegen_method': 'public',
+        'generate-mappings': True,
+        'values': [
+            {
+                'name': 'NIDMM_VAL_AUTO_RANGE_ON',
+                'value': -1.0
+            },
+            {
+                'name': 'NIDMM_VAL_AUTO_RANGE_OFF',
+                'value': -2.0
+            },
+            {
+                'name': 'NIDMM_VAL_AUTO_RANGE_ONCE',
+                'value': -3.0
             }
         ]
     },
@@ -1109,6 +1229,16 @@ enums = {
             {
                 'name': 'NIDMM_VAL_LBR_TRIG1',
                 'value': 1004
+            }
+        ]
+    },
+    'SettleTime': {
+        'codegen_method': 'public',
+        'generate-mappings': True,
+        'values': [
+            {
+                'name': 'NIDMM_VAL_SETTLE_TIME_AUTO',
+                'value': -1.0
             }
         ]
     },
