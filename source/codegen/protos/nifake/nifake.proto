@@ -8,12 +8,12 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package = "com.ni.grpc.fake";
-option java_outer_classname = "NiFake";
+option java_outer_classname = "NiFake";a
 option csharp_namespace = "NationalInstruments.Grpc.Fake";
 
 package nifake_grpc;
 
-import "session.proto";
+import "session.proto";b
 
 service NiFake {
   rpc Abort(AbortRequest) returns (AbortResponse);

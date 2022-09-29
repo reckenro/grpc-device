@@ -19,7 +19,7 @@ service NiSwitch {
   rpc AbortScan(AbortScanRequest) returns (AbortScanResponse);
   rpc CanConnect(CanConnectRequest) returns (CanConnectResponse);
   rpc CheckAttributeViBoolean(CheckAttributeViBooleanRequest) returns (CheckAttributeViBooleanResponse);
-  rpc CheckAttributeViInt32(CheckAttributeViInt32Request) returns (CheckAttributeViInt32Response);
+  rpc CheckAttributeViInt32(CheckAttributeVIInt32Request) returns (CheckAttributeViInt32Response);
   rpc CheckAttributeViReal64(CheckAttributeViReal64Request) returns (CheckAttributeViReal64Response);
   rpc CheckAttributeViSession(CheckAttributeViSessionRequest) returns (CheckAttributeViSessionResponse);
   rpc CheckAttributeViString(CheckAttributeViStringRequest) returns (CheckAttributeViStringResponse);
