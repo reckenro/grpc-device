@@ -8,34 +8,10 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  cancel_builds:
-    uses: ./.github/workflows/cancel_builds.yml
-  validate_imported_protos:
-    uses: ./.github/workflows/validate_imported_protos.yml
-  validate_python:
-    uses: ./.github/workflows/validate_python.yml
-  build_desktop:
-    needs: 
-      - validate_imported_protos
-      - validate_python
-    uses: ./.github/workflows/build_cmake.yml
-  build_nilrt:
-    needs: 
-      - validate_imported_protos
-      - validate_python
-    uses: ./.github/workflows/build_nilrt.yml
-  run_win_system_tests:
-    needs: build_desktop
-    uses: ./.github/workflows/run_win_system_tests.yml
-  run_ubuntu_system_tests:
-    needs: build_desktop
-    uses: ./.github/workflows/run_ubuntu_system_tests.yml
-  create_client_artifacts:
-    uses: ./.github/workflows/create_client_artifacts.yml
-  create_release:
-    if: ${{ startsWith(github.ref, 'refs/heads/releases') && github.event_name == 'push' }}
-    needs:
-      - build_desktop
-      - build_nilrt
-      - create_client_artifacts
-    uses: ./.github/workflows/create_release.yml
+  Main CI:
+    runs-on: ubuntu-latest
+    steps:
+      -name: Step One
+        shell: bash
+        run: |
+          echo "testing job on Main CI"
