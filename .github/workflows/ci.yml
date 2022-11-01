@@ -11,7 +11,7 @@ jobs:
   Main CI:
     runs-on: ubuntu-latest
     steps:
-      -name: Step One
+      - name: Step One
         shell: bash
         run: |
           echo "testing job on Main CI"
