@@ -8,7 +8,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  Main CI:
+  Main_CI:
     runs-on: ubuntu-latest
     steps:
       - name: Step One
