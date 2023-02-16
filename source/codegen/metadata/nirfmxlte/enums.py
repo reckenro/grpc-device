@@ -1679,6 +1679,10 @@ enums = {
                 'value': 8
             },
             {
+                'name': 'NS27_OR_NS43',
+                'value': 8
+            },
+            {
                 'name': 'NS35',
                 'value': 9
             }
